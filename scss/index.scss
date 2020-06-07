@@ -168,8 +168,8 @@ ul
             left:0;
             i
             {
-                padding:1rem;
-                font-size:1.3rem;
+                padding:1.5rem;
+                font-size:1.7rem;
                 // text-align:right;
             }
         }
@@ -182,7 +182,7 @@ ul
             align-items:center;
             // text-align:center;
             top:50%;
-            transform:translateX(60px);
+            transform:translateX(55px);
             margin-right:1rem;
             border-radius:50%; 
             z-index:1;
@@ -193,8 +193,8 @@ ul
             width:100px;
             i
             {
-                padding:1rem;
-                font-size:1.3rem;
+                padding:1.5rem;
+                font-size:1.7rem;
             }
         }
     }
@@ -235,6 +235,7 @@ ul
     // Section A styling
     &-a
     {
+        border-bottom:2px solid $semi-med-color;
         .container
         {   
             display:grid;
@@ -297,8 +298,30 @@ ul
         }
     }
 
-    // Section B 
+    // Section B
     &-b
+    {
+        .container
+        {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            .img-contain
+            {
+                height:400px;
+                width:300px;
+                img
+                {
+                    width:100%;
+                    height:100%;
+                }
+            }
+        }
+    }
+
+    // Section C 
+    &-c
     {
         .container
         {
@@ -321,8 +344,8 @@ ul
         }
     }
 
-    // Section C
-    &-c
+    // Section D
+    &-d
     {
         background:rgba(0,0,0,0.5);
         height:60vh;
@@ -351,9 +374,38 @@ ul
             }
         }
     }
+
+    // Section E
+    &-e
+    {
+        .container
+        {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            .content
+            {
+                .btn
+                {
+                    padding:0.6rem 2.4rem;
+                }
+            }
+            .img-contain
+            {
+                height:500px;
+                width:500px;
+                img
+                {
+                    height:100%;
+                    width:100%;
+                }
+            }
+        }
+    }
     
-    // Section D
-    &-d
+    // Section F
+    &-f
     {
         .container
         {
@@ -377,8 +429,8 @@ ul
 
     }
 
-    // Section E
-    &-e
+    // Section G
+    &-g
     {
         .container
         {
@@ -480,7 +532,11 @@ ul
                         }
                         .feedback-content
                         {
-                            // text-align:center;
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:center;
+                            align-items:center;
+                            text-align:center;
                             width:100%;
                             // flex-grow:1;
                             padding:5rem;
@@ -490,6 +546,24 @@ ul
                                 text-align:center;
                             }
 
+                            .image
+                            {
+                                text-align:center;
+                                width:100px;
+                                height:100px;
+                                overflow:hidden;
+                                background:$light-color;
+                                border-radius:50%;
+                                margin-bottom:1.5rem;
+                                // border-top-left-radius: 50%;
+                                // border-top-right-radius: 50%;
+
+                                img
+                                {
+                                    width:100%;
+                                    height:100%;
+                                }
+                            }
 
                         }
                     }
@@ -547,7 +621,8 @@ ul
         }
     }
 
-    &-f
+    // Section H
+    &-h
     {
         .container
         {
