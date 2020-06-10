@@ -294,7 +294,7 @@ p
         // height:150px;
         // width:200px;
         background:$semi-med-color;
-        border-radius:inherit;
+        border-radius:15px;
         img
         {
             height:100%;
@@ -379,7 +379,7 @@ p
 // default logo style
 .logo
 {
-    
+    z-index:2;
     img
     {
         height:50px;
@@ -390,10 +390,11 @@ p
     {
         font-family:$logo-font;
         display:inline-block;
+
     }
 }
 
-// Navigation Bar styling
+// Navigation Bar styling (PC)
 .navbar
 {
     position:relative;
@@ -549,6 +550,232 @@ p
     }
 }
 
+
+
+// Navigation Bar styling (Smartphone)
+.navbar-m
+{
+    position:relative;
+    height:10vh;
+    z-index:3;
+    .container
+    {
+        display:grid;
+        grid-template-columns:1fr 2fr 1fr;
+        // align-items:center;
+
+        .menu
+        {
+            position:relative;
+
+            .toggler
+            {
+                position:absolute;
+                width:30px;
+                height:30px;
+                opacity:0;
+                z-index:2;
+                cursor:pointer;
+
+                &:checked + .hamburger > div
+                {
+                    transform:rotate(135deg);
+
+                    &:before,&:after
+                    {
+                        content:'';
+                        top:0;
+                        transform:rotate(90deg);
+                    }
+                }
+
+                &:checked:hover + .hamburger > div
+                {
+                    transform:rotate(225deg);
+                }
+
+                &:checked ~ .menu-contain
+                {
+                    transform:translateX(-1.5rem);
+                }
+            }
+
+            .hamburger
+            {
+                position:absolute;
+                width:40px;
+                height:40px;
+                // background:$main-color;
+                padding:0.3rem;
+                display:flex;
+                align-items:center;
+                z-index:1;
+
+                & > div
+                {
+                    position:relative;
+                    width:100%;
+                    height:2px;
+                    background:$main-color;
+                    border-radius:25px;
+                    transition:all $anim-speed ease;
+
+                    &:before,&:after
+                    {
+                        content:'';
+                        position:absolute;
+                        width:100%;
+                        height:2px;
+                        background:$main-color;
+                        border-radius:25px;
+                        top:-10px;
+                        
+                    }
+
+                    &:after
+                    {
+                        top:10px;
+                    }
+                }
+            }
+
+                .menu-contain
+                {
+                    margin-top:4.1rem;
+                    position:absolute;
+                    transform:translateX(-25rem);
+                    transition:transform $anim-speed ease;
+                    // overflow:auto;
+                    
+                    .menu-box
+                    {
+                        // overflow:hidden;
+                        padding:11.4rem 0;
+                        // height:30rem;
+                        width:300px;
+                        box-shadow:0 0 9px darken($light-color,10%);
+                        .item
+                        {
+                            list-style:none;
+                            text-align:center;
+                            overflow:hidden;
+                            width:100%;
+    
+                            &:focus-within .sub-menu
+                            {
+                                max-height:20rem;
+                            }
+    
+                            .list
+                            {
+                                display:block;
+                                padding:1rem 5rem;
+                                position:relative;
+                                // border-top:1px solid $med-color;
+                                transition:all $anim-speed ease;
+                                background:$light-color;
+                                // z-index:2;
+    
+                                &:hover
+                                {
+                                    background:$main-color;
+                                    color:$light-color;
+                                }
+    
+                                &:before
+                                {
+                                    content:'';
+                                    position:absolute;
+                                    height:40px;
+                                    width:40px;
+                                    transform:rotate(45deg);
+                                    background:inherit;
+                                    top:26px;
+                                    left:15px;
+                                    // opacity:0;
+                                    // z-index:1;
+                                }
+    
+    
+                            }
+    
+                            .sub-menu
+                            {
+                                overflow:hidden;
+                                background:$semi-med-color;
+                                width:100%;
+                                max-height:0;
+                                transition:max-height $anim-speed ease;
+                                // height:10.5rem;
+    
+                                .sub-btn
+                                {
+                                    display:block;
+                                    position:absolute;
+                                    text-align:center;
+                                    padding:0.8rem 2rem;
+                                    margin:0.6rem 5rem;
+                                    position:relative;
+                                    transition:background $anim-speed ease;
+    
+                                    &:hover:before
+                                    {
+                                        opacity:1;
+                                    }
+    
+                                    &:before
+                                    {
+                                        content:'';
+                                        position:absolute;
+                                        width:5px;
+                                        height:100%;
+                                        background:$main-color;
+                                        top:2px;
+                                        left:-80px;
+                                        opacity:0;
+                                        transition:opacity $anim-speed ease;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+
+        .logo
+        {
+            margin-right:1rem;
+            // text-align:center;
+            .head-1
+            {
+                font-size:2rem;
+            }
+        }
+
+        .srch-btn
+        {
+            margin-left:2rem;
+            cursor:pointer;
+            background:$main-color;
+            color:$light-color;
+            // height:30px;
+            // width:30px;
+            padding:0.7rem;
+            border-radius:50%;
+            border:1px solid transparent;
+            transition:background $anim-speed ease;
+
+            &:hover
+            {
+                background:$light-color;
+                color:$main-color;
+                border-color:$main-color;
+            }
+        }
+    }
+
+}
+
 // Footer Styling
 .main-footer
 {
@@ -592,7 +819,7 @@ p
                 }
             }
 
-            &-1
+            &-1,&-6
             {
                 .logo
                 {
@@ -657,6 +884,12 @@ p
                 text-align:center;
                 grid-column:1 /span 4;
             }
+
+            &-6
+            {
+                display:none;
+            }
+
         }
     }
 }

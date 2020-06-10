@@ -8,7 +8,7 @@
     <title>Welcome | eCommerce</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar (PC/Laptop) -->
     <nav class="navbar py-1">
         <div class="container">
             <div class="logo">
@@ -133,6 +133,78 @@
                 <i class="fa fa-search srch-btn"></i>
                 <a href="#"><i class="fa fa-user"></i></a>
                 <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Bar (Smartphone/Tablet) -->
+    <nav class="navbar-m py-1 bg-light">
+        <div class="container">
+            <div class="menu">
+                <input type="checkbox" class="toggler">
+                <div class="hamburger">
+                    <div>
+                        
+                    </div>
+                </div>
+
+                    <div class="menu-contain bg-light">
+                        <div class="menu-box">
+                            <li class="item" id="item-1">
+                                <a href="#/item-1" class="list list-1">Home</a>
+                            </li>
+    
+                            <li class="item" id="item-2">
+                                <a href="#/item-2" class="list list-2">Products</a>
+    
+                                <div class="sub-menu">
+                                    <a href="#" class="sub-btn">Clothings</a>
+                                    <a href="#" class="sub-btn">Electronics</a>
+                                    <a href="#" class="sub-btn">Stationary</a>
+                                    <a href="#" class="sub-btn">Pharmecy</a>
+                                    <a href="#" class="sub-btn">Furniture</a>
+                                </div>
+                            </li>
+    
+                            <li class="item" id="item-3">
+                                <a href="#/item-3" class="list list-3">Services</a>
+    
+                                <div class="sub-menu">
+                                    <a href="" class="sub-btn">Bookings</a>
+                                    <a href="" class="sub-btn">Tourism</a>
+                                    <a href="" class="sub-btn">Photography</a>
+                                    <a href="" class="sub-btn">Others</a>
+                                </div>
+                            </li>
+    
+                            <li class="item" id="item-4">
+                                <a href="#/item-4" class="list list-4">About</a>
+                            </li>
+    
+                            <li class="item" id="item-5">
+                                <a href="#/item-5" class="list list-5">Contact</a>
+                            </li>
+    
+                            <li class="item" id="item-6">
+                                <a href="#/item-6" class="list list-6">Account</a>
+                            </li>
+    
+                        </div>
+                    </div>
+
+
+            </div>
+
+            <div class="logo">
+                <a href="">
+                    <img src="./img/shopping-cart.png" alt="logo">
+                    <h1 class="head-1">MAUJ</h1>
+                </a>
+            </div>
+
+            <div class="srch-contain">
+                <i class="fa fa-search srch-btn"></i>
+
             </div>
         </div>
     </nav>
@@ -312,7 +384,7 @@
 
                 <div class="product ">
                     <div class="box product-1">
-                        
+                        <div class="upper-tab">
                             <div class="img-contain">
                                 <img src="./img/Clothes/Women-Download-Free-PNG.png" alt="">
                             </div>
@@ -327,23 +399,24 @@
                                 <h3 class="head-3">Women's Sweater</h3>
                                 <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                             </div>
-                            <div class="bottom-tab">
-                                <div class="price-tab">
-                                    <p class="lead-1 main">₹599</p>
-                                    <p class="lead-3">₹999</p>
-                                    
-                                </div>
-                                <div class="btn-tab">
-                                    <a href="#" class="btn btn-light">ADD TO CART</a>
-                                    <a  class="btn btn-light fav"><i class="far fa-heart main fav-1"></i></a>
-
-                                </div>
+                        </div>
+                        <div class="bottom-tab">
+                            <div class="price-tab">
+                                <p class="lead-1 main">₹599</p>
+                                <p class="lead-3">₹999</p>
+                                
                             </div>
+                            <div class="btn-tab">
+                                <a href="#" class="btn btn-light">ADD TO CART</a>
+                                <a  class="btn btn-light fav"><i class="far fa-heart main fav-1"></i></a>
+
+                            </div>
+                        </div>
                        
                     </div>
 
                     <div class="box product-2">
-                        
+                        <div class="upper-tab">
                             <div class="img-contain">
                                 <img src="./img/Clothes/cloth2.png" alt="">
                             </div>
@@ -358,23 +431,26 @@
                                 <h3 class="head-3">Women's Sweater</h3>
                                 <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                             </div>
-                            <div class="bottom-tab">
-                                <div class="price-tab">
-                                    <p class="lead-1 main">₹599</p>
-                                    <p class="lead-3">₹999</p>
-                                    
-                                </div>
-                                <div class="btn-tab">
-                                    <a href="#" class="btn btn-light">ADD TO CART</a>
-                                    <a  class="btn btn-light fav"><i class="far fa-heart main fav-2"></i></a>
 
-                                </div>
+                        </div>
+
+                        <div class="bottom-tab">
+                            <div class="price-tab">
+                                <p class="lead-1 main">₹599</p>
+                                <p class="lead-3">₹999</p>
+                                
                             </div>
+                            <div class="btn-tab">
+                                <a href="#" class="btn btn-light">ADD TO CART</a>
+                                <a  class="btn btn-light fav"><i class="far fa-heart main fav-2"></i></a>
+
+                            </div>
+                        </div>
                         
                     </div>
 
                     <div class="box product-3">
-                        
+                        <div class="upper-tab">
                             <div class="img-contain">
                                 <img src="./img/Clothes/cloth3.png" alt="">
                             </div>
@@ -389,18 +465,20 @@
                                 <h3 class="head-3">Women's Gown</h3>
                                 <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                             </div>
-                            <div class="bottom-tab">
-                                <div class="price-tab">
-                                    <p class="lead-1 main">₹999</p>
-                                    <p class="lead-3">₹1999</p>
-                                    
-                                </div>
-                                <div class="btn-tab">
-                                    <a href="#" class="btn btn-light">ADD TO CART</a>
-                                    <a  class="btn btn-light fav"><i class="far fa-heart main fav-3"></i></a>
 
-                                </div>
+                        </div>
+                        <div class="bottom-tab">
+                            <div class="price-tab">
+                                <p class="lead-1 main">₹999</p>
+                                <p class="lead-3">₹1999</p>
+                                
                             </div>
+                            <div class="btn-tab">
+                                <a href="#" class="btn btn-light">ADD TO CART</a>
+                                <a  class="btn btn-light fav"><i class="far fa-heart main fav-3"></i></a>
+
+                            </div>
+                        </div>
                         
                     </div>
 
@@ -533,20 +611,22 @@
 
                 <div class="product">
                     <div class="box product-4">
-                        
-                        <div class="img-contain">
-                            <img src="./img/Bags/bag1.png" alt="">
-                        </div>
-                        <div class="ratings">
-                            <i class="fa fa-star main"></i>
-                            <i class="fa fa-star main"></i>
-                            <i class="fa fa-star main"></i>
-                            <i class="fa fa-star main"></i>
-                            <i class="fa fa-star main"></i>
-                        </div>
-                        <div class="content">
-                            <h3 class="head-3">Leather Hand Bag</h3>
-                            <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        <div class="upper-tab">
+                            <div class="img-contain">
+                                <img src="./img/Bags/bag1.png" alt="">
+                            </div>
+                            <div class="ratings">
+                                <i class="fa fa-star main"></i>
+                                <i class="fa fa-star main"></i>
+                                <i class="fa fa-star main"></i>
+                                <i class="fa fa-star main"></i>
+                                <i class="fa fa-star main"></i>
+                            </div>
+                            <div class="content">
+                                <h3 class="head-3">Leather Hand Bag</h3>
+                                <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                            </div>
+
                         </div>
                         <div class="bottom-tab">
                             <div class="price-tab">
@@ -564,7 +644,7 @@
                 </div>
 
                 <div class="box product-5">
-                    
+                    <div class="upper-tab">
                         <div class="img-contain">
                             <img src="./img/Perfumes/perfume1.png" alt="">
                         </div>
@@ -579,6 +659,8 @@
                             <h3 class="head-3">Women's Perfume</h3>
                             <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                         </div>
+
+                    </div>
                         <div class="bottom-tab">
                             <div class="price-tab">
                                 <p class="lead-1 main">₹1499</p>
@@ -595,7 +677,7 @@
                 </div>
 
                 <div class="box product-6">
-                    
+                    <div class="upper-tab">
                         <div class="img-contain">
                             <img src="./img/Shoes/shoes1.png" alt="">
                         </div>
@@ -610,6 +692,8 @@
                             <h3 class="head-3">Women's Shoes</h3>
                             <p class="lead-3 med">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                         </div>
+
+                    </div>
                         <div class="bottom-tab">
                             <div class="price-tab">
                                 <p class="lead-1 main">₹899</p>
@@ -816,9 +900,25 @@
                         </li>
                     </ul>
                 </div>
+                <div class="footer-6">
+                    <div class="address">
+                        <ul>
+                            <li><i class="fa fa-home"></i><p>Kya kroge Jaan kar</p> </li>
+                            <li><i class="fa fa-phone"></i><p>+91-942567389</p> </li>
+                            <li><i class="fa fa-envelope"></i><p>bazaarhaat@gmail.com</p> </li>
+                        </ul>
+                        <div class="logos">
+                            <a href=""><i class="fa fa-twitter"></i></a>
+                            <a href=""><i class="fa fa-google-plus"></i></a>
+                            <a href=""><i class="fa fa-facebook"></i></a>
+                            <a href=""><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
                 <div class="footer-5">
                     <p class="lead-4">Copyright &copy; BazaarHaat 2020, All Rights Reserved</p>
                 </div>
+
             </div>
         </div>
     </footer>
@@ -827,7 +927,7 @@
 <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
 <!-- <a href="https://www.freepngimg.com/png/13417-dress-png-hd">Dress Png Hd FreePNGImg.com</a> -->
 <!-- Embeded Scripts -->
-<!-- <script src="scripts/slider.js"></script> -->
+<script src="scripts/slider.js"></script>
 <script src="scripts/search.js"></script>
 <script src="scripts/fav_btn.js"></script>
 <!-- <script src="scripts/scroll.js"></script> -->
