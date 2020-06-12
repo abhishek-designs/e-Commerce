@@ -324,13 +324,13 @@ p {
         z-index: 2;
         cursor: pointer; }
         .navbar-m .container .menu .toggler:checked + .hamburger > div {
-          transform: translateX(-10px) rotate(135deg); }
+          transform: translateX(-5px) rotate(135deg); }
           .navbar-m .container .menu .toggler:checked + .hamburger > div:before, .navbar-m .container .menu .toggler:checked + .hamburger > div:after {
             content: '';
             top: 0;
             transform: rotate(90deg); }
         .navbar-m .container .menu .toggler:checked:hover + .hamburger > div {
-          transform: translateX(-10px) rotate(225deg); }
+          transform: translateX(-5px) rotate(225deg); }
         .navbar-m .container .menu .toggler:checked ~ .menu-contain {
           visibility: visible; }
         .navbar-m .container .menu .toggler:checked ~ .menu-contain > div {
@@ -338,7 +338,7 @@ p {
         .navbar-m .container .menu .toggler:checked ~ .menu-contain > div > .menu-box {
           transform: translateX(0); }
         .navbar-m .container .menu .toggler:checked {
-          transform: translateX(-50px); }
+          transform: translateX(-5px); }
       .navbar-m .container .menu .hamburger {
         position: absolute;
         width: 40px;
