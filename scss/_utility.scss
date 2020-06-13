@@ -138,7 +138,7 @@ p
     display:inline-block;
     padding:0.6rem 1rem;
     cursor:pointer;
-    border:none;
+    border:1px solid transparent;
     margin-top:1rem;
     transition:all $anim-speed ease;
 }
@@ -150,7 +150,14 @@ p
     &-primary
     {
         background:$main-color;
-        color:set-text-color($main-color);
+        color:$light-color;
+
+        &:hover
+        {
+            background:$light-color;
+            color:$main-color;
+            border-color:$main-color;
+        }
     }
     &-light
     {
@@ -181,6 +188,7 @@ p
         background:$main-color;
         color:$light-color;
         z-index:2;
+        border:none;
         font-weight:bold;
         text-transform:uppercase;
 
@@ -307,17 +315,22 @@ p
     {
         padding-top:1.6rem;
     }
-
-    .content
+    
+    .content-pc
     {
         padding-top:1rem;
-
+        
         .head-3
         {
             padding-bottom:0;
         }
-
         
+        
+    }
+    
+    .content-m
+    {
+        display:none;
     }
 
     .bottom-tab
@@ -328,9 +341,12 @@ p
 
         .btn-tab
         {
+
             .btn
             {
                 margin-top:0;
+                border-radius:50%;
+                // border:1px solid transparent;
             }
 
             .fav
@@ -686,6 +702,7 @@ p
                     .menu-box
                     {
                         position:relative;
+                        overflow:auto;
                         // overflow:hidden;
                         padding:7rem 0;
                         transform:translateX(-10rem);

@@ -14,7 +14,7 @@
         &:before
         {
             margin-top:45px !important;
-            transform:translateX(40px) !important;
+            transform:translateX(45px) !important;
         }
     }
 
@@ -329,7 +329,7 @@
         }
 
         // Section C
-        &-c
+        &-c,&-f
         {
             padding:2rem 0;
             .container
@@ -340,15 +340,15 @@
 
                     .img-contain
                     {
-                        height:6rem;
+                        height:10rem;
                         width:100%;
                     }
 
                     .box
                     {
                         // display:flex;
-                        display:grid;
-                        grid-template-columns:repeat(2,1fr);
+                        // display:grid;
+                        // grid-template-columns:repeat(2,1fr);
 
                         .upper-tab
                         {
@@ -358,30 +358,38 @@
                                 padding-top:0.5rem;
                                 i
                                 {
-                                    font-size:0.6rem;
+                                    font-size:0.8rem;
                                 }
                             }
 
-                            .content
+                            .content-pc
                             {
+                                display:none;
+                            }
+
+                            .content-m
+                            {
+                                display:block;
                                 padding-top:0.3rem;
                                 .head-3
                                 {
-                                    font-size:1rem;
+                                    font-size:1.3rem;
                                 }
                                 p
                                 {
                                     display:none;
                                 }
-
+    
                             }
                         }
-
+                        
                         .bottom-tab
                         {
-                            display:block;
-                            text-align:left;
-                            padding-left:2rem;
+                            
+                            display:flex;
+                            justify-content:space-between;
+                            // text-align:left;
+                            // padding-left:2rem;
                             .price-tab
                             {
                                 margin-top:1.5rem;
@@ -400,9 +408,14 @@
                                 // text-align:center;
                                 margin-top:1rem;
 
+                                .btn-pc
+                                {
+                                    display:none;
+                                }
+
                                 .fav
                                 {
-                                    margin-left:2rem;
+                                    // margin-left:2rem;
                                 }
                             }
                         }
@@ -446,7 +459,7 @@
             {
                 .head-1
                 {
-                    font-size:1.5rem;
+                    font-size:1.3rem;
                 }
 
                 .lead-1
@@ -456,7 +469,7 @@
 
                 .img-contain
                 {
-                    height:200px !important;
+                    height:150px !important;
                     width:190px !important;
                 }
 
@@ -467,89 +480,7 @@
                 }
             }
         }
-        
-        // Section F
-        &-f
-        {
-            padding:2rem 0;
-            .container
-            {
-                .product
-                {
-                    grid-template-columns:1fr !important;
 
-                    .img-contain
-                    {
-                        height:7rem;
-                        width:100%;
-                    }
-
-                    .box
-                    {
-                        // display:flex;
-                        display:grid;
-                        grid-template-columns:1fr 2fr;
-
-                        .upper-tab
-                        {
-                            text-align:center;
-                            .ratings
-                            {
-                                padding-top:0.5rem;
-                                i
-                                {
-                                    font-size:0.6rem;
-                                }
-                            }
-
-                            .content
-                            {
-                                padding-top:0.3rem;
-                                .head-3
-                                {
-                                    font-size:1rem;
-                                }
-                                p
-                                {
-                                    display:none;
-                                }
-
-                            }
-                        }
-
-                        .bottom-tab
-                        {
-                            display:block;
-                            text-align:left;
-                            padding-left:2rem;
-                            .price-tab
-                            {
-                                margin-top:1.5rem;
-                                .lead-1
-                                {
-                                    font-size:1.5rem;
-                                }
-
-                                .lead-3
-                                {
-                                    font-size:1rem;
-                                }
-                            }
-                            .btn-tab
-                            {
-                                // text-align:center;
-                                margin-top:1rem;
-
-                                .fav
-                                {
-                                    margin-left:2rem;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
         // Section G
         &-g
@@ -636,6 +567,11 @@
                 ul
                 {
                     margin-top:1rem;
+
+                    li
+                    {
+                        font-size:0.9rem;
+                    }
                 }
 
                 .head-2

@@ -83,13 +83,17 @@ p {
   display: inline-block;
   padding: 0.6rem 1rem;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   margin-top: 1rem;
   transition: all 0.3s ease; }
 
 .btn-primary {
   background: #006eff;
-  color: set-text-color(#006eff); }
+  color: #fff; }
+  .btn-primary:hover {
+    background: #fff;
+    color: #006eff;
+    border-color: #006eff; }
 
 .btn-light {
   background: #fff;
@@ -112,6 +116,7 @@ p {
   background: #006eff;
   color: #fff;
   z-index: 2;
+  border: none;
   font-weight: bold;
   text-transform: uppercase; }
   .btn-unique:before {
@@ -186,16 +191,19 @@ p {
       width: 100%; }
   .box .ratings {
     padding-top: 1.6rem; }
-  .box .content {
+  .box .content-pc {
     padding-top: 1rem; }
-    .box .content .head-3 {
+    .box .content-pc .head-3 {
       padding-bottom: 0; }
+  .box .content-m {
+    display: none; }
   .box .bottom-tab {
     display: flex;
     justify-content: space-between;
     align-items: center; }
     .box .bottom-tab .btn-tab .btn {
-      margin-top: 0; }
+      margin-top: 0;
+      border-radius: 50%; }
     .box .bottom-tab .btn-tab .fav {
       border: none; }
       .box .bottom-tab .btn-tab .fav:hover {
@@ -380,6 +388,7 @@ p {
           background: rgba(0, 0, 0, 0.5); }
         .navbar-m .container .menu .menu-contain .menu-box {
           position: relative;
+          overflow: auto;
           padding: 7rem 0;
           transform: translateX(-10rem);
           height: 50rem;
@@ -515,7 +524,7 @@ p {
     padding-bottom: 1.5rem; }
     .head-line-2:before {
       margin-top: 45px !important;
-      transform: translateX(40px) !important; }
+      transform: translateX(45px) !important; }
   .logo {
     text-align: center; }
     .logo img {
@@ -672,42 +681,41 @@ p {
     #home-b .container .img-contain {
       height: 200px !important;
       width: 170px !important; }
-  #home-c {
+  #home-c, #home-f {
     padding: 2rem 0; }
-    #home-c .container .product {
+    #home-c .container .product, #home-f .container .product {
       grid-template-columns: 1fr !important; }
-      #home-c .container .product .img-contain {
-        height: 6rem;
+      #home-c .container .product .img-contain, #home-f .container .product .img-contain {
+        height: 10rem;
         width: 100%; }
-      #home-c .container .product .box {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); }
-        #home-c .container .product .box .upper-tab {
-          text-align: center; }
-          #home-c .container .product .box .upper-tab .ratings {
-            padding-top: 0.5rem; }
-            #home-c .container .product .box .upper-tab .ratings i {
-              font-size: 0.6rem; }
-          #home-c .container .product .box .upper-tab .content {
-            padding-top: 0.3rem; }
-            #home-c .container .product .box .upper-tab .content .head-3 {
-              font-size: 1rem; }
-            #home-c .container .product .box .upper-tab .content p {
-              display: none; }
-        #home-c .container .product .box .bottom-tab {
+      #home-c .container .product .box .upper-tab, #home-f .container .product .box .upper-tab {
+        text-align: center; }
+        #home-c .container .product .box .upper-tab .ratings, #home-f .container .product .box .upper-tab .ratings {
+          padding-top: 0.5rem; }
+          #home-c .container .product .box .upper-tab .ratings i, #home-f .container .product .box .upper-tab .ratings i {
+            font-size: 0.8rem; }
+        #home-c .container .product .box .upper-tab .content-pc, #home-f .container .product .box .upper-tab .content-pc {
+          display: none; }
+        #home-c .container .product .box .upper-tab .content-m, #home-f .container .product .box .upper-tab .content-m {
           display: block;
-          text-align: left;
-          padding-left: 2rem; }
-          #home-c .container .product .box .bottom-tab .price-tab {
-            margin-top: 1.5rem; }
-            #home-c .container .product .box .bottom-tab .price-tab .lead-1 {
-              font-size: 1.5rem; }
-            #home-c .container .product .box .bottom-tab .price-tab .lead-3 {
-              font-size: 1rem; }
-          #home-c .container .product .box .bottom-tab .btn-tab {
-            margin-top: 1rem; }
-            #home-c .container .product .box .bottom-tab .btn-tab .fav {
-              margin-left: 2rem; }
+          padding-top: 0.3rem; }
+          #home-c .container .product .box .upper-tab .content-m .head-3, #home-f .container .product .box .upper-tab .content-m .head-3 {
+            font-size: 1.3rem; }
+          #home-c .container .product .box .upper-tab .content-m p, #home-f .container .product .box .upper-tab .content-m p {
+            display: none; }
+      #home-c .container .product .box .bottom-tab, #home-f .container .product .box .bottom-tab {
+        display: flex;
+        justify-content: space-between; }
+        #home-c .container .product .box .bottom-tab .price-tab, #home-f .container .product .box .bottom-tab .price-tab {
+          margin-top: 1.5rem; }
+          #home-c .container .product .box .bottom-tab .price-tab .lead-1, #home-f .container .product .box .bottom-tab .price-tab .lead-1 {
+            font-size: 1.5rem; }
+          #home-c .container .product .box .bottom-tab .price-tab .lead-3, #home-f .container .product .box .bottom-tab .price-tab .lead-3 {
+            font-size: 1rem; }
+        #home-c .container .product .box .bottom-tab .btn-tab, #home-f .container .product .box .bottom-tab .btn-tab {
+          margin-top: 1rem; }
+          #home-c .container .product .box .bottom-tab .btn-tab .btn-pc, #home-f .container .product .box .bottom-tab .btn-tab .btn-pc {
+            display: none; }
   #home-d {
     height: 40vh !important; }
     #home-d .container .content {
@@ -720,51 +728,15 @@ p {
   #home-e {
     padding: 1.7rem 0; }
     #home-e .container .head-1 {
-      font-size: 1.5rem; }
+      font-size: 1.3rem; }
     #home-e .container .lead-1 {
       font-size: 1rem; }
     #home-e .container .img-contain {
-      height: 200px !important;
+      height: 150px !important;
       width: 190px !important; }
     #home-e .container .btn {
       padding: 0.2rem 1rem;
       font-size: 0.8rem; }
-  #home-f {
-    padding: 2rem 0; }
-    #home-f .container .product {
-      grid-template-columns: 1fr !important; }
-      #home-f .container .product .img-contain {
-        height: 7rem;
-        width: 100%; }
-      #home-f .container .product .box {
-        display: grid;
-        grid-template-columns: 1fr 2fr; }
-        #home-f .container .product .box .upper-tab {
-          text-align: center; }
-          #home-f .container .product .box .upper-tab .ratings {
-            padding-top: 0.5rem; }
-            #home-f .container .product .box .upper-tab .ratings i {
-              font-size: 0.6rem; }
-          #home-f .container .product .box .upper-tab .content {
-            padding-top: 0.3rem; }
-            #home-f .container .product .box .upper-tab .content .head-3 {
-              font-size: 1rem; }
-            #home-f .container .product .box .upper-tab .content p {
-              display: none; }
-        #home-f .container .product .box .bottom-tab {
-          display: block;
-          text-align: left;
-          padding-left: 2rem; }
-          #home-f .container .product .box .bottom-tab .price-tab {
-            margin-top: 1.5rem; }
-            #home-f .container .product .box .bottom-tab .price-tab .lead-1 {
-              font-size: 1.5rem; }
-            #home-f .container .product .box .bottom-tab .price-tab .lead-3 {
-              font-size: 1rem; }
-          #home-f .container .product .box .bottom-tab .btn-tab {
-            margin-top: 1rem; }
-            #home-f .container .product .box .bottom-tab .btn-tab .fav {
-              margin-left: 2rem; }
   #home-g {
     padding: 2rem 0; }
     #home-g .container {
@@ -799,6 +771,8 @@ p {
     grid-gap: 1.5rem; }
     .main-footer .container .footer ul {
       margin-top: 1rem; }
+      .main-footer .container .footer ul li {
+        font-size: 0.9rem; }
     .main-footer .container .footer .head-2 {
       font-size: 1.4rem;
       text-align: center; }
