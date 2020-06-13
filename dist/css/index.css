@@ -845,7 +845,7 @@ ul {
   width: 100%;
   background: #006eff;
   height: 4rem;
-  transform: translateY(-250px);
+  transform: translateY(-300px);
   z-index: 2;
   transition: transform 0.5s ease; }
   .search .container {
