@@ -619,7 +619,7 @@ p {
         height: 80px !important;
         width: 80px !important;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
         cursor: pointer;
         left: 0; }
         #slider .controls .prev i {
@@ -636,7 +636,7 @@ p {
         border-radius: 50%;
         z-index: 1;
         cursor: pointer;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
         right: 0;
         height: 80px !important;
         width: 80px !important; }
@@ -906,7 +906,7 @@ ul {
       height: 100px;
       width: 100px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       cursor: pointer;
       left: 0; }
       #slider .controls .prev i {
@@ -923,7 +923,7 @@ ul {
       border-radius: 50%;
       z-index: 1;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       right: 0;
       height: 100px;
       width: 100px; }
