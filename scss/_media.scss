@@ -161,6 +161,11 @@
                 {
                     flex-grow:1;
                     z-index:1;
+
+                    .caption
+                    {
+                        text-align:center;
+                    }
                 }
             }
     
@@ -407,6 +412,14 @@
                             {
                                 // text-align:center;
                                 margin-top:1rem;
+
+                                .cart-btn
+                                {
+                                    height:50px;
+                                    width:50px;
+                                    background:$main-color;
+                                    border-radius:50%;
+                                }
 
                                 .btn-pc
                                 {
