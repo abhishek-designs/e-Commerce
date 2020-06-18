@@ -900,313 +900,148 @@ p {
   .navbar-m {
     display: none; } }
 
-html body {
-  font-family: "Cairo", sans-serif;
-  overflow-x: hidden; }
+.code {
+  width: 20%;
+  outline-color: #006eff; }
 
-#slider {
-  position: relative;
-  overflow: hidden;
-  height: 90vh; }
-  #slider .slider-box .slide {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+.number {
+  width: 77.5%;
+  outline-color: #006eff; }
+
+html body {
+  font-family: "Cairo", sans-serif; }
+
+.navbar, .navbar-m {
+  border-bottom: 1px solid #d9d9d9; }
+
+#sign-up .container {
+  padding: 1rem 1.6rem; }
+  #sign-up .container .head-3 {
     display: none;
-    background: no-repeat center center/cover;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    animation: scale 2s ease; }
-    #slider .slider-box .slide:before {
+    position: relative; }
+    #sign-up .container .head-3::after {
       content: '';
       position: absolute;
+      margin-top: 55px;
+      height: 2px;
+      width: 77rem;
+      background: #006eff;
+      transform: translateX(-185px); }
+  #sign-up .container .sign-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem; }
+    #sign-up .container .sign-box .card {
+      display: none;
       width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); }
+      animation: opaque 0.3s ease; }
 
-@keyframes scale {
-  from {
-    transform: scale(1.1); }
-  to {
-    transform: scale(1); } }
-    #slider .slider-box .slide .container {
-      flex-grow: 1;
-      z-index: 1; }
-  #slider .controls {
-    margin: 0 1rem;
-    display: flex;
-    align-items: center; }
-    #slider .controls .prev {
-      position: absolute;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      transform: translateX(-60px);
-      top: 50%;
-      margin-left: 1rem;
-      z-index: 1;
-      height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      left: 0; }
-      #slider .controls .prev i {
-        padding: 1.5rem;
-        font-size: 1.7rem; }
-    #slider .controls .next {
-      position: absolute;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      top: 50%;
-      transform: translateX(55px);
-      margin-right: 1rem;
-      border-radius: 50%;
-      z-index: 1;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.2);
-      right: 0;
-      height: 100px;
-      width: 100px; }
-      #slider .controls .next i {
-        padding: 1.5rem;
-        font-size: 1.7rem; }
-  #slider .indicator {
-    position: absolute;
-    left: 50%;
-    top: 90%;
-    padding-bottom: 5px;
-    transform: translateX(-50%);
-    z-index: 2; }
-    #slider .indicator div {
-      display: inline-block;
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      margin-right: 1rem;
-      background: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: transform 0.3s ease; }
-    #slider .indicator .current {
-      transform: scale(1.3); }
-
-#home-a {
-  border-bottom: 2px solid #f2f2f2; }
-  #home-a .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem; }
-    #home-a .container .card {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer; }
-      #home-a .container .card:nth-child(3) {
-        grid-row: span 2;
-        height: 420px; }
-      #home-a .container .card .img {
-        height: 100%;
-        width: 100%;
-        transition: transform 0.5s ease; }
-      #home-a .container .card .overlay-content {
-        position: absolute;
-        background: rgba(51, 51, 51, 0.5);
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        opacity: 1;
-        transition: opacity 0.3s ease; }
-      #home-a .container .card:hover .img {
-        transform: scale(1.5); }
-
-#home-b .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-  #home-b .container .img-contain {
-    height: 400px;
-    width: 300px; }
-    #home-b .container .img-contain img {
-      width: 100%;
-      height: 100%; }
-
-#home-c .container {
-  text-align: center; }
-  #home-c .container .lead-3 {
-    padding-bottom: 2rem; }
-  #home-c .container .product {
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem; }
-
-#home-d {
-  background: rgba(0, 0, 0, 0.5);
-  height: 60vh;
-  position: relative; }
-  #home-d:before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: url("../img/food-healthy-wood-table-128402.jpg") no-repeat center center/cover;
-    z-index: -1; }
-  #home-d .container .content {
-    margin-left: 14rem;
-    padding-top: 5rem; }
-    #home-d .container .content .btn {
-      padding: 0.6rem 3rem; }
-
-#home-e .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-  #home-e .container .content .btn {
-    padding: 0.6rem 2.4rem; }
-  #home-e .container .img-contain {
-    height: 500px;
-    width: 500px; }
-    #home-e .container .img-contain img {
-      height: 100%;
-      width: 100%; }
-
-#home-f .container {
-  text-align: center; }
-  #home-f .container .lead-3 {
-    padding-bottom: 2rem; }
-  #home-f .container .product {
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem; }
-
-#home-g .container {
-  display: flex; }
-  #home-g .container .services {
-    width: 50%;
-    padding: 1.5rem; }
-    #home-g .container .services .head-2 {
-      padding-bottom: 2rem;
-      position: relative; }
-      #home-g .container .services .head-2:after {
-        content: '';
-        position: absolute;
-        height: 1.7px;
-        width: 7rem;
-        margin-top: 30px;
-        background: #006eff;
-        transform: translateX(30px); }
-    #home-g .container .services ul li {
-      display: flex;
-      padding-bottom: 2rem; }
-      #home-g .container .services ul li .icon-contain {
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background: #006eff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center; }
-        #home-g .container .services ul li .icon-contain i {
-          color: #fff;
-          border-radius: 50%;
-          text-align: center; }
-      #home-g .container .services ul li .content {
-        margin-left: 1rem; }
-  #home-g .container .feedback {
-    width: 50%;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden; }
-    #home-g .container .feedback .slider-box {
-      border: 2px solid #fff;
-      height: 100%;
-      width: 100%; }
-      #home-g .container .feedback .slider-box .slide {
-        height: 100%;
-        width: 100%;
-        display: none;
-        background: no-repeat center center/cover;
-        z-index: 1;
-        animation: slide 1.5s ease; }
-
-@keyframes slide {
+@keyframes opaque {
   from {
     opacity: 0; }
   to {
     opacity: 1; } }
-        #home-g .container .feedback .slider-box .slide .feedback-content {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
+      #sign-up .container .sign-box .card-contain {
+        width: 100%; }
+        #sign-up .container .sign-box .card-contain .controls {
           width: 100%;
-          padding: 5rem; }
-          #home-g .container .feedback .slider-box .slide .feedback-content .lead-2 {
-            text-align: center; }
-          #home-g .container .feedback .slider-box .slide .feedback-content .image {
-            text-align: center;
-            width: 100px;
-            height: 100px;
-            overflow: hidden;
-            background: #fff;
+          display: flex;
+          align-items: center;
+          margin-top: -2rem; }
+          #sign-up .container .sign-box .card-contain .controls .head-2 {
+            margin-left: 1rem;
+            margin-top: 1rem; }
+          #sign-up .container .sign-box .card-contain .controls .btn {
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border-radius: 50%; }
+        #sign-up .container .sign-box .card-contain .bottom-space-m {
+          display: block; }
+        #sign-up .container .sign-box .card-contain .form-grp {
+          margin-top: 1rem; }
+          #sign-up .container .sign-box .card-contain .form-grp label {
+            display: block;
+            padding-bottom: 0.6rem; }
+          #sign-up .container .sign-box .card-contain .form-grp .pwd {
+            position: relative; }
+          #sign-up .container .sign-box .card-contain .form-grp .condition {
+            position: absolute;
+            margin-left: 5rem;
+            margin-top: -2.3rem;
+            background: #006eff;
+            color: #fff;
+            border: 1px solid transparent;
             border-radius: 50%;
-            margin-bottom: 1.5rem; }
-            #home-g .container .feedback .slider-box .slide .feedback-content .image img {
-              width: 100%;
-              height: 100%; }
-    #home-g .container .feedback .controls {
-      margin: 0 1rem;
-      display: none; }
-      #home-g .container .feedback .controls .prev {
-        position: absolute;
-        display: inline-block;
-        top: 50%;
-        margin-left: 1rem;
-        z-index: 1;
-        cursor: pointer;
-        left: 0; }
-        #home-g .container .feedback .controls .prev i {
-          background: #006eff;
-          padding: 1rem;
-          height: 50px;
-          width: 50px;
-          border-radius: 50%;
-          font-size: 1.3rem; }
-      #home-g .container .feedback .controls .next {
-        position: absolute;
-        display: inline-block;
-        top: 50%;
-        margin-right: 1rem;
-        z-index: 1;
-        cursor: pointer;
-        right: 0; }
-        #home-g .container .feedback .controls .next i {
-          background: #006eff;
-          padding: 1rem;
-          height: 50px;
-          width: 50px;
-          border-radius: 50%;
-          font-size: 1.3rem; }
+            width: 25px;
+            height: 25px;
+            padding: 0.4rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease; }
+            #sign-up .container .sign-box .card-contain .form-grp .condition:hover {
+              background: #fff;
+              color: #006eff;
+              border-color: #006eff; }
+              #sign-up .container .sign-box .card-contain .form-grp .condition:hover .content {
+                opacity: 1;
+                pointer-events: all;
+                transform: translateX(160px) translateY(-80px); }
+            #sign-up .container .sign-box .card-contain .form-grp .condition .content {
+              position: absolute;
+              background: #fff;
+              color: #333;
+              width: 25rem;
+              padding: 1rem;
+              border-radius: 6px;
+              box-shadow: 0 0 9px #f2f2f2;
+              opacity: 0;
+              pointer-events: none;
+              transform: translateX(140px) translateY(-80px);
+              transition: all 0.3s ease; }
+              #sign-up .container .sign-box .card-contain .form-grp .condition .content::after {
+                content: '';
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                background: #fff;
+                bottom: -10px;
+                z-index: -1;
+                transform: rotate(45deg); }
+            #sign-up .container .sign-box .card-contain .form-grp .condition i {
+              font-size: 12px; }
+          #sign-up .container .sign-box .card-contain .form-grp input:not(#phone) {
+            padding: 0.6rem 0.2rem;
+            width: 100%;
+            outline-color: #006eff;
+            font-family: "Cairo", sans-serif; }
+          #sign-up .container .sign-box .card-contain .form-grp select {
+            width: 100%;
+            padding: 0.6rem 0.2rem;
+            font-family: "Cairo", sans-serif; }
+    #sign-up .container .sign-box-1 .controls {
+      justify-content: center; }
+      #sign-up .container .sign-box-1 .controls .btn {
+        margin-left: 2rem; }
+    #sign-up .container .sign-box-2 .controls {
+      justify-content: flex-start; }
+  #sign-up .container .bottom-space {
+    display: none;
+    align-items: center; }
+    #sign-up .container .bottom-space .btn {
+      width: 20%;
+      text-align: center; }
+    #sign-up .container .bottom-space .lead-4 {
+      transform: translateX(1rem);
+      align-self: flex-end;
+      font-weight: bold; }
+      #sign-up .container .bottom-space .lead-4 a {
+        text-decoration: underline; }
 
-#home-h .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); }
-  #home-h .container .field input {
-    display: inline-block;
-    padding: 0.7rem 0.4rem;
-    width: 60%;
-    border: 1px solid #aeaeae;
-    outline: 0;
-    font-family: "Cairo", sans-serif; }
-  #home-h .container .field .btn {
-    font-weight: normal; }
+.main-footer {
+  border-top: 1px solid #d9d9d9; }

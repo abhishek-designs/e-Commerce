@@ -18,6 +18,17 @@
         }
     }
 
+    // Contact field style
+    .code
+    {
+        width:20% !important;
+    }
+
+    .number
+    {
+        width:75% !important;
+    }
+
     // Logo Style
     .logo
     {
@@ -632,6 +643,97 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    // Sign Up box
+    #sign-up
+    {
+        .container
+        {
+            overflow:hidden;
+            position:relative;
+            height:90vh;
+
+            .head-3
+            {
+                display:none !important;
+            }
+
+            .sign-box
+            {
+                display:block !important;
+
+
+                .card
+                {
+                    position:absolute;
+                    display:none;
+                    height:100%;
+                    width:100%;
+                    // top:0;
+                    // left:0;
+
+                    &-contain
+                    {
+                        width:85% !important;
+
+                        .controls
+                        {
+                            display:flex !important;
+                        }
+
+                        .bottom-space-m
+                        {
+                            padding-top:1rem;
+                            display:block !important;
+
+                            .btn
+                            {
+                                width:100%;
+                                text-align:center;
+                            }
+
+                            p
+                            {
+                                margin-top:0.6rem;
+
+                                a
+                                {
+                                    text-decoration:underline;
+                                }
+                            }
+                        }
+
+                        .form-grp
+                        {
+                            input
+                            {
+                                width:100%;
+                            }
+                            
+                        }
+                    }
+
+                }
+
+                // &-1
+                // {
+                //     display:flex !important;
+                // }
+
+                // &-2
+                // {
+                //     display:none !important;
+                // }
+
+                
+            }
+
+            .bottom-space
+            {
+                display:none !important;
             }
         }
     }

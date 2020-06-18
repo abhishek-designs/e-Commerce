@@ -1,3 +1,22 @@
+// Default Settings
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+a
+{
+    color:$dark-color;
+    text-decoration:none;
+}
+
+ul
+{
+    list-style:none;
+}
+
 // paddings
 .py
 {
@@ -54,6 +73,20 @@
     {
         margin:6rem 0;
     }
+}
+
+// Field Padding
+.field-padd
+{
+    padding:0.6rem 0.2rem;
+}
+
+// Current State
+.current
+{
+    background:$light-color !important;
+    color:$main-color !important;
+    border-color:$main-color !important;
 }
 
 // Container
@@ -954,6 +987,60 @@ p
                 display:none;
             }
 
+        }
+    }
+}
+
+// Search Field Styling
+.search
+{
+    position:absolute;
+    width:100%;
+    background:$main-color;
+    height:4rem;
+    transform:translateY(-300px);
+    // margin-top:-150px;
+    z-index:2;
+    // display:none;
+    transition:transform 0.5s ease;
+    .container
+    {
+        height:100%;
+        form
+        {
+            height:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            .srch
+            {
+                font-family:$main-font;
+                font-size:1rem;
+                padding:0.4rem 0.2rem;
+                margin-left:1rem;
+                background:$main-color;
+                border:none;
+                color:$light-color;
+                outline:0;
+                z-index:2;
+                border-bottom:1px solid lighten($main-color,25%);
+
+                &::placeholder
+                {
+                    color:$light-color;
+                    opacity:0.7;
+                }
+            }
+
+            i
+            {
+                color:$light-color;
+            }
+
+            .cancel-btn
+            {
+                cursor:pointer;
+            }
         }
     }
 }

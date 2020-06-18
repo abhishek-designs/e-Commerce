@@ -1,0 +1,120 @@
+@import 'variables';
+@import 'utility';
+@import 'media';
+
+html
+{
+    body
+    {
+        font-family:$main-font;
+        // background:$main-color;
+    }
+}
+
+// Navbar
+.navbar,.navbar-m
+{
+    border-bottom:1px solid darken($semi-med-color,10%);
+}
+
+// Sign Up Form Styling
+#sign-in
+{
+    // height:50vh;
+    .container
+    {
+        height:100%;
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        .card
+        {
+            padding:1.5rem;
+            height:100%;
+            margin:0 1rem;
+
+            .head-3
+            {
+                position:relative;
+
+                &::after
+                {
+                    content:'';
+                    position:absolute;
+                    margin-top:25px;
+                    height:2px;
+                    width:15rem;
+                    background:$main-color;
+                    transform:translateX(40px);
+                }
+            }
+
+            &-1
+            {
+                .lead-3
+                {
+                    margin-top:1rem;
+                }
+
+                .btn
+                {
+                    // width:100%;
+                    text-align:center;
+                    margin-top:2rem;
+                    
+                }
+            }
+
+            &-2
+            {
+                .form-grp
+                {
+                    margin-top:1rem;
+                    label
+                    {
+                        display:block;
+                        padding-bottom:0.6rem;
+                    }
+
+                    input
+                    {
+                        padding:0.6rem 0.2rem;
+                        width:100%;
+                        font-family:$main-font;
+
+                        &:focus
+                        {
+                            outline-color:$main-color;
+                        }
+                    }
+
+                    
+                }
+
+                .bottom-space
+                {
+                    margin-top:2rem;
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+
+                    a.lead-3
+                    {
+                        text-decoration: underline;
+                    }
+
+                    .btn
+                    {
+                        text-align:center;
+                        width:30%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Footer
+.main-footer
+{
+    border-top:1px solid darken($semi-med-color,10%);
+}
