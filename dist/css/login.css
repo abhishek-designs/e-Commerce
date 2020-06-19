@@ -356,7 +356,8 @@ p {
         height: 30px;
         opacity: 0;
         z-index: 2;
-        cursor: pointer; }
+        cursor: pointer;
+        user-select: none; }
         .navbar-m .container .menu .toggler:checked + .hamburger > div {
           transform: translateX(-5px) rotate(135deg); }
           .navbar-m .container .menu .toggler:checked + .hamburger > div:before, .navbar-m .container .menu .toggler:checked + .hamburger > div:after {
