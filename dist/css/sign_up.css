@@ -602,7 +602,8 @@ p {
     display: none; }
   .search {
     height: 3rem;
-    z-index: -1; }
+    z-index: 2;
+    display: block !important; }
   .head {
     text-transform: uppercase; }
     .head-1 {
@@ -907,52 +908,10 @@ p {
     #sign-up .container .bottom-space {
       display: none !important; }
   #sign-in .container {
-    height: 100%;
-    display: grid;
     grid-template-columns: 1fr !important;
     grid-gap: 0.6rem; }
-    #sign-in .container .card {
-      padding: 1.5rem;
-      height: 100%;
-      margin: 0 1rem; }
-      #sign-in .container .card .head-3 {
-        position: relative;
-        font-size: 1.3rem; }
-        #sign-in .container .card .head-3::after {
-          content: '';
-          position: absolute;
-          margin-top: 35px !important;
-          height: 2px;
-          width: 15rem;
-          background: #006eff;
-          transform: translateX(40px);
-          display: none; }
-      #sign-in .container .card-1 .lead-3 {
-        margin-top: 1rem; }
-      #sign-in .container .card-1 .btn {
-        text-align: center;
-        margin-top: 2rem; }
-      #sign-in .container .card-2 .form-grp {
-        margin-top: 1rem; }
-        #sign-in .container .card-2 .form-grp label {
-          display: block;
-          padding-bottom: 0.6rem; }
-        #sign-in .container .card-2 .form-grp input {
-          padding: 0.6rem 0.2rem;
-          width: 100%;
-          font-family: "Cairo", sans-serif; }
-          #sign-in .container .card-2 .form-grp input:focus {
-            outline-color: #006eff; }
-      #sign-in .container .card-2 .bottom-space {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center; }
-        #sign-in .container .card-2 .bottom-space a.lead-3 {
-          text-decoration: underline; }
-        #sign-in .container .card-2 .bottom-space .btn {
-          text-align: center;
-          width: 30%; } }
+    #sign-in .container .card .head-3::after {
+      display: none; } }
 
 @media (min-width: 768px) {
   .navbar-m {
