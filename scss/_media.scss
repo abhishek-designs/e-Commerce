@@ -26,7 +26,7 @@
 
     .number
     {
-        width:75% !important;
+        width:74% !important;
     }
 
     // Logo Style
@@ -653,17 +653,17 @@
         .container
         {
             overflow:hidden;
-            position:relative;
             height:90vh;
-
+            
             .head-3
             {
                 display:none !important;
             }
-
+            
             .sign-box
             {
                 display:block !important;
+                position:relative;
 
 
                 .card
@@ -677,11 +677,29 @@
 
                     &-contain
                     {
-                        width:85% !important;
+                        width:100% !important;
 
                         .controls
                         {
-                            display:flex !important;
+
+                            .head-2
+                            {
+                                text-align:center !important;
+                            }
+
+                            .btn
+                            {
+                                height:40px !important;
+                                width:40px !important;
+                                // margin-top:0.3rem;
+                            }
+
+                            .prev
+                            {
+                                margin-left:-1rem;
+                                margin-top:0 !important;
+                            }
+
                         }
 
                         .bottom-space-m
@@ -711,6 +729,13 @@
                             input
                             {
                                 width:100%;
+                            }
+
+                            .content
+                            {
+                                width:15rem !important;
+                                font-size:0.6rem;
+                                transform:translateX(80px) translateY(-80px) !important;
                             }
                             
                         }

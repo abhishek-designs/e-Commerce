@@ -588,7 +588,7 @@ p {
   .code {
     width: 20% !important; }
   .number {
-    width: 75% !important; }
+    width: 74% !important; }
   .logo {
     text-align: center; }
     .logo img {
@@ -866,21 +866,27 @@ p {
           margin-bottom: 1rem; }
   #sign-up .container {
     overflow: hidden;
-    position: relative;
     height: 90vh; }
     #sign-up .container .head-3 {
       display: none !important; }
     #sign-up .container .sign-box {
-      display: block !important; }
+      display: block !important;
+      position: relative; }
       #sign-up .container .sign-box .card {
         position: absolute;
         display: none;
         height: 100%;
         width: 100%; }
         #sign-up .container .sign-box .card-contain {
-          width: 85% !important; }
-          #sign-up .container .sign-box .card-contain .controls {
-            display: flex !important; }
+          width: 100% !important; }
+          #sign-up .container .sign-box .card-contain .controls .head-2 {
+            text-align: center !important; }
+          #sign-up .container .sign-box .card-contain .controls .btn {
+            height: 40px !important;
+            width: 40px !important; }
+          #sign-up .container .sign-box .card-contain .controls .prev {
+            margin-left: -1rem;
+            margin-top: 0 !important; }
           #sign-up .container .sign-box .card-contain .bottom-space-m {
             padding-top: 1rem;
             display: block !important; }
@@ -893,6 +899,10 @@ p {
                 text-decoration: underline; }
           #sign-up .container .sign-box .card-contain .form-grp input {
             width: 100%; }
+          #sign-up .container .sign-box .card-contain .form-grp .content {
+            width: 15rem !important;
+            font-size: 0.6rem;
+            transform: translateX(80px) translateY(-80px) !important; }
     #sign-up .container .bottom-space {
       display: none !important; } }
 
@@ -915,7 +925,8 @@ html body {
   border-bottom: 1px solid #d9d9d9; }
 
 #sign-up .container {
-  padding: 1rem 1.6rem; }
+  overflow: hidden;
+  height: 95vh; }
   #sign-up .container .head-3 {
     display: none;
     position: relative; }
@@ -928,10 +939,9 @@ html body {
       background: #006eff;
       transform: translateX(-185px); }
   #sign-up .container .sign-box {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 4rem; }
+    position: relative; }
     #sign-up .container .sign-box .card {
+      position: absolute;
       display: none;
       width: 100%;
       animation: opaque 0.3s ease; }
@@ -942,25 +952,38 @@ html body {
   to {
     opacity: 1; } }
       #sign-up .container .sign-box .card-contain {
-        width: 100%; }
+        width: 50%;
+        margin: auto;
+        padding: 1rem 1.6rem; }
         #sign-up .container .sign-box .card-contain .controls {
           width: 100%;
-          display: flex;
-          align-items: center;
-          margin-top: -2rem; }
+          position: relative; }
           #sign-up .container .sign-box .card-contain .controls .head-2 {
-            margin-left: 1rem;
-            margin-top: 1rem; }
+            text-align: center; }
           #sign-up .container .sign-box .card-contain .controls .btn {
-            height: 30px;
-            width: 30px;
+            position: absolute;
+            height: 50px;
+            width: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: -4rem;
             font-weight: bold;
             border-radius: 50%; }
+          #sign-up .container .sign-box .card-contain .controls .next-2 {
+            right: 0; }
+          #sign-up .container .sign-box .card-contain .controls .prev {
+            margin-top: 0.5rem;
+            left: 0; }
         #sign-up .container .sign-box .card-contain .bottom-space-m {
-          display: block; }
+          display: block;
+          margin-top: 1.2rem; }
+          #sign-up .container .sign-box .card-contain .bottom-space-m .btn {
+            width: 100%;
+            text-align: center; }
+          #sign-up .container .sign-box .card-contain .bottom-space-m p {
+            text-align: center;
+            font-weight: bold; }
         #sign-up .container .sign-box .card-contain .form-grp {
           margin-top: 1rem; }
           #sign-up .container .sign-box .card-contain .form-grp label {
@@ -1024,12 +1047,6 @@ html body {
             width: 100%;
             padding: 0.6rem 0.2rem;
             font-family: "Cairo", sans-serif; }
-    #sign-up .container .sign-box-1 .controls {
-      justify-content: center; }
-      #sign-up .container .sign-box-1 .controls .btn {
-        margin-left: 2rem; }
-    #sign-up .container .sign-box-2 .controls {
-      justify-content: flex-start; }
   #sign-up .container .bottom-space {
     display: none;
     align-items: center; }

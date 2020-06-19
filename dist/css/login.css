@@ -588,7 +588,7 @@ p {
   .code {
     width: 20% !important; }
   .number {
-    width: 75% !important; }
+    width: 74% !important; }
   .logo {
     text-align: center; }
     .logo img {
@@ -866,21 +866,27 @@ p {
           margin-bottom: 1rem; }
   #sign-up .container {
     overflow: hidden;
-    position: relative;
     height: 90vh; }
     #sign-up .container .head-3 {
       display: none !important; }
     #sign-up .container .sign-box {
-      display: block !important; }
+      display: block !important;
+      position: relative; }
       #sign-up .container .sign-box .card {
         position: absolute;
         display: none;
         height: 100%;
         width: 100%; }
         #sign-up .container .sign-box .card-contain {
-          width: 85% !important; }
-          #sign-up .container .sign-box .card-contain .controls {
-            display: flex !important; }
+          width: 100% !important; }
+          #sign-up .container .sign-box .card-contain .controls .head-2 {
+            text-align: center !important; }
+          #sign-up .container .sign-box .card-contain .controls .btn {
+            height: 40px !important;
+            width: 40px !important; }
+          #sign-up .container .sign-box .card-contain .controls .prev {
+            margin-left: -1rem;
+            margin-top: 0 !important; }
           #sign-up .container .sign-box .card-contain .bottom-space-m {
             padding-top: 1rem;
             display: block !important; }
@@ -893,6 +899,10 @@ p {
                 text-decoration: underline; }
           #sign-up .container .sign-box .card-contain .form-grp input {
             width: 100%; }
+          #sign-up .container .sign-box .card-contain .form-grp .content {
+            width: 15rem !important;
+            font-size: 0.6rem;
+            transform: translateX(80px) translateY(-80px) !important; }
     #sign-up .container .bottom-space {
       display: none !important; } }
 
