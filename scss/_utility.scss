@@ -1004,6 +1004,7 @@ p
     z-index:2;
     // display:none;
     transition:transform 0.5s ease;
+
     .container
     {
         height:100%;
@@ -1025,6 +1026,12 @@ p
                 outline:0;
                 z-index:2;
                 border-bottom:1px solid lighten($main-color,25%);
+                transition:border $anim-speed ease;
+
+                &:focus
+                {
+                    border-color:$light-color;
+                }
 
                 &::placeholder
                 {
