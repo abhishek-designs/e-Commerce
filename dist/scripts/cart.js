@@ -133,8 +133,10 @@ function quantityChanged(event)
 // Function to update the total price
 function updateCart()
 {
+    var cartContain = document.querySelector('.carts');
     var cartItem = document.querySelector('.carts-items');
     var cartHead = cartItem.querySelector('.head-2');
+    var noItem = cartContain.querySelector('.no-items');
     var cartRow = cartItem.querySelectorAll('.cart-row');
     var cartBill = cartItem.nextElementSibling;
     var itemTotal = cartBill.querySelector('.total');
@@ -143,6 +145,19 @@ function updateCart()
 
     // updating the item number on heading according to the item added
     cartHead.innerText = 'MY CART('+itemNum+')';
+
+    // When there is no items in the cart this UI will be enabled;
+    if(cartRow.length == 0)
+    {
+        noItem.style.display = 'flex';
+        cartItem.style.display = 'none';
+    }
+    else
+    {
+        noItem.style.display = 'none';
+        cartItem.style.display = 'block';
+    }
+
 
     for(let i=0; i<cartRow.length; i++)
     {

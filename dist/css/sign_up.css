@@ -638,6 +638,16 @@ p {
           text-align: center; }
       #cart-section .container .carts-items .cart-row .item-price {
         text-align: center; }
+  #cart-section .container .carts .no-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #aeaeae; }
+    #cart-section .container .carts .no-items i {
+      font-size: 5rem;
+      margin-bottom: 1rem; }
 
 @media (max-width: 500px) {
   .container {
@@ -915,6 +925,9 @@ p {
         width: 40%; }
     #cart-section .container .carts-items .cart-row .item-price .head-3 {
       font-size: 0.8rem; }
+    #cart-section .container .carts .no-items i {
+      font-size: 2rem;
+      margin-top: 1rem; }
   .main-footer .container .footer {
     text-align: center;
     grid-template-columns: 1fr !important;
