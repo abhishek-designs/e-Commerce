@@ -186,6 +186,9 @@ p {
 .red {
   color: #ff2600; }
 
+.green {
+  color: #0cc90c; }
+
 .active {
   display: flex !important; }
 
@@ -580,6 +583,61 @@ p {
         color: #fff; }
       .search .container form .cancel-btn {
         cursor: pointer; }
+
+#cart-section .container .carts {
+  display: grid;
+  grid-template-columns: 0.8fr 2fr; }
+  #cart-section .container .carts-billing {
+    padding: 0 1rem; }
+    #cart-section .container .carts-billing .pricing .tab {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+    #cart-section .container .carts-billing .pricing .grand-total {
+      border-top: 1px solid #aeaeae; }
+    #cart-section .container .carts-billing .btn-unique {
+      width: 100%;
+      text-align: center; }
+    #cart-section .container .carts-billing .coupon {
+      margin-top: 1.5rem; }
+      #cart-section .container .carts-billing .coupon-tab {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        #cart-section .container .carts-billing .coupon-tab .btn {
+          margin-top: 0;
+          font-size: 0.9rem; }
+  #cart-section .container .carts-items {
+    padding: 0 1.5rem;
+    height: 100%;
+    overflow: hidden; }
+    #cart-section .container .carts-items .head-1 {
+      margin-bottom: 1.5rem; }
+    #cart-section .container .carts-items .cart-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 1rem 0;
+      box-shadow: 0 0 9px #e6e6e6; }
+      #cart-section .container .carts-items .cart-row .img-tab {
+        text-align: center; }
+        #cart-section .container .carts-items .cart-row .img-tab img {
+          height: 50%;
+          width: 50%; }
+      #cart-section .container .carts-items .cart-row .item-details .remove-btn {
+        cursor: pointer; }
+      #cart-section .container .carts-items .cart-row .item-details .quantity-field {
+        display: inline;
+        margin-left: 1.5rem; }
+        #cart-section .container .carts-items .cart-row .item-details .quantity-field .quantity {
+          width: 20%;
+          height: 2rem;
+          border: 1px solid #f2f2f2;
+          padding: 0 0.2rem;
+          text-align: center; }
+      #cart-section .container .carts-items .cart-row .item-price {
+        text-align: center; }
 
 @media (max-width: 500px) {
   .container {

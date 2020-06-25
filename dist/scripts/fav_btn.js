@@ -4,7 +4,6 @@ const favBtn3 = document.querySelector('.fav-3');
 const favBtn4 = document.querySelector('.fav-4');
 const favBtn5 = document.querySelector('.fav-5');
 const favBtn6 = document.querySelector('.fav-6');
-console.log(favBtn);
 
 favBtn.addEventListener('click',function(){
     if(this.classList.contains('far'))

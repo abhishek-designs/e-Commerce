@@ -296,7 +296,10 @@ p
 {
     color:$red-color;
 }
-
+.green
+{
+    color:$green-color;
+}
 // Slider Utility
 .active
 {
@@ -1048,6 +1051,119 @@ p
             .cancel-btn
             {
                 cursor:pointer;
+            }
+        }
+    }
+}
+
+// Cart Styling
+#cart-section
+{
+    .container
+    {
+        .carts
+        {
+            display:grid;
+            grid-template-columns:0.8fr 2fr;
+
+            &-billing
+            {
+                padding:0 1rem;
+                .pricing
+                {
+                    .tab
+                    {
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+                    }
+
+                    .grand-total
+                    {
+                        border-top:1px solid $med-color;
+                    }
+                }
+
+                .btn-unique
+                {
+                    width:100%;
+                    text-align:center;
+                }
+
+                .coupon
+                {
+                    margin-top:1.5rem;
+                    &-tab
+                    {
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+
+                        .btn
+                        {
+                            margin-top:0;
+                            font-size:0.9rem;
+                        }
+                    }
+                }
+            }
+
+            &-items
+            {
+                padding:0 1.5rem;
+                height:100%;
+                overflow: hidden;
+                .head-1
+                {
+                    margin-bottom:1.5rem;
+                }
+                .cart-row
+                {
+                    display:grid;
+                    grid-template-columns:repeat(3,1fr);
+                    align-items:center;
+                    margin-bottom:1rem;
+                    padding:1rem 0;
+                    box-shadow:0 0 9px darken($light-color,10%);
+
+                    .img-tab
+                    {
+                        text-align:center;
+                        img
+                        {
+                            height:50%;
+                            width:50%;
+                        }
+
+                    }
+
+                    .item-details
+                    {
+                        .remove-btn
+                        {
+                            cursor:pointer;
+                        }
+                        .quantity-field
+                        {
+                            display:inline;
+                            margin-left:1.5rem;
+                            .quantity
+                            {
+                                width:20%;
+                                height:2rem;
+                                border:1px solid $semi-med-color;
+                                padding:0 0.2rem;
+                                text-align:center;
+                            }
+                            
+                        }
+                    }
+
+                    .item-price
+                    {
+                        text-align:center;
+                    }
+                }
             }
         }
     }
