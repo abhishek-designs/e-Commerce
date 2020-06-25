@@ -579,6 +579,63 @@
         }
     }
 
+    #cart-section
+    {
+        .container
+        {
+            .carts
+            {
+                grid-template-columns:1fr;
+                grid-gap:1rem;
+
+                &-items
+                {
+                    .cart-row
+                    {
+                        .img-tab
+                        {
+                            img
+                            {
+                                height:60%;
+                                width:60%;
+                            }
+                        }
+
+                        .item-details
+                        {
+                            .head-3
+                            {
+                                font-size:0.8rem;
+                            }
+                            .quantity-field
+                            {
+                                margin-left:0.5rem;
+                                label
+                                {
+                                    display:none;
+                                }
+
+                                .quantity
+                                {
+                                    width:40%;
+                                }
+                            }
+                        }
+
+                        .item-price
+                        {
+                            .head-3
+                            {
+                                font-size:0.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
     .main-footer
     {
         .container

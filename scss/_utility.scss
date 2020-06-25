@@ -1064,7 +1064,7 @@ p
         .carts
         {
             display:grid;
-            grid-template-columns:0.8fr 2fr;
+            grid-template-columns:2fr 0.8fr;
 
             &-billing
             {

@@ -586,7 +586,7 @@ p {
 
 #cart-section .container .carts {
   display: grid;
-  grid-template-columns: 0.8fr 2fr; }
+  grid-template-columns: 2fr 0.8fr; }
   #cart-section .container .carts-billing {
     padding: 0 1rem; }
     #cart-section .container .carts-billing .pricing .tab {
@@ -898,6 +898,22 @@ p {
     #home-h .container .field input {
       padding: 0.5rem 0.4rem !important; }
     #home-h .container .field .btn {
+      font-size: 0.8rem; }
+  #cart-section .container .carts {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem; }
+    #cart-section .container .carts-items .cart-row .img-tab img {
+      height: 60%;
+      width: 60%; }
+    #cart-section .container .carts-items .cart-row .item-details .head-3 {
+      font-size: 0.8rem; }
+    #cart-section .container .carts-items .cart-row .item-details .quantity-field {
+      margin-left: 0.5rem; }
+      #cart-section .container .carts-items .cart-row .item-details .quantity-field label {
+        display: none; }
+      #cart-section .container .carts-items .cart-row .item-details .quantity-field .quantity {
+        width: 40%; }
+    #cart-section .container .carts-items .cart-row .item-price .head-3 {
       font-size: 0.8rem; }
   .main-footer .container .footer {
     text-align: center;
