@@ -136,7 +136,7 @@ function updateCart()
     var cartItem = document.querySelector('.carts-items');
     var cartHead = cartItem.querySelector('.head-2');
     var cartRow = cartItem.querySelectorAll('.cart-row');
-    var cartBill = cartItem.previousElementSibling;
+    var cartBill = cartItem.nextElementSibling;
     var itemTotal = cartBill.querySelector('.total');
     var total = 0;
     var itemNum = cartRow.length;
