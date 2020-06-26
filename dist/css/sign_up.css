@@ -343,6 +343,20 @@ p {
           background: #fff;
           color: #006eff;
           border-color: #006eff; }
+      .navbar .container .features .shopping {
+        position: relative; }
+        .navbar .container .features .shopping .cart-indicate {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 25px;
+          height: 25px;
+          background: #99c5ff;
+          border-radius: 50%;
+          color: #006eff;
+          box-shadow: 0 0 4px #bfbfbf;
+          transform: translateX(14.5rem) translateY(-0.9rem); }
 
 .navbar-m {
   position: relative;
@@ -353,6 +367,10 @@ p {
     grid-template-columns: 1fr 2fr 1fr; }
     .navbar-m .container .menu {
       position: relative; }
+      .navbar-m .container .menu .user-name {
+        position: absolute;
+        z-index: 1;
+        transform: translateX(7rem) translateY(1.5rem); }
       .navbar-m .container .menu .toggler {
         position: absolute;
         width: 30px;

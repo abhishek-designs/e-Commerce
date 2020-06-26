@@ -606,6 +606,27 @@ p
                 }
             }
 
+            .shopping
+            {
+                position:relative;
+
+                .cart-indicate
+                {
+                    position:absolute;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    width:25px;
+                    height:25px;
+                    background:lighten($main-color,30%);
+                    border-radius:50%;
+                    color:$main-color;
+                    box-shadow:0 0 4px darken($light-color,25%);
+                    transform:translateX(14.5rem) translateY(-0.9rem);
+                    // z-index:1;
+                }
+            }
+
         }
     }
 }
@@ -628,6 +649,14 @@ p
         {
             position:relative;
             // z-index:1;
+
+            .user-name
+            {
+                position:absolute;
+                z-index:1;
+                // text-align:center;
+                transform:translateX(7rem) translateY(1.5rem);
+            }
 
             .toggler
             {

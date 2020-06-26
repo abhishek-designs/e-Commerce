@@ -140,11 +140,17 @@ function updateCart()
     var cartRow = cartItem.querySelectorAll('.cart-row');
     var cartBill = cartItem.nextElementSibling;
     var itemTotal = cartBill.querySelector('.total');
+
+    // Selecting Navbar
+    var nav = document.querySelector('.navbar');
+    var cartIndicate = nav.querySelector('.cart-indicate');
+    
     var total = 0;
     var itemNum = cartRow.length;
 
     // updating the item number on heading according to the item added
     cartHead.innerText = 'MY CART('+itemNum+')';
+    cartIndicate.innerText = itemNum;
 
     // When there is no items in the cart this UI will be enabled;
     if(cartRow.length == 0)
