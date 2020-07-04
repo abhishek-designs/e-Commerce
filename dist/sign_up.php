@@ -1,192 +1,3 @@
-<?php 
-    if($_SERVER['REQUEST_METHOD'] == 'POST')
-    {
-        $name = trimData($_POST['name']);
-        $mail = trimData($_POST['mail']);
-        $pwd = htmlspecialchars($_POST['pwd']);
-        $cpwd = htmlspecialchars($_POST['cpwd']);
-        $state = $_POST['state'];
-        $city = $_POST['city'];
-        $address = htmlspecialchars($_POST['address']);
-        $code = htmlspecialchars($_POST['code']);
-        $num = htmlspecialchars($_POST['number']);
-        $pwdLen = strlen($pwd);
-        
-        // Validating Name
-        $namePattern = '/[@#$%^&*0-9]/';
-
-        if(!empty($name))
-        {
-            if(!preg_match($namePattern,$name))
-            {
-                $name_data = $name;
-            }
-            else
-            {
-                echo 'Name is invalid';
-            }
-
-        }
-        else
-        {
-            echo 'Name is Required';
-        }
-
-        // Validating Email
-        if(!empty($mail))
-        {
-            if(filter_input(INPUT_POST,'mail',FILTER_VALIDATE_EMAIL))
-            {
-                $mail_data = $mail;
-            }
-            else
-            {
-                echo 'Email is invalid';
-            }
-        }
-        else
-        {
-            echo 'Email is Required';
-        }
-
-        // Validating Password
-        $pwdPattern = '/[*@_$%&^]/';
-
-        if(!empty($pwd) && !empty($cpwd))
-        {
-            if($pwdLen >= 8 && preg_match($pwdPattern,$pwd))
-            {
-                echo 'Strong Password';
-                echo '<br>';
-                if($cpwd == $pwd)
-                {
-                    $pwd_data = $pwd;
-                }
-                else
-                {
-                    echo'Try Again';
-                }
-            }
-            else
-            {
-                echo 'Weak Password';
-            }
-
-        }
-        else
-        {
-            echo 'Password is Required';
-        }
-
-        // Address
-        if(!empty($address))
-        {
-            $address_data = $address;
-        }
-        else
-        {
-            echo 'Address is Required';
-        }
-
-        // Phone number
-        if(!empty($code) && !empty($num))
-        {
-            $phone_data = $code.$num;
-        }
-        else
-        {
-            echo 'Phone number is Required';
-        }
-
-        // State
-        if(!empty($state))
-        {
-            $state_data =$state;
-        }
-        else
-        {
-            echo 'Please select your state';
-        }
-
-        // City
-        if(!empty($city))
-        {
-            $city_data = $city;
-        }
-        else
-        {
-            echo 'Please select your City';
-        }
-
-        // Mysql Connection
-        if(!empty($name_data) && !empty($mail_data) && !empty($pwd_data) && !empty($address_data) && !empty($phone_data) && !empty($state_data) && !empty($city_data))
-        {
-            $username = 'abhi';
-            $server = 'localhost';
-            $password = 'abhi@368';
-            $dbName = 'test';
-    
-            $con = mysqli_connect($server,$username,$password,$dbName);
-            if($con)
-            {
-                $query = 'create table t2
-                            (Cust_Id int(5) primary key auto_increment,
-                             Cust_Name varchar(200) not null,
-                             Cust_Email varchar(200) not null,
-                             Cust_Pwd varchar(150) not null unique,
-                             Address varchar(250) not null,
-                             Phone_no long not null unique,
-                             State varchar(200) not null,
-                             City varchar(100) not null,
-                             Reg_Date date default curdate(),
-                             Reg_Time time default curtime())';
-
-                $stmt = mysqli_query($con,$query);
-
-                echo 'Table created';
-                $query = 'insert into t2(Cust_Name,Cust_Email,Cust_Pwd,Address,Phone_no,State,City) values(?,?,?,?,?,?,?)';
-                $chk = mysqli_prepare($con,$query);
-    
-                if($chk)
-                {
-                    mysqli_stmt_bind_param($chk,'ssssiss',$name_data,$mail_data,$pwd_data,$address_data,$phone_data,$state_data,$city_data);
-                    mysqli_stmt_execute($chk);
-
-                    echo 'Registration Successful '.mysqli_error($con);
-                }
-                else
-                {
-                    echo 'Registration Failed '.mysqli_error($con);
-                }
-
-
-            }
-            else
-            {
-                echo 'Storing failed';
-            }
-
-        }
-        else 
-        {
-            echo 'No values found';
-        }
-
-    }
-
-    function trimData($data)
-    {
-        $data = htmlspecialchars($data);
-        $data = trim($data);
-        $data = stripslashes($data);
-
-        return $data;
-    }
-
-    
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -415,7 +226,6 @@
     <!-- Sign Up Box -->
     <section id="sign-up" class="my-2">
         <div class="container">
-            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                 <h2 class="head-3">CREATE ACCOUNT</h2>
                 <div class="sign-box my-1">
                     <div class="card card1 active">
@@ -426,15 +236,29 @@
 
 
                                 <div class="form-grp">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" value=<?php echo $name; ?>>
+                                    <label for="name">Name <span class="red">*</span></label>
+                                    <input type="text" name="name" id="name" class="name">
+                                    <span class="err-msg">
+                                        <i class="fa fa-info"></i>
+                                        <div class="content name-pop-up">
+                                            <p class="lead-3">Name is Required</p>
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="form-grp">
-                                    <label for="mail">Email</label>
-                                    <input type="text" name="mail" id="mail" value=<?php echo $mail; ?>>
+                                    <label for="mail">Email <span class="red">*</span></label>
+                                    <input type="text" name="mail" id="mail" class="mail">
+                                    <span class="err-msg">
+                                        <i class="fa fa-info"></i>
+                                        <div class="content mail-pop-up">
+                                            <p class="lead-3">Email is Required</p>
+                                        </div>
+                                    </span>
+                                    <span class="error-ball"><i class="fa fa-close"></i></span>
+                                    <span class="correct-ball"><i class="fa fa-check"></i></span>
                                 </div>
                                 <div class="form-grp">
-                                    <label for="pwd" class="pwd">Password</label>
+                                    <label for="pwd" class="pwd">Password <span class="red">*</span></label>
                                     <span class="condition">
                                         <i class="fa fa-info"></i>
                                         <div class="content">
@@ -445,11 +269,26 @@
                                             </ul>
                                         </div>
                                     </span>
-                                    <input type="password" name="pwd" id="pwd" value=<?php echo $pwd; ?>>
+                                    <input type="password" name="pwd" id="pwd" class="pwd-field" >
+                                    <span class="err-msg">
+                                        <i class="fa fa-info"></i>
+                                        <div class="content pwd-pop-up">
+                                            <p class="lead-3">Password is Required</p>
+                                        </div>
+                                    </span>
+                                    <span class="error-ball"><i class="fa fa-close"></i></span>
+                                    <span class="correct-ball"><i class="fa fa-check"></i></span>
                                 </div>
                                 <div class="form-grp">
-                                    <label for="cpwd">Confirm Password</label>
-                                    <input type="password" name="cpwd" id="cpwd" value=<?php echo $cpwd; ?>>
+                                    <label for="cpwd">Confirm Password <span class="red">*</span></label>
+                                    <input type="password" name="cpwd" id="cpwd" class="cpwd-field">
+                                    <span class="err-msg">
+                                        <i class="fa fa-info"></i>
+                                        <div class="content pwd-pop-up">
+                                            <p class="lead-3">Password is Required</p>
+                                        </div>
+                                    </span>
+                                    <span class="correct-ball"><i class="fa fa-check"></i></span>
                                 </div>
 
                                 <div class="bottom-space-m">
@@ -466,7 +305,7 @@
                                 <h2 class="head-2">CREATE ACCOUNT</h2>
                             </div>
                             <div class="form-grp">
-                                <label for="state">State</label>
+                                <label for="state">State <span class="red">*</span></label>
                                 <select name="state" id="state" class="list-box">
                                         <option value="select" selected="true" disabled>Select State</option>
                                         <option value="Andra Pradesh">Andra Pradesh</option>
@@ -480,7 +319,7 @@
                                 </select>
                             </div>
                             <div class="form-grp">
-                                <label for="city">City</label>
+                                <label for="city">City <span class="red">*</span></label>
                                 <select name="city" id="city" class="list-box">
                                     <option value="select" selected="true" disabled>Select City</option>
                                     <option value="Mumbai">Mumbai</option>
@@ -495,19 +334,19 @@
                                 <!-- <input type="text" name="city" id="city"> -->
                             </div>
                             <div class="form-grp">
-                                <label for="address">Address</label>
-                                <input type="text" name="address" id="address" value=<?php echo $address; ?>>
+                                <label for="address">Address <span class="red">*</span></label>
+                                <input type="text" name="address" id="address">
                             </div>
                             <div class="form-grp">
-                                <label for="code">Phone Number</label>
-                                <input type="number" name="code" id="phone" class="code field-padd" value=<?php echo $code; ?>>
+                                <label for="code">Phone Number <span class="red">*</span></label>
+                                <input type="number" name="code" id="phone" class="code field-padd">
                                 &dash;
-                                <input type="number" name="number" id="phone" class="number field-padd" value=<?php echo $num; ?>>
+                                <input type="number" name="number" id="phone" class="number field-padd">
                                 <p class="lead-3">Country code + Phone number</p>
                             </div>
 
                             <div class="bottom-space-m">
-                                <input type="submit" value="Submit" class="btn btn-unique">
+                                <a href="#" class="btn btn-unique submit">Submit</a>
                                 <p class="lead-4">By clicking 'Submit' you agree to the <a href="#" class="lead-4">Terms & Conditions</a>.</p>
                             </div>
                         </div>
@@ -516,10 +355,10 @@
                         
                 </div>
                     <div class="bottom-space">
-                        <input type="submit" value="Submit" class="btn btn-unique">
+                        <a href="#" class="btn btn-unique"></a>
                         <p class="lead-4">By clicking 'Submit' you agree to the <a href="#" class="lead-4">Terms & Conditions</a>.</p>
                     </div>
-            </form>
+
         </div>
     </section>
 
@@ -634,3 +473,4 @@
 <!-- Embeded Scripts -->
 <script src="scripts/search.js"></script>
 <script src="scripts/sign_up.js"></script>
+<script src="scripts/request.js"></script>

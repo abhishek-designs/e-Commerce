@@ -667,6 +667,42 @@ p {
       font-size: 5rem;
       margin-bottom: 1rem; }
 
+.error {
+  border-width: 1.3px !important;
+  border-color: red !important;
+  animation: shake 0.2s alternate ease; }
+
+@keyframes shake {
+  25% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(-5px); }
+  75% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(5px); } }
+
+.error-ball, .correct-ball {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  padding: 0.4rem;
+  margin-top: -2.1rem;
+  transform: translateX(35rem);
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff; }
+
+.error-ball {
+  background: red;
+  display: none; }
+
+.correct-ball {
+  background: #00b300;
+  display: none; }
+
 @media (max-width: 500px) {
   .container {
     max-width: 330px !important; }
@@ -693,6 +729,8 @@ p {
     height: 4rem;
     z-index: 2;
     display: block !important; }
+  .error-ball, .correct-ball {
+    transform: translateX(15.5rem) !important; }
   .head {
     text-transform: uppercase; }
     .head-1 {
@@ -1009,6 +1047,8 @@ p {
                 text-decoration: underline; }
           #sign-up .container .sign-box .card-contain .form-grp input {
             width: 100%; }
+          #sign-up .container .sign-box .card-contain .form-grp .err-msg {
+            transform: translateX(15.5rem) !important; }
           #sign-up .container .sign-box .card-contain .form-grp .content {
             width: 15rem !important;
             font-size: 0.6rem;
@@ -1027,11 +1067,13 @@ p {
 
 .code {
   width: 20%;
-  outline-color: #006eff; }
+  outline-color: #006eff;
+  border: 1px solid #aeaeae; }
 
 .number {
   width: 77.5%;
-  outline-color: #006eff; }
+  outline-color: #006eff;
+  border: 1px solid #aeaeae; }
 
 html body {
   font-family: "Cairo", sans-serif; }
@@ -1109,13 +1151,13 @@ html body {
           #sign-up .container .sign-box .card-contain .form-grp .condition {
             position: absolute;
             margin-left: 5rem;
-            margin-top: -2.3rem;
+            margin-top: -2.2rem;
             background: #006eff;
             color: #fff;
             border: 1px solid transparent;
             border-radius: 50%;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             padding: 0.4rem;
             cursor: pointer;
             display: flex;
@@ -1154,14 +1196,57 @@ html body {
             #sign-up .container .sign-box .card-contain .form-grp .condition i {
               font-size: 12px; }
           #sign-up .container .sign-box .card-contain .form-grp input:not(#phone) {
+            position: relative;
             padding: 0.6rem 0.2rem;
             width: 100%;
+            border: 1px solid #aeaeae;
             outline-color: #006eff;
             font-family: "Cairo", sans-serif; }
+          #sign-up .container .sign-box .card-contain .form-grp .err-msg {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            padding: 0.4rem;
+            margin-top: -2.1rem;
+            transform: translateX(35rem);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: red;
+            cursor: pointer; }
+            #sign-up .container .sign-box .card-contain .form-grp .err-msg i {
+              font-size: 12px;
+              color: #fff; }
+            #sign-up .container .sign-box .card-contain .form-grp .err-msg:hover .content {
+              opacity: 1; }
+            #sign-up .container .sign-box .card-contain .form-grp .err-msg .content {
+              position: absolute;
+              width: 20rem;
+              text-align: center;
+              background: #ffb3b3;
+              color: red;
+              padding: 0.3rem;
+              border-radius: 6px;
+              margin-left: -8rem;
+              margin-top: -3.5rem;
+              pointer-events: none;
+              opacity: 0;
+              transition: opacity 0.3s ease; }
+              #sign-up .container .sign-box .card-contain .form-grp .err-msg .content:after {
+                content: '';
+                position: absolute;
+                height: 40px;
+                width: 40px;
+                background: #ffb3b3;
+                transform: translateX(6.5rem) rotate(45deg);
+                bottom: -8px;
+                z-index: -1; }
           #sign-up .container .sign-box .card-contain .form-grp select {
             width: 100%;
             padding: 0.6rem 0.2rem;
-            font-family: "Cairo", sans-serif; }
+            font-family: "Cairo", sans-serif;
+            border: 1px solid #aeaeae; }
   #sign-up .container .bottom-space {
     display: none;
     align-items: center; }

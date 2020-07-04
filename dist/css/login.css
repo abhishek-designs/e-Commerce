@@ -667,6 +667,42 @@ p {
       font-size: 5rem;
       margin-bottom: 1rem; }
 
+.error {
+  border-width: 1.3px !important;
+  border-color: red !important;
+  animation: shake 0.2s alternate ease; }
+
+@keyframes shake {
+  25% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(-5px); }
+  75% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(5px); } }
+
+.error-ball, .correct-ball {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  font-size: 12px;
+  padding: 0.4rem;
+  margin-top: -2.1rem;
+  transform: translateX(35rem);
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff; }
+
+.error-ball {
+  background: red;
+  display: none; }
+
+.correct-ball {
+  background: #00b300;
+  display: none; }
+
 @media (max-width: 500px) {
   .container {
     max-width: 330px !important; }
@@ -693,6 +729,8 @@ p {
     height: 4rem;
     z-index: 2;
     display: block !important; }
+  .error-ball, .correct-ball {
+    transform: translateX(15.5rem) !important; }
   .head {
     text-transform: uppercase; }
     .head-1 {
@@ -1009,6 +1047,8 @@ p {
                 text-decoration: underline; }
           #sign-up .container .sign-box .card-contain .form-grp input {
             width: 100%; }
+          #sign-up .container .sign-box .card-contain .form-grp .err-msg {
+            transform: translateX(15.5rem) !important; }
           #sign-up .container .sign-box .card-contain .form-grp .content {
             width: 15rem !important;
             font-size: 0.6rem;

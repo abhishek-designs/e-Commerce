@@ -60,6 +60,12 @@
         display:block !important;
     }
 
+    // Correct and Error pop ups
+    .error-ball,.correct-ball
+    {
+        transform:translateX(15.5rem) !important;
+    }
+
     // Smartphone Headings
     .head
     {
@@ -797,6 +803,11 @@
                             input
                             {
                                 width:100%;
+                            }
+
+                            .err-msg
+                            {
+                                transform:translateX(15.5rem) !important;
                             }
 
                             .content

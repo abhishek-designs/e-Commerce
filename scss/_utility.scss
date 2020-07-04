@@ -1215,4 +1215,56 @@ p
     }
 }
     
+.error
+{
+    border-width:1.3px !important;
+    border-color:red !important;
+    animation:shake 0.2s alternate ease;
+}
 
+@keyframes shake
+{
+    25%
+    {
+        transform:translateX(0);
+    }
+    50%
+    {
+        transform:translateX(-5px);
+    }
+    75%
+    {
+        transform:translateX(0);
+    }
+    100%
+    {
+        transform:translateX(5px);
+    }
+}
+
+.error-ball,.correct-ball
+{
+    position:absolute;
+    height:20px;
+    width:20px;
+    font-size:12px;
+    padding:0.4rem;
+    margin-top:-2.1rem;
+    transform:translateX(35rem);
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    color:$light-color;
+}
+
+.error-ball
+{
+    background:red;
+    display:none;
+}
+
+.correct-ball
+{
+    background:lighten(green,10%);
+    display:none;
+}
