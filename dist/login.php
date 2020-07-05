@@ -12,7 +12,7 @@
     <nav class="navbar py-1">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/shopping-cart.png" alt="logo">
                     <h1 class="head-2">MAUJ</h1>
                 </a>
@@ -22,7 +22,7 @@
             <div class="menu-list">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                         <span class="bottom-line"></span></li>
                     <li>Products 
                         <i class="fa fa-sort-down"> 
@@ -131,7 +131,7 @@
 
             <div class="features">
                 <i class="fa fa-search srch-btn"></i>
-                <a href="login.html"><i class="fa fa-user current"></i></a>
+                <a href="login.php"><i class="fa fa-user current"></i></a>
                 <a href="#"><i class="fa fa-shopping-cart"></i></a>
             </div>
         </div>
@@ -229,7 +229,7 @@
             <div class="card card-1 bg-semi-med">
                 <h2 class="head-3">NEW CUSTOMERS</h2>
                 <p class="lead-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nihil harum tenetur quam excepturi, magnam odit libero maxime illo cupiditate velit id ab quos iure dolorum itaque amet, vel ratione unde voluptatem provident ut! Laudantium quod tempore velit voluptatum eaque veritatis cupiditate ipsa odit vitae! Modi ducimus dolore nostrum ratione?</p>
-                <a href="sign_up.html" class="btn btn-unique">Create Account</a>
+                <a href="sign_up.php" class="btn btn-unique">Create Account</a>
             </div>
             <div class="card card-2 bg-semi-med">
                 <h2 class="head-3">REGISTERED CUSTOMERS</h2>
@@ -257,7 +257,7 @@
 
                 <div class="footer-1">
                     <div class="logo">
-                        <a href="">
+                        <a href="index.php">
                             <img src="./img/shopping-cart.png" alt="logo">
                             <h2 class="head-1">Mauj</h2>
                         </a>
@@ -320,10 +320,10 @@
                     <h2 class="head-2">MY ACCOUNT</h2>
                     <ul>
                         <li>
-                            <a href="">Login</a>
+                            <a href="login.php">Login</a>
                         </li>
                         <li>
-                            <a href="">Register</a>
+                            <a href="sign_up.php">Register</a>
                         </li>
                         <li>
                             <a href="">Recommended</a>

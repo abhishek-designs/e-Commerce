@@ -12,7 +12,7 @@
     <nav class="navbar py-1">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/shopping-cart.png" alt="logo">
                     <h1 class="head-2">MAUJ</h1>
                 </a>
@@ -22,7 +22,7 @@
             <div class="menu-list">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                         <span class="bottom-line"></span></li>
                     <li>Products 
                         <i class="fa fa-sort-down"> 
@@ -151,7 +151,7 @@
                         <div>
                             <div class="menu-box bg-light">
                                 <li class="item">
-                                    <a href="index.html" class="list list-1">Home</a>
+                                    <a href="index.php" class="list list-1">Home</a>
                                 </li>
         
                                 <li class="item" id="item-2">
@@ -369,7 +369,7 @@
 
                 <div class="footer-1">
                     <div class="logo">
-                        <a href="">
+                        <a href="index.php">
                             <img src="./img/shopping-cart.png" alt="logo">
                             <h2 class="head-1">Mauj</h2>
                         </a>

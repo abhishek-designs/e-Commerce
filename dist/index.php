@@ -12,7 +12,7 @@
     <nav class="navbar py-1">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/shopping-cart.png" alt="logo">
                     <h1 class="head-2">MAUJ</h1>
                 </a>
@@ -154,7 +154,7 @@
                         <div>
                             <div class="menu-box bg-light">
                                 <li class="item">
-                                    <a href="index.html" class="list list-1">Home</a>
+                                    <a href="index.php" class="list list-1">Home</a>
                                 </li>
         
                                 <li class="item" id="item-2">
@@ -189,7 +189,7 @@
                                 </li>
         
                                 <li class="item">
-                                    <a href="login.html" class="list list-6">Account</a>
+                                    <a href="login.php" class="list list-6">Account</a>
                                 </li>
         
                             </div>
@@ -200,7 +200,7 @@
             </div>
 
             <div class="logo">
-                <a href="">
+                <a href="index.php">
                     <img src="./img/shopping-cart.png" alt="logo">
                     <h1 class="head-1">MAUJ</h1>
                 </a>
@@ -804,7 +804,7 @@
 
                 <div class="footer-1">
                     <div class="logo">
-                        <a href="">
+                        <a href="index.php">
                             <img src="./img/shopping-cart.png" alt="logo">
                             <h2 class="head-1">Mauj</h2>
                         </a>
@@ -867,10 +867,10 @@
                     <h2 class="head-2">MY ACCOUNT</h2>
                     <ul>
                         <li>
-                            <a href="login.html">Login</a>
+                            <a href="login.php">Login</a>
                         </li>
                         <li>
-                            <a href="sign_up.html">Register</a>
+                            <a href="sign_up.php">Register</a>
                         </li>
                         <li>
                             <a href="">Recommended</a>
