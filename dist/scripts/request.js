@@ -6,6 +6,10 @@ const nameContain = document.querySelector('.name');
 const mailContain = document.querySelector('.mail');
 const pwdContain = document.querySelector('.pwd-field');
 const cpwdContain = document.querySelector('.cpwd-field');
+const addContain = document.querySelector('.add-field');
+const phoneContain = document.querySelectorAll('.phone-field');
+const stateContain = document.querySelector('.state-field');
+const cityContain = document.querySelector('.city-field');
 
 // Error pop up
 var errPop = document.querySelectorAll('.err-msg');
@@ -15,7 +19,15 @@ nameContain.addEventListener('focusout',blankField);
 mailContain.addEventListener('focusout',blankField);
 pwdContain.addEventListener('focusout',blankField);
 cpwdContain.addEventListener('focusout',blankField);
+addContain.addEventListener('focusout',blankField);
+stateContain.addEventListener('focusout',blankMenu);
+cityContain.addEventListener('focusout',blankMenu);
 
+for(let i=0; i<phoneContain.length; i++)
+{
+    var phoneNo = phoneContain[i];
+    phoneNo.addEventListener('focusout',blankField);
+}
 
 function blankField(event)
 {
@@ -36,11 +48,33 @@ function blankField(event)
     }
 }
 
+function blankMenu(event)
+{
+    value = event.target.value;
+    console.log(value);
+
+    if(value == 'select')
+    {
+        this.classList.add('error');
+    }
+    else
+    {
+        this.classList.remove('error');
+    }
+}
+
 // Adding functionality to the fields when value is typed
 nameContain.addEventListener('keyup',onType);
 mailContain.addEventListener('keyup',onType);
 pwdContain.addEventListener('keyup',onType);
 cpwdContain.addEventListener('keyup',onType);
+addContain.addEventListener('keyup',onType);
+
+for(let i=0; i<phoneContain.length; i++)
+{
+    var phoneNo = phoneContain[i];
+    phoneNo.addEventListener('Keyup',onType);
+}
 
 function onType(event)
 {
@@ -114,8 +148,6 @@ function pwdValidate(event)
         console.log('good password');
         error.style.display = 'none';
         correct.style.display = 'flex';
-
-        confirmPwd(value);
     }
     else
     {
@@ -138,116 +170,11 @@ function confirmPwd(event)
     {
         correct.style.display = 'flex';
     }
-    if(pwd == '' || pwd == null)
+    else
     {
         correct.style.display = 'none';
     }
 
 
 
-}
-
-// Adding functionality to btn
-submit.addEventListener('click',onSubmit);
-
-function onSubmit(event)
-{
-    // Accessing data of each fields
-    const name = nameContain.value;
-    const mail = mailContain.value;
-    const pwd = pwdContain.value;
-    const cpwd = cpwdContain.value;
-
-    // Creating an XHR object
-    var xhr = new XMLHttpRequest();
-
-    // Specifying location to the server
-    xhr.open('POST','server.php',true);
-
-    // Sending data through POST method
-    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');
-    xhr.send('name='+name+'& mail='+mail+'& pwd='+pwd+'& cpwd='+cpwd);
-
-    // Executing the onreadystatechange() function
-    xhr.onreadystatechange = function()
-    {
-        nameContain.classList.remove('error');
-        mailContain.classList.remove('error');
-        pwdContain.classList.remove('error');
-        cpwdContain.classList.remove('error');
-
-        for(let i=0; i<errPop.length; i++)
-        {
-            errPop[i].style.display = 'none';
-        }
-
-        var txt = this.responseText;
-
-        if(this.readyState == 4 && this.status == 200)
-        {
-            if(txt == '0')
-            {
-                nameContain.classList.add('error');
-                errPop[0].style.display = 'flex';
-            }
-            if(txt == '1')
-            {
-                mailContain.classList.add('error');
-                errPop[1].style.display = 'flex';
-            }
-            if(txt == '2')
-            {
-                pwdContain.classList.add('error');
-                cpwdContain.classList.add('error');
-
-                errPop[2].style.display = 'flex';
-                errPop[3].style.display = 'flex';
-            }
-            if(txt == '01')
-            {
-                nameContain.classList.add('error');
-                errPop[0].style.display = 'flex';
-
-                mailContain.classList.add('error');
-                errPop[1].style.display = 'flex';                
-            }
-            if(txt == '02')
-            {
-                nameContain.classList.add('error');
-                errPop[0].style.display = 'flex';
-
-                pwdContain.classList.add('error');
-                errPop[2].style.display = 'flex';   
-
-                cpwdContain.classList.add('error');
-                errPop[3].style.display = 'flex';                
-            }
-            if(txt == '12')
-            {
-                mailContain.classList.add('error');
-                errPop[1].style.display = 'flex';     
-
-                pwdContain.classList.add('error');
-                errPop[2].style.display = 'flex';   
-
-                cpwdContain.classList.add('error');
-                errPop[3].style.display = 'flex';       
-            }
-            if(txt == '012')
-            {
-                nameContain.classList.add('error');
-                errPop[0].style.display = 'flex';
-                
-                mailContain.classList.add('error');
-                errPop[1].style.display = 'flex';     
-
-                pwdContain.classList.add('error');
-                errPop[2].style.display = 'flex';   
-
-                cpwdContain.classList.add('error');
-                errPop[3].style.display = 'flex';   
-            }
-            console.log(txt);
-        }
-    }
 }

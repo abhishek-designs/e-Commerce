@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/5514dc631b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/login.css">
-    <title>Login | eCommerce</title>
-</head>
-<body>
-    <!-- Navigation Bar (PC/Laptop) -->
+<?php
+    echo '<!-- Navigation Bar (PC/Laptop) -->
     <nav class="navbar py-1">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="./img/shopping-cart.png" alt="logo">
                     <h1 class="head-2">MAUJ</h1>
                 </a>
@@ -22,7 +13,7 @@
             <div class="menu-list">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="#">Home</a>
                         <span class="bottom-line"></span></li>
                     <li>Products 
                         <i class="fa fa-sort-down"> 
@@ -131,8 +122,10 @@
 
             <div class="features">
                 <i class="fa fa-search srch-btn"></i>
-                <a href="login.html"><i class="fa fa-user current"></i></a>
-                <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                <a href="login.php"><i class="fa fa-user"></i></a>
+                <a href="#" class="shopping"><i class="fa fa-shopping-cart"></i>
+                    <span class="cart-indicate">0</span>
+                </a>
             </div>
         </div>
     </nav>
@@ -147,11 +140,12 @@
                         
                     </div>
                 </div>
-                    <div class="menu-contain">
+                <div class="menu-contain">
+                    <span class="user-name">Hello, Guest</span>
                         <div>
                             <div class="menu-box bg-light">
-                                <li class="item" id="item-1">
-                                    <a href="index.html" class="list list-1">Home</a>
+                                <li class="item">
+                                    <a href="index.php" class="list list-1">Home</a>
                                 </li>
         
                                 <li class="item" id="item-2">
@@ -185,8 +179,8 @@
                                     <a href="#/item-5" class="list list-5">Contact</a>
                                 </li>
         
-                                <li class="item" id="item-6">
-                                    <a href="#/item-6" class="list list-6">Account</a>
+                                <li class="item">
+                                    <a href="login.php" class="list list-6">Account</a>
                                 </li>
         
                             </div>
@@ -197,7 +191,7 @@
             </div>
 
             <div class="logo">
-                <a href="">
+                <a href="index.php">
                     <img src="./img/shopping-cart.png" alt="logo">
                     <h1 class="head-1">MAUJ</h1>
                 </a>
@@ -208,155 +202,5 @@
 
             </div>
         </div>
-    </nav>
-
-    <!-- Search Bar -->
-    <div class="search">
-        <div class="container">
-            <form action="">
-                <div class="srch-field">
-                    <i class="fa fa-search search-btn"></i>
-                    <input type="text" name="srch" id="srch" class="srch" placeholder="Search">
-                </div>
-                <i class="fa fa-close cancel-btn"></i>
-            </form>
-        </div>
-    </div>
-
-    <!-- Sign In Box -->
-    <section id="sign-in" class="my-2">
-        <div class="container">
-            <div class="card card-1 bg-semi-med">
-                <h2 class="head-3">NEW CUSTOMERS</h2>
-                <p class="lead-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nihil harum tenetur quam excepturi, magnam odit libero maxime illo cupiditate velit id ab quos iure dolorum itaque amet, vel ratione unde voluptatem provident ut! Laudantium quod tempore velit voluptatum eaque veritatis cupiditate ipsa odit vitae! Modi ducimus dolore nostrum ratione?</p>
-                <a href="sign_up.html" class="btn btn-unique">Create Account</a>
-            </div>
-            <div class="card card-2 bg-semi-med">
-                <h2 class="head-3">REGISTERED CUSTOMERS</h2>
-                <div class="form-grp">
-                    <label for="mail">Email</label>
-                    <input type="text" name="mail" id="mail">
-                </div>
-                <div class="form-grp">
-                    <label for="pwd">Password</label>
-                    <input type="password" name="pwd" id="pwd">
-                </div>
-
-                <div class="bottom-space">
-                    <a href="#" class="lead-3">Forgot Your Password?</a>
-                    <a href="#" class="btn btn-unique">login</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer bg-light py-3">
-        <div class="container">
-            <div class="footer">
-
-                <div class="footer-1">
-                    <div class="logo">
-                        <a href="index.php">
-                            <img src="./img/shopping-cart.png" alt="logo">
-                            <h2 class="head-1">Mauj</h2>
-                        </a>
-                    </div>
-                    <div class="address">
-                        <ul>
-                            <li><i class="fa fa-home"></i><p>Kya kroge Jaan kar</p> </li>
-                            <li><i class="fa fa-phone"></i><p>+91-942567389</p> </li>
-                            <li><i class="fa fa-envelope"></i><p>bazaarhaat@gmail.com</p> </li>
-                        </ul>
-                        <div class="logos">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-2">
-                    <h2 class="head-2">INFORMATION</h2>
-                    <ul>
-                        <li>
-                            <a href="">Contact Us</a>
-                        </li>
-                        <li>
-                            <a href="">About Us</a>
-                        </li>
-                        <li>
-                            <a href="">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="">FAQ's</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-3">
-                    <h2 class="head-2">SHOP</h2>
-                    <ul>
-                        <li>
-                            <a href="">Women's Fashion</a>
-                        </li>
-                        <li>
-                            <a href="">Groceries</a>
-                        </li>
-                        <li>
-                            <a href="">Electronics & Gadgets</a>
-                        </li>
-                        <li>
-                            <a href="">Stationary</a>
-                        </li>
-                        <li>
-                            <a href="">Mauj's Nursery</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-4">
-                    <h2 class="head-2">MY ACCOUNT</h2>
-                    <ul>
-                        <li>
-                            <a href="login.php">Login</a>
-                        </li>
-                        <li>
-                            <a href="sign_up.php">Register</a>
-                        </li>
-                        <li>
-                            <a href="">Recommended</a>
-                        </li>
-                        <li>
-                            <a href="">Payments</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-6">
-                    <div class="address">
-                        <ul>
-                            <li><i class="fa fa-home"></i><p>Kya kroge Jaan kar</p> </li>
-                            <li><i class="fa fa-phone"></i><p>+91-942567389</p> </li>
-                            <li><i class="fa fa-envelope"></i><p>bazaarhaat@gmail.com</p> </li>
-                        </ul>
-                        <div class="logos">
-                            <a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-5">
-                    <p class="lead-4">Copyright &copy; BazaarHaat 2020, All Rights Reserved</p>
-                </div>
-
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
-
-<!-- Embeded Scripts -->
-<script src="scripts/search.js"></script>
+    </nav>';
+?>

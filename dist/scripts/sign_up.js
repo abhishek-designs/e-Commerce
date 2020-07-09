@@ -20,3 +20,5 @@ prevBtn.addEventListener('click',function(){
     }
     card[0].classList.add('active');
 })
+
+

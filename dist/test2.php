@@ -1,7 +1,6 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        
         $name = $_POST['name'];
         $mail = $_POST['mail'];
         $comment = $_POST['comment'];

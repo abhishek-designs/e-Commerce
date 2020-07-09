@@ -171,12 +171,14 @@ p
     display:inline-block;
     padding:0.6rem 1rem;
     cursor:pointer;
+    font-family:$main-font;
     border:1px solid transparent;
     margin-top:1rem;
     transition:all $anim-speed ease;
 }
 
-.btn
+button.btn,
+a.btn
 {
     @extend %btn-shared;
     
@@ -208,6 +210,8 @@ p
     {
         background:$med-color;
         color:set-text-color($med-color);
+        font-weight:bold;
+        text-transform:uppercase;
     }
     &-dark
     {
@@ -222,6 +226,7 @@ p
         color:$light-color;
         z-index:2;
         border:none;
+        font-family:$main-font;
         font-weight:bold;
         text-transform:uppercase;
 
@@ -1265,6 +1270,24 @@ p
 
 .correct-ball
 {
-    background:lighten(green,10%);
+    background:$main-color;
     display:none;
 }
+
+.error-tab,.success-tab
+{
+    // 
+    .container
+    {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+        .close-btn
+        {
+            cursor:pointer;
+        }
+    }
+}
+.error-tab{background:lighten(red,15%);}
+.success-tab{background:lighten(green,15%);}

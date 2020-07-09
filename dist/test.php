@@ -1,5 +1,33 @@
-    
+<?php 
+    // $username = 'abhi';
+    // $server = 'localhost';
+    // $password = 'abhi@368';
+    // $dbName = 'test2';
 
+    // $con = mysqli_connect($server,$username,$password,$dbName);
+    // if(!$con)
+    // {
+    //     die('Connection Error: '.mysqli_connect_error($con));
+    // }
+
+    // $query = 'select*from product';
+    // $res = mysqli_query($con,$query);
+
+    // $num = mysqli_num_rows($res);
+    
+    // if($num > 0)
+    // {
+    //     while($row = mysqli_fetch_assoc($res))
+    //     {
+    //         echo $row['Name'];
+    //     }
+        
+    // }
+    // else
+    // {
+    //     echo 'No records found';
+    // }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +95,7 @@
 <body>
 <h1>Testing PHP with mySQL</h1>
 
+<form action="test2.php" method="post">
     <div class="form-grp">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" class="name">
@@ -84,7 +113,8 @@
     </div>
     <input type="submit" value="Submit" class="submit">
     <div class="server"></div>
+</form>
 </body>
 </html>
 
-<script src="scripts/test.js" async></script>
+<!-- <script src="scripts/test.js" async></script> -->

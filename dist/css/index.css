@@ -99,47 +99,60 @@ p {
 .lead-4 {
   font-size: 0.9rem; }
 
-.btn {
+button.btn,
+a.btn {
   display: inline-block;
   padding: 0.6rem 1rem;
   cursor: pointer;
+  font-family: "Cairo", sans-serif;
   border: 1px solid transparent;
   margin-top: 1rem;
   transition: all 0.3s ease; }
 
-.btn-primary {
+button.btn-primary,
+a.btn-primary {
   background: #006eff;
   color: #fff; }
-  .btn-primary:hover {
+  button.btn-primary:hover,
+  a.btn-primary:hover {
     background: #fff;
     color: #006eff;
     border-color: #006eff; }
 
-.btn-light {
+button.btn-light,
+a.btn-light {
   background: #fff;
   color: #006eff;
   border: 1px solid #006eff; }
-  .btn-light:hover {
+  button.btn-light:hover,
+  a.btn-light:hover {
     background: #006eff;
     color: #fff; }
 
-.btn-med {
+button.btn-med,
+a.btn-med {
   background: #aeaeae;
-  color: set-text-color(#aeaeae); }
+  color: set-text-color(#aeaeae);
+  font-weight: bold;
+  text-transform: uppercase; }
 
-.btn-dark {
+button.btn-dark,
+a.btn-dark {
   background: #333;
   color: set-text-color(#333); }
 
-.btn-unique {
+button.btn-unique,
+a.btn-unique {
   position: relative;
   background: #006eff;
   color: #fff;
   z-index: 2;
   border: none;
+  font-family: "Cairo", sans-serif;
   font-weight: bold;
   text-transform: uppercase; }
-  .btn-unique:before {
+  button.btn-unique:before,
+  a.btn-unique:before {
     content: '';
     position: absolute;
     background: #333;
@@ -150,7 +163,8 @@ p {
     transform: scaleX(0);
     z-index: -1;
     transition: transform 0.3s ease; }
-  .btn-unique:hover:before {
+  button.btn-unique:hover:before,
+  a.btn-unique:hover:before {
     transform: scaleX(1); }
 
 .bg-main {
@@ -700,8 +714,21 @@ p {
   display: none; }
 
 .correct-ball {
-  background: #00b300;
+  background: #006eff;
   display: none; }
+
+.error-tab .container, .success-tab .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .error-tab .container .close-btn, .success-tab .container .close-btn {
+    cursor: pointer; }
+
+.error-tab {
+  background: #ff4d4d; }
+
+.success-tab {
+  background: #00cd00; }
 
 @media (max-width: 500px) {
   .container {
@@ -758,7 +785,8 @@ p {
     font-size: 0.9rem; }
   .lead-4 {
     font-size: 0.7rem; }
-  .btn {
+  button.btn,
+  a.btn {
     padding: 0.5rem 0.7rem;
     font-size: 1rem;
     margin-top: 0.8rem; }
@@ -1052,7 +1080,9 @@ p {
           #sign-up .container .sign-box .card-contain .form-grp .content {
             width: 15rem !important;
             font-size: 0.6rem;
-            transform: translateX(80px) translateY(-80px) !important; }
+            transform: translateX(40px) translateY(6px) !important; }
+            #sign-up .container .sign-box .card-contain .form-grp .content:after {
+              transform: translateX(4.2rem) rotate(45deg) !important; }
     #sign-up .container .bottom-space {
       display: none !important; }
   #sign-in .container {

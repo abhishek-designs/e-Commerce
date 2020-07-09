@@ -814,7 +814,12 @@
                             {
                                 width:15rem !important;
                                 font-size:0.6rem;
-                                transform:translateX(80px) translateY(-80px) !important;
+                                transform:translateX(40px) translateY(6px) !important;
+
+                                &:after
+                                {
+                                    transform:translateX(4.2rem) rotate(45deg) !important;
+                                }
                             }
                             
                         }
