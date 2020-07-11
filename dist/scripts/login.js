@@ -34,3 +34,26 @@ function checkFields()
     }
 }
 
+// Adding functionality to show password btn
+const showBtn = document.querySelector('.show-btn');
+var eye = showBtn.querySelector('.fa-eye-slash');
+const eyeCheck = showBtn.querySelector('.toggler');
+
+eyeCheck.addEventListener('change',onChecked);
+
+function onChecked(event)
+{
+    if(this.checked)
+    {
+        // If checked
+        pwdContain.type = 'text';
+        eye.className = 'fa fa-eye';
+        
+    }
+    else
+    {
+        // If unchecked
+        pwdContain.type = 'password';
+        eye.className = 'fa fa-eye-slash';
+    }
+}

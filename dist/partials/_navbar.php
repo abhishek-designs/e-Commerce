@@ -1,4 +1,5 @@
 <?php
+    session_start();
     echo '<!-- Navigation Bar (PC/Laptop) -->
     <nav class="navbar py-1">
         <div class="container">
@@ -121,9 +122,82 @@
             </div>
 
             <div class="features">
-                <i class="fa fa-search srch-btn"></i>
-                <a href="login.php"><i class="fa fa-user"></i></a>
-                <a href="#" class="shopping"><i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-search srch-btn"></i>'; ?>
+                
+            <?php 
+
+            if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+            {
+                echo '<!-- this to be shown when logged out -->
+                   <a href="login.php">
+                       <i class="fa fa-user"></i>
+                   </a>';
+
+            }
+            else
+            {
+                echo '<!-- this to be shown when logged in -->
+                <div class="user">
+                    <i class="fa fa-user"></i>
+                    <div class="user-card bg-light my-4">
+                        <div class="upper-tab">
+                            <div class="ico">
+                                <i class="fa fa-user-alt"></i>
+                            </div>
+                            <h2 class="head-2 main">Hello, '.$_SESSION['username'].'</h2> 
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#" class="">
+                                    <div class="option option1">
+                                        <div class="ico">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <p class="lead-3">Manage Account</p> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="">
+                                    <div class="option option2">
+                                        <div class="ico">
+                                            <i class="fa fa-crown"></i>
+                                        </div>
+                                        <p class="lead-3">Become a member</p> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="">
+                                    <div class="option option3">
+                                        <div class="ico">
+                                            <i class="fa fa-cog"></i>
+                                        </div>
+                                        <p class="lead-3">Settings</p> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="logout.php" class="">
+                                    <div class="option option4">
+                                        <div class="ico">
+                                            <i class="fa fa-door-open"></i>
+                                        </div>
+                                        <p class="lead-3">Sign Out</p> 
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>';
+            }
+            ?>
+
+            
+
+
+                <?php 
+                echo '<a href="#" class="shopping"><i class="fa fa-shopping-cart"></i>
                     <span class="cart-indicate">0</span>
                 </a>
             </div>
@@ -141,66 +215,100 @@
                     </div>
                 </div>
                 <div class="menu-contain">
-                    <span class="user-name">Hello, Guest</span>
+                    
                         <div>
                             <div class="menu-box bg-light">
-                                <li class="item">
-                                    <a href="index.php" class="list list-1">Home</a>
-                                </li>
-        
-                                <li class="item" id="item-2">
-                                    <a href="#/item-2" class="list list-2">Products</a>
-        
-                                    <div class="sub-menu">
-                                        <a href="#" class="sub-btn">Clothings</a>
-                                        <a href="#" class="sub-btn">Electronics</a>
-                                        <a href="#" class="sub-btn">Stationary</a>
-                                        <a href="#" class="sub-btn">Pharmecy</a>
-                                        <a href="#" class="sub-btn">Furniture</a>
+                                <span class="user-name">
+                                    <i class="fa fa-user-alt"></i>'; ?>
+
+                                    <?php
+                                    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+                                    {
+                                        echo  '<h2 class="lead-2">Hello, Guest</h2>';
+
+                                    }
+                                    else
+                                    {
+                                        echo  '<h2 class="lead-2">Hello, '.$_SESSION['username'].'</h2>';
+                                    }
+                                    ?>
+
+                                <?php    
+                                  echo '</span>
+                                <div class="sub-contain">
+                                    <li class="item">
+                                        <a href="index.php" class="list list-1">Home</a>
+                                    </li>
+            
+                                    <li class="item" id="item-2">
+                                        <a href="#/item-2" class="list list-2">Products</a>
+            
+                                        <div class="sub-menu">
+                                            <a href="#" class="sub-btn">Clothings</a>
+                                            <a href="#" class="sub-btn">Electronics</a>
+                                            <a href="#" class="sub-btn">Stationary</a>
+                                            <a href="#" class="sub-btn">Pharmecy</a>
+                                            <a href="#" class="sub-btn">Furniture</a>
+                                        </div>
+                                    </li>
+            
+                                    <li class="item" id="item-3">
+                                        <a href="#/item-3" class="list list-3">Services</a>
+            
+                                        <div class="sub-menu">
+                                            <a href="" class="sub-btn">Bookings</a>
+                                            <a href="" class="sub-btn">Tourism</a>
+                                            <a href="" class="sub-btn">Photography</a>
+                                            <a href="" class="sub-btn">Others</a>
+                                        </div>
+                                    </li>
+            
+                                    <li class="item" id="item-4">
+                                        <a href="#/item-4" class="list list-4">About</a>
+                                    </li>
+            
+                                    <li class="item" id="item-5">
+                                        <a href="#/item-5" class="list list-5">Contact</a>
+                                    </li>';
+                                    ?>
+
+                                    <?php
+                                        if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+                                        {
+                                            echo '<li class="item">
+                                                <a href="login.php" class="list list-6">Sign In</a>
+                                            </li>';
+
+                                        }
+                                        else
+                                        {
+                                            echo '<li class="item">
+                                                    <a href="logout.php" class="list list-6">Sign Out</a>
+                                                </li>';
+
+                                        }
+                                    ?>
+
+                                <?php
+                                echo '</div>
                                     </div>
-                                </li>
-        
-                                <li class="item" id="item-3">
-                                    <a href="#/item-3" class="list list-3">Services</a>
-        
-                                    <div class="sub-menu">
-                                        <a href="" class="sub-btn">Bookings</a>
-                                        <a href="" class="sub-btn">Tourism</a>
-                                        <a href="" class="sub-btn">Photography</a>
-                                        <a href="" class="sub-btn">Others</a>
-                                    </div>
-                                </li>
-        
-                                <li class="item" id="item-4">
-                                    <a href="#/item-4" class="list list-4">About</a>
-                                </li>
-        
-                                <li class="item" id="item-5">
-                                    <a href="#/item-5" class="list list-5">Contact</a>
-                                </li>
-        
-                                <li class="item">
-                                    <a href="login.php" class="list list-6">Account</a>
-                                </li>
-        
-                            </div>
+                                </div>
+                        </div>
+
+
+                        </div>
+
+                        <div class="logo">
+                            <a href="index.php">
+                                <img src="./img/shopping-cart.png" alt="logo">
+                                <h1 class="head-1">MAUJ</h1>
+                            </a>
+                        </div>
+
+                        <div class="srch-contain">
+                            <i class="fa fa-search srch-btn"></i>
+
                         </div>
                     </div>
-
-
-            </div>
-
-            <div class="logo">
-                <a href="index.php">
-                    <img src="./img/shopping-cart.png" alt="logo">
-                    <h1 class="head-1">MAUJ</h1>
-                </a>
-            </div>
-
-            <div class="srch-contain">
-                <i class="fa fa-search srch-btn"></i>
-
-            </div>
-        </div>
-    </nav>';
+                </nav>';
 ?>

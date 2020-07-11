@@ -632,6 +632,116 @@ a.btn
                 }
             }
 
+            .user
+            {
+                position:relative;
+                display:inline-block;
+
+                &:hover
+                {
+                    .user-card
+                    {
+                        opacity:1;
+                        pointer-events: all;
+
+                    }
+                }
+
+                &-card
+                {
+                    position:absolute;
+                    transform:translateX(-8.5rem) translateY(-2rem);
+                    opacity:0;
+                    width:300px;
+                    // pointer-events:none;
+                    transition:opacity $anim-speed ease;
+
+                    &:before
+                    {
+                        content:'';
+                        position:absolute;
+                        height:70px;
+                        width:70px;
+                        background:$light-color;
+                        transform:rotate(45deg) translateX(-55%);
+                        box-shadow:0 0 5px lighten($med-color,10%);
+                        z-index:-1;
+
+                    }
+
+                    .upper-tab
+                    {
+                        padding:1rem 0;
+                        text-align:center;
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        background:$light-color;
+                        // border-bottom:1px solid $med-color;
+
+                        i
+                        {
+                            margin:0;
+                        }
+                    }
+                    ul
+                    {
+                        width:100%;
+                        li
+                        {
+                            width:100%;
+                            padding:0.6rem 2rem;
+                            transition:all $anim-speed ease;
+
+                            &:hover
+                            {
+                                background:$main-color;
+                            }
+
+                            &:hover a .option .lead-3
+                            {
+                                color:$light-color;
+                            }
+                            
+                            a
+                            {
+                                cursor:pointer;
+                                .option
+                                {
+                                    display:flex;
+                                    align-items:center;
+
+                                    .lead-3
+                                    {
+                                        color:$dark-color;
+                                        font-weight:bold;
+                                    }
+
+                                    .ico
+                                    {
+                                        height:50px;
+                                        width:50px;
+                                        background:$light-color;
+                                        border-radius:50%;
+                                        display:flex;
+                                        justify-content:center;
+                                        align-items:center;
+                                        margin-right:1rem;
+                                        i
+                                        {
+                                            background:$light-color;
+                                            color:$dark-color;
+                                            padding:0;
+                                            margin:0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         }
     }
 }
@@ -654,14 +764,8 @@ a.btn
         {
             position:relative;
             // z-index:1;
+            
 
-            .user-name
-            {
-                position:absolute;
-                z-index:1;
-                // text-align:center;
-                transform:translateX(7rem) translateY(1.5rem);
-            }
 
             .toggler
             {
@@ -675,19 +779,21 @@ a.btn
 
                 &:checked + .hamburger > div
                 {
-                    transform:translateX(-5px) rotate(135deg);
+                    transform:translateX(260px) rotate(135deg);
+                    background:$light-color;
 
                     &:before,&:after
                     {
                         content:'';
                         top:0;
                         transform:rotate(90deg);
+                        background:$light-color;
                     }
                 }
 
                 &:checked:hover + .hamburger > div
                 {
-                    transform:translateX(-5px) rotate(225deg);
+                    transform:translateX(260px) rotate(225deg);
 
                 }
 
@@ -709,7 +815,7 @@ a.btn
 
                 &:checked
                 {
-                    transform:translateX(-5px);
+                    transform:translateX(260px);
                 }
 
 
@@ -767,6 +873,8 @@ a.btn
                     transition:transform $anim-speed ease;
                     // overflow:auto;
 
+
+
                     & > div
                     {
                         position:absolute;
@@ -783,95 +891,128 @@ a.btn
                         position:relative;
                         overflow:auto;
                         // overflow:hidden;
-                        padding:7rem 0;
+                        padding: 0;
                         transform:translateX(-10rem);
                         height:50rem;
                         width:300px;
                         transition:transform $anim-speed ease;
                         // box-shadow:0 0 9px darken($light-color,10%);
-                        .item
+
+                        .user-name
                         {
-                            list-style:none;
+                            position:absolute;
+                            z-index:1;
+                            overflow:auto;
                             text-align:center;
-                            overflow:hidden;
-                            width:100%;
-    
-                            &:focus-within .sub-menu
+                            background:$light-color;
+                            color:$main-color;
+                            box-shadow:0 0 15px lighten($med-color,10%);
+                            width:18.7rem;
+                            height:70px;
+                            margin-bottom:5rem;
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
+
+                            i
                             {
-                                max-height:20rem;
+                                transform:translateX(-1.5rem);
                             }
-    
-                            .list
+
+                            .lead-2
                             {
-                                display:block;
-                                padding:1rem 5rem;
-                                position:relative;
-                                // border-top:1px solid $med-color;
-                                transition:all $anim-speed ease;
-                                background:$light-color;
-                                // z-index:2;
-    
-                                &:hover
-                                {
-                                    background:$main-color;
-                                    color:$light-color;
-                                }
-    
-                                &:before
-                                {
-                                    content:'';
-                                    position:absolute;
-                                    height:40px;
-                                    width:40px;
-                                    transform:rotate(45deg);
-                                    background:inherit;
-                                    top:26px;
-                                    left:15px;
-                                    // opacity:0;
-                                    // z-index:1;
-                                }
-    
-    
+                                padding:0;
                             }
-    
-                            .sub-menu
+                        }
+
+                        .sub-contain
+                        {
+                            margin-top:5rem;
+                            .item
                             {
+                                list-style:none;
+                                text-align:center;
                                 overflow:hidden;
-                                background:$semi-med-color;
                                 width:100%;
-                                max-height:0;
-                                transition:max-height $anim-speed ease;
-                                // height:10.5rem;
-    
-                                .sub-btn
+        
+                                &:focus-within .sub-menu
+                                {
+                                    max-height:20rem;
+                                }
+        
+                                .list
                                 {
                                     display:block;
-                                    position:absolute;
-                                    text-align:center;
-                                    padding:0.8rem 2rem;
-                                    margin:0.6rem 5rem;
+                                    padding:1rem 5rem;
                                     position:relative;
-                                    transition:background $anim-speed ease;
-    
-                                    &:hover:before
+                                    // border-top:1px solid $med-color;
+                                    transition:all $anim-speed ease;
+                                    background:$light-color;
+                                    // z-index:2;
+        
+                                    &:hover
                                     {
-                                        opacity:1;
+                                        background:$main-color;
+                                        color:$light-color;
                                     }
-    
+        
                                     &:before
                                     {
                                         content:'';
                                         position:absolute;
-                                        width:5px;
-                                        height:100%;
-                                        background:$main-color;
-                                        top:2px;
-                                        left:-80px;
-                                        opacity:0;
-                                        transition:opacity $anim-speed ease;
+                                        height:40px;
+                                        width:40px;
+                                        transform:rotate(45deg);
+                                        background:inherit;
+                                        top:26px;
+                                        left:15px;
+                                        // opacity:0;
+                                        // z-index:1;
+                                    }
+        
+        
+                                }
+        
+                                .sub-menu
+                                {
+                                    overflow:hidden;
+                                    background:$semi-med-color;
+                                    width:100%;
+                                    max-height:0;
+                                    transition:max-height $anim-speed ease;
+                                    // height:10.5rem;
+        
+                                    .sub-btn
+                                    {
+                                        display:block;
+                                        position:absolute;
+                                        text-align:center;
+                                        padding:0.8rem 2rem;
+                                        margin:0.6rem 5rem;
+                                        position:relative;
+                                        transition:background $anim-speed ease;
+        
+                                        &:hover:before
+                                        {
+                                            opacity:1;
+                                        }
+        
+                                        &:before
+                                        {
+                                            content:'';
+                                            position:absolute;
+                                            width:5px;
+                                            height:100%;
+                                            background:$main-color;
+                                            top:2px;
+                                            left:-80px;
+                                            opacity:0;
+                                            transition:opacity $anim-speed ease;
+                                        }
                                     }
                                 }
                             }
+
                         }
                     }
                 }
@@ -1291,3 +1432,25 @@ a.btn
 }
 .error-tab{background:lighten(red,15%);}
 .success-tab{background:lighten(green,15%);}
+
+// Welcome Panel
+.welcome-pane
+{
+    display:none;
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.5);
+    z-index:3;
+
+    .container
+    {
+        margin-top:5rem;
+        width:1100px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+}

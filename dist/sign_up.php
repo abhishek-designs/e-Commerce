@@ -225,6 +225,9 @@
 
     <!-- Sign Up Box -->
     <section id="sign-up" class="my-2">
+        <div class="shop-vector my-2">
+            <img src="img/illustrations/undraw_Login_v483.svg" alt="">
+        </div>
         <div class="container">
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                 <h2 class="head-3">CREATE ACCOUNT</h2>
@@ -293,7 +296,7 @@
                                 </div>
 
                                 <div class="bottom-space-m">
-                                    <a href="#" class="btn btn-unique next">Next</a>
+                                    <a class="btn btn-unique next">Next</a>
                                 </div>
                             </form>
                         </div>
@@ -302,7 +305,7 @@
                     <div class="card card2">
                         <div class="card-contain bg-semi-med">
                             <div class="controls">
-                                <a href="#" class="btn btn-primary prev"><i class="fa fa-chevron-left"></i></a>
+                                <a class="btn btn-primary prev"><i class="fa fa-chevron-left"></i></a>
                                 <h2 class="head-2">CREATE ACCOUNT</h2>
                             </div>
                             <div class="form-grp">

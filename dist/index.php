@@ -173,7 +173,7 @@
                     <a href="#" class="btn btn-unique">check now</a>
                 </div>
                 <div class="img-contain">
-                    <img src="./img/Illustrations/image-from-rawpixel-id-2297809-png.png" alt="">
+                    <img src="./img/Illustrations/undraw_medicine_b1ol.svg" alt="">
                 </div>
             </div>
         </section>

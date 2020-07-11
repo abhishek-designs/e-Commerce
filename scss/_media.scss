@@ -18,6 +18,12 @@
         }
     }
 
+    // Password show btn
+    .show-btn
+    {
+        transform:translateX(12.5rem) translateY(-3rem) !important;
+    }
+
     // Contact field style
     .code
     {
@@ -853,7 +859,6 @@
         // height:50vh;
         .container
         {
-
             grid-template-columns:1fr !important;
             grid-gap:0.6rem;
             .card

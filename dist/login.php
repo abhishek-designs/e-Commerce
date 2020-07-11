@@ -6,6 +6,7 @@
         $usermail = trimData($_POST['mail']);
         $userpwd = htmlspecialchars($_POST['pwd']);
 
+        // Connecting to database
         require 'partials/_mySQLConnect.php';
 
         $query = 'select *from t2 where Cust_Email="'.$usermail.'"';
@@ -20,7 +21,12 @@
                 $verify = password_verify($userpwd,$row['Cust_Pwd']);
                 if($verify)
                 {
-                    $showAlert = 'User found';
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['username'] = $row['Cust_Name'];
+                    
+                    // Redirect to welcome page
+                    header('location: /Ecommerce/dist/index.php');
                     $showError = false;
                 }
                 else
@@ -40,6 +46,7 @@
         }
     }
 
+    // trimming data to avoid useless characters
     function trimData($data)
     {
         $data = htmlspecialchars($data);
@@ -101,12 +108,10 @@
 
     <!-- Sign In Box -->
     <section id="sign-in" class="my-2">
+        <div class="shop-vector">
+            <img src="img/illustrations/undraw_gone_shopping_vwmc.svg" alt="">
+        </div>
         <div class="container">
-            <div class="card card-1 bg-semi-med">
-                <h2 class="head-3">NEW CUSTOMERS</h2>
-                <p class="lead-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nihil harum tenetur quam excepturi, magnam odit libero maxime illo cupiditate velit id ab quos iure dolorum itaque amet, vel ratione unde voluptatem provident ut! Laudantium quod tempore velit voluptatum eaque veritatis cupiditate ipsa odit vitae! Modi ducimus dolore nostrum ratione?</p>
-                <a href="sign_up.php" class="btn btn-unique">Create Account</a>
-            </div>
             <div class="card card-2 bg-semi-med">
                 <h2 class="head-3">REGISTERED CUSTOMERS</h2>
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
@@ -117,6 +122,10 @@
                     <div class="form-grp">
                         <label for="pwd">Password <span class="red">*</span></label>
                         <input type="password" name="pwd" id="pwd" class="pwd">
+                        <span class="show-btn">
+                            <i class="fa fa-eye-slash"></i>
+                            <input type="checkbox" name="toggler" id="toggler" class="toggler">
+                        </span>
                     </div>
                     <div class="bottom-space">
                         <a href="#" class="lead-3">Forgot Your Password?</a>
@@ -125,6 +134,12 @@
                     </div>
                 </form>
             </div>
+            <div class="card card-1 bg-light">
+                <h2 class="head-3">NEW CUSTOMERS</h2>
+                <!-- <p class="lead-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nihil harum tenetur quam excepturi, magnam odit libero maxime illo cupiditate velit id ab quos iure dolorum itaque amet, vel ratione unde voluptatem provident ut! Laudantium quod tempore velit voluptatum eaque veritatis cupiditate ipsa odit vitae! Modi ducimus dolore nostrum ratione?</p> -->
+                <a href="sign_up.php" class="btn btn-unique">Create Account</a>
+            </div>
+            
         </div>
     </section>
 

@@ -20,36 +20,86 @@ html
 // Sign Up Form Styling
 #sign-in
 {
-    // height:50vh;
+    .shop-vector
+    {
+        position:absolute;
+        margin-left:-5rem;
+
+        img
+        {
+            height:500px;
+            
+        }
+    }
+
     .container
     {
         height:100%;
         display:grid;
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:0.5fr;
+        grid-gap:1rem;
+        justify-content:center;
         .card
         {
+
             padding:1.5rem;
             height:100%;
             margin:0 1rem;
+            z-index:1;
 
             .head-3
             {
                 position:relative;
+                text-align:center;
 
-                &::after
-                {
-                    content:'';
-                    position:absolute;
-                    margin-top:25px;
-                    height:2px;
-                    width:15rem;
-                    background:$main-color;
-                    transform:translateX(40px);
-                }
+                // &::after,&::before
+                // {
+                //     content:'';
+                //     position:absolute;
+                //     margin-top:25px;
+                //     height:2px;
+                //     width:5rem;
+                //     background:$main-color;
+                //     transform:translateX(40px);
+                // }
+
+                // &::before
+                // {
+                //     transform:translateX(-0px);
+                // }
             }
 
             &-1
             {
+                .head-3
+                {
+                    position:relative;
+                    text-align:center;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    
+                    &:after,&:before
+                    {
+                        content:'';
+                        position:absolute;
+                        background:$main-color;
+                        height:2px;
+                        width:30%;
+
+
+                    }
+
+                    &:after
+                    {
+                        left:0;
+                    }
+                    &:before
+                    {
+                        right:0;
+                    }
+                }
+
                 .lead-3
                 {
                     margin-top:1rem;
@@ -57,9 +107,10 @@ html
 
                 .btn
                 {
-                    // width:100%;
+                    width:100%;
                     text-align:center;
                     margin-top:2rem;
+
                     
                 }
             }
@@ -87,7 +138,35 @@ html
                         }
                     }
 
-                    
+                    .pwd
+                    {
+                        position:relative;
+                    }
+
+                    .show-btn
+                    {
+                        position:absolute;
+                        padding:0.6rem 0;
+                        width:50px;
+                        height:48px;
+                        color:$dark-color;
+                        transform:translateX(32.5rem) translateY(-3rem);
+                        border-left:1px solid $med-color;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+
+                        .toggler
+                        {
+                            position:absolute;
+                            height:20px;
+                            width:100%;
+                            z-index:2;
+                            opacity:0;
+                            cursor:pointer;
+                        }
+                    }
+
                 }
 
                 .bottom-space
