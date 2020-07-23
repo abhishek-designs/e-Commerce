@@ -123,7 +123,7 @@
                         <label for="pwd">Password <span class="red">*</span></label>
                         <input type="password" name="pwd" id="pwd" class="pwd">
                         <span class="show-btn">
-                            <i class="fa fa-eye-slash"></i>
+                            <i class="fa fa-eye"></i>
                             <input type="checkbox" name="toggler" id="toggler" class="toggler">
                         </span>
                     </div>

@@ -133,9 +133,36 @@ h1,h2,h3,h4,h5,h6
         }
     }
 
+    &-line-1
+    {
+        font-size:2rem;
+        position:relative;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        &:before,&::after
+        {
+            content:'';
+            position:absolute;
+            height:2px;
+            width:30%;
+            background:$main-color;
+
+        }
+
+        &:before{left:0;}
+        &:after{right:0;}
+    }
+
     &-3
     {
         font-size:1.5rem;
+    }
+
+    &-4
+    {
+        font-size:1rem;
     }
 }
 
@@ -160,7 +187,22 @@ p
     }
     &-4
     {
-        font-size:0.9rem;
+        font-size:0.7rem;
+    }
+    &-cutoff
+    {
+        position:relative;
+
+        &:after
+        {
+            content:'';
+            position:absolute;
+            width:1px;
+            height:2.1rem;
+            background:$dark-color;
+            margin:0.5px 0 0 -15px;
+            transform:rotate(60deg);
+        }
     }
 }
 
@@ -217,6 +259,20 @@ a.btn
     {
         background:$dark-color;
         color:set-text-color($dark-color);
+    }
+
+    &-transparent
+    {
+        background:transparent;
+        border:2px solid $light-color;
+        color:$light-color;
+
+
+        &:hover
+        {
+            background:$main-color;
+            border:2px solid $main-color;
+        }
     }
 
     &-unique
@@ -325,17 +381,18 @@ a.btn
     // display:flex;
     // flex-direction:column;
     background:$light-color;
-    padding:1rem;
+    padding:0.5rem;
     // height:400px;
     // width:350px;
+    position:relative;
     border-radius:15px;
-    box-shadow:0 0 9px darken($semi-med-color,10%);
     transition:all $anim-speed ease;
     
     &:hover
     {
-        transform:translateY(-5px);
-        box-shadow:0 9px 9px darken($semi-med-color,10%);
+        box-shadow:0 0 9px darken($semi-med-color,10%);
+        // transform:translateY(-5px);
+        // box-shadow:0 9px 9px darken($semi-med-color,10%);
     }
 
     .img-contain
@@ -352,68 +409,58 @@ a.btn
 
     }
 
-    .ratings
+    &:hover > .cart-tab
     {
-        padding-top:1.6rem;
-    }
-    
-    .content-pc
-    {
-        padding-top:1rem;
-        
-        .head-3
-        {
-            padding-bottom:0;
-        }
-        
-        
-    }
-    
-    .content-m
-    {
-        display:none;
+        transform:translateY(0);
+        opacity:1;
     }
 
+    
     .bottom-tab
     {
-        display:flex;
-        justify-content:space-between;
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
         align-items:center;
+        // justify-content:space-between;
+        // position:absolute;
+        // padding:0 2rem;
+        margin-top:0.6rem;
+        margin-bottom:4rem;
+        // bottom:0;
+        // left:0;
+        // right:0;
 
-        .btn-tab
+        .ratings
         {
-            .btn
-            {
-                margin-top:0;
-                border-radius:50%;
-                // border:1px solid transparent;
-            }
-
-            .cart
-            {
-                width:50px;
-                height:50px;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-            }
-
-            .fav
-            {
-                border:none;
-
-
-                &:hover
-                {
-                    background:none;
-                }
-
-                
-            }
-
+            // padding-top:1.6rem;
+            display:none;
         }
+        
+        .content-pc
+        {
+            // padding-top:2rem;
+            // margin-bottom:4rem;
+            text-align:left;
+            // padding-bottom:1rem;
+            
+            .head-3
+            {
+                padding-bottom:0;
+            }
+            
+            
+        }
+        
+        .content-m
+        {
+            display:none;
+            // margin-bottom:5rem;
+        }
+    
+
         .price-tab
         {
+            // text-align:left;
             p
             {
                 display:inline-block;
@@ -437,6 +484,74 @@ a.btn
             }
         }
 
+
+        // .cart
+        // {
+        //     width:50px;
+        //     height:50px;
+        //     display:flex;
+        //     align-items:center;
+        //     justify-content:center;
+        //     display:none;
+        // }
+
+        .fav
+        {
+            margin:1.5rem;
+            border-radius:50%;
+            background:rgba(0,0,0,0.2);
+            border:none;
+            position:absolute;
+            top:0;
+            right:0;
+
+            i
+            {
+                color:$light-color;
+            }
+
+
+            &:hover
+            {
+                background:none;
+            }
+
+            
+        }
+
+
+    }
+
+    .cart-tab
+    {
+        position:absolute;
+        background:rgba($main-color,0.7);
+        color:$light-color;
+        width:100%;
+        left:0;
+        right:0;
+        bottom:0;
+        padding:1rem 0;
+        border-bottom-left-radius:15px;
+        border-bottom-right-radius:15px;
+        cursor:pointer;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        transform:translateY(5rem);
+        opacity:0;
+        z-index:1;
+        transition:all $anim-speed ease;
+
+        &:hover
+        {
+            background:$main-color;
+        }
+
+        .lead-3
+        {
+            padding:0 !important;
+        }
     }
     
 }
@@ -463,9 +578,9 @@ a.btn
 .navbar
 {
     position:relative;
-    // top:0;
     background:$light-color;
     z-index:3;
+    border-bottom:1px solid darken($semi-med-color,10%);
     transition:background 0.5s ease;
     .container
     {
@@ -527,18 +642,101 @@ a.btn
                     .sub-list
                     {
                         // display:none;
-                        position:absolute;
                         display:grid;
-                        grid-template-columns:repeat(5,1fr);
+                        grid-template-columns:repeat(4,1fr);
                         grid-gap:1rem;
+                        position:absolute;
                         box-shadow:0 0 9px $med-color;
                         padding:1rem 1.5rem;
                         width:900px;
                         // height:700px;
                         z-index:2;
                         background:$light-color;
-                        transform:scaleY(0) translateY(-150px);
+                        transform:scaleY(0); //translateY(-150px)
                         transition:transform $anim-speed ease;
+                        
+                        // &:nth-child(3)
+                        // {
+                        //     display:none;
+                        // }
+                        
+                        // .categories
+                        // {
+                        //     .head-3
+                        //     {
+                        //         position:relative;
+                        //         text-align:center;
+                        //         display:flex;
+                        //         justify-content:center;
+                        //         align-items:center;
+
+                        //         &:before,&:after
+                        //         {
+                        //             content:'';
+                        //             position:absolute;
+                        //             background:$main-color;
+                        //             height:2px;
+                        //             width:30%;
+                        //         }
+
+                        //         &:before
+                        //         {
+                        //             left:0;
+                        //         }
+
+                        //         &:after
+                        //         {
+                        //             right:0;
+                        //         }
+                        //     }
+                        //     .category
+                        //     {
+                        //         display:flex;
+                        //         align-items:center;
+                        //         border-bottom:1px solid darken($semi-med-color,10%);
+
+                        //         .cat-tab
+                        //         {
+                                    
+                        //             padding:0 1rem;
+                        //             // margin-left:2rem;
+                        //             a
+                        //             {
+                        //                 display:flex;
+                        //                 flex-direction:column;
+                        //                 justify-content:center;
+                        //                 .ico
+                        //                 {
+                        //                     text-align:center;
+                        //                     height:50px;
+                        //                     width:50px;
+                        //                     background:$main-color;
+                        //                     color:$light-color;
+                        //                     border-radius:50%;
+                        //                     display:flex;
+                        //                     justify-content:center;
+                        //                     align-items:center;
+                        //                     align-self:center;
+                        //                     border:1px solid transparent;
+                        //                     margin-bottom:0.5rem;
+                        //                     cursor:pointer;
+                        //                     transition:all $anim-speed ease;
+
+                        //                     &:hover
+                        //                     {
+                        //                         border-color:$main-color;
+                        //                         background:$light-color;
+                        //                         color:$main-color;
+                                                
+                        //                     }
+                        //                 }
+
+                        //             }
+
+                        //         }
+                        //     }
+                            
+                        // }
 
                         .lead-1
                         {
@@ -636,6 +834,8 @@ a.btn
             {
                 position:relative;
                 display:inline-block;
+                margin-right:1.5rem;
+                border-radius:50%;
 
                 &:hover
                 {
@@ -647,13 +847,18 @@ a.btn
                     }
                 }
 
+                i
+                {
+                    margin:0;
+                }
+
                 &-card
                 {
                     position:absolute;
                     transform:translateX(-8.5rem) translateY(-2rem);
                     opacity:0;
                     width:300px;
-                    // pointer-events:none;
+                    pointer-events:none;
                     transition:opacity $anim-speed ease;
 
                     &:before
@@ -671,6 +876,7 @@ a.btn
 
                     .upper-tab
                     {
+                        position:relative;
                         padding:1rem 0;
                         text-align:center;
                         display:flex;
@@ -682,7 +888,9 @@ a.btn
                         i
                         {
                             margin:0;
+                            
                         }
+
                     }
                     ul
                     {
@@ -1055,6 +1263,7 @@ a.btn
 // Footer Styling
 .main-footer
 {
+    border-top:1px solid darken($semi-med-color,10%);
     .container
     {
         .footer
@@ -1454,3 +1663,121 @@ a.btn
         align-items:center;
     }
 }
+
+.mesh
+{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    height:300%;
+    transform:translateX(-15rem) translateY(-11rem) rotate(20deg);
+    background:lighten($main-color,10%);
+    // transform:rotate(45deg);
+    // border-top-right-radius: 100%;
+    width:40%;
+
+    &:nth-child(2)
+    {
+        width:30%;
+        height:300%;
+        // border-top-right-radius:100%;
+        // border-bottom-right-radius:100%;
+        background:lighten($main-color,10%);
+        transform:translateX(10.5rem) translateY(-11rem) rotate(20deg);
+    }
+}
+
+// Electonics Section Styling
+
+    .vector-art
+    {
+        position:absolute;
+        height:100%;
+        right:0;
+    }
+    .product
+    {
+        margin-top:-2rem;
+        display:grid;
+        grid-template-columns:0.3fr;
+        height:100%;
+        &-contain
+        {
+            margin:0 2rem;
+            padding:1rem;
+            z-index:1;
+
+            .head-3
+            {
+                text-align:center;
+                font-size:1.8rem;
+            }
+            .product-groups
+            {
+                display:grid;
+                grid-template-columns:repeat(2,200px);
+                margin-left:2rem;
+                height:100%;
+
+                .product-box
+                {
+                    // height:150px;
+                    position:relative;
+                    background:$semi-med-color;
+                    box-shadow:0 0 9px darken($main-color,10%);
+                    margin:1rem;
+                    overflow:hidden;
+                    height:150px;
+                    width:150px;
+                    padding:1rem;
+
+                    &:hover
+                    {
+                        .product-box-overlay
+                        {
+                            transform:translateY(0);
+                        }
+                    }
+                    
+                    img
+                    {
+                        height:100%;
+                        width:100%;
+                        
+                    }
+
+                    &-overlay
+                    {
+                        position:absolute;
+                        background:rgba(0,0,0,0.5);
+                        top:0;
+                        bottom:0;
+                        left:0;
+                        right:0;
+                        display:flex;
+                        flex-direction:column;
+                        justify-content:center;
+                        align-items:center;
+                        transform:translateY(100%);
+                        transition:transform $anim-speed ease;
+
+                        .btn
+                        {
+                            margin:1rem;
+                            padding:0.3rem 1rem;
+
+                        }
+
+                        .lead-2
+                        {
+                            color:$light-color;
+                        }
+                    }
+                    
+                }
+
+            }
+        }
+    }
+    

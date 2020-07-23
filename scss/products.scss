@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'utility';
+@import 'media';
+
+html
+{
+    body
+    {
+        font-family:$main-font;
+    }
+}
+
+// Main prducts section styling
+.products
+{
+    display:grid;
+    grid-template-columns:0.6fr 2fr;
+    grid-gap:1rem;
+
+    // Products setting styling
+    &-setting
+    {
+        padding:0 1rem;
+        
+        &-box
+        {
+            width:100%;
+            margin-bottom:1rem;
+            ul
+            {
+                text-align:center;
+                li
+                {
+                    display:block;
+                    
+                }
+            }
+        }
+    }
+
+    // Products showcase styling
+    &-showcase
+    {
+        padding:0 1rem;
+        &-contain
+        {
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            grid-gap:0.6rem;
+        }
+    }
+
+
+}

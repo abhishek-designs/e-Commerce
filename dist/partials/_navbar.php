@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require '_mySQLConnect.php';
     echo '<!-- Navigation Bar (PC/Laptop) -->
     <nav class="navbar py-1">
         <div class="container">
@@ -12,25 +13,128 @@
             </div>
 
             <div class="menu-list">
-                <ul>
-                    <li>
-                        <a href="#">Home</a>
-                        <span class="bottom-line"></span></li>
-                    <li>Products 
-                        <i class="fa fa-sort-down"> 
-                        <span class="bottom-line"></span></i>
+                <ul>'; ?>
+
+            <?php
+                // First fetching all the categories
+                $query = 'select *from categories';
+                // Executing the query
+                $res = mysqli_query($con,$query);
+                // Fetching the num of rows to check the records
+                $num = mysqli_num_rows($res);
+
+                if($num > 0)
+                {
+                    // If the records are there
+                    while($row = mysqli_fetch_assoc($res))
+                    {
+                        // one by one fetching each categories till the records become null
+                        $catId = $row['cat_id'];
+                        $catName = $row['cat_name'];
+                        
+                        echo '<li>'.$catName.'
+                            <i class="fa fa-sort-down"></i>
+                            <span class="bottom-line"></span>
+                            <div class="sub-list">';
+
+                        // Now fetching the sub categories records
+                        $query = 'select *from sub_categories where cat_id='.$catId;
+                        $res2 = mysqli_query($con,$query);
+                        $num2 = mysqli_num_rows($res2);
+
+                        if($num2 > 0)
+                        {
+                            // If sub categories records are there
+                            while($row2 = mysqli_fetch_assoc($res2))
+                            {
+                                // one by one fetching each categories till the records become null 
+                                $subCatId = $row2['sub_cat_id'];
+                                $subCatName = $row2['sub_cat_name'];   
+
+                                echo '<div class="'.$subCatName.'">
+                                    <h2 class="lead-1 main">'.$subCatName.'</h2>
+                                    <ul>';
+
+                                    $query = 'select *from sub_sub_categories where sub_cat_id='.$subCatId;
+                                    $res3 = mysqli_query($con,$query);
+                                    $num3 = mysqli_num_rows($res3);
+
+                                    if($num3 > 0)
+                                    {
+                                        // If sub sub categories records are there
+                                        while($row3 = mysqli_fetch_assoc($res3))
+                                        {
+                                            // one by one fetching each categories till the records become null
+                                            $subSubCatId = $row3['sub_sub_cat_id'];
+                                            $subSubCatName = $row3['sub_sub_cat_name'];
+                                            
+                                            echo '<li> <a href="products.php?sub_sub_cat_id='.$subSubCatId.'">'.$subSubCatName.'</a></li>';
+                                        }
+                                    }
+                                    else
+                                    {
+                                        // If records are not there
+                                        echo 'No records found';
+                                    }
+
+                                echo '</ul>
+                                </div>';
+
+                            }
+                        }
+                        else
+                        {
+                            // If records are not there
+                            echo 'No records found';
+                        }
+
+
+                                echo '<!-- <div class="bottom-wear">
+                                    <h2 class="lead-1 main">Bottom Wear</h2>
+                                    <ul>
+                                        <li> <a href="">Jeans</a></li>
+                                        <li> <a href="">Pants</a></li>
+                                        <li> <a href="">Trousers</a></li>
+                                        <li> <a href="">Chinos</a></li>
+                                        <li> <a href="">Caphri</a></li>
+                                        <li> <a href="">Shorts</a></li>
+                                    </ul>
+                                </div>
+                                <div class="inner-wear">
+                                    <h2 class="lead-1 main">Inner Wear</h2>
+                                    <ul>
+                                        <li> <a href="">Tanks</a></li>
+                                        <li> <a href="">Underwears</a></li>
+                                    </ul>
+                                </div>
+                                <div class="Foot-wear">
+                                    <h2 class="lead-1 main">Foot Wears</h2>
+                                    <ul>
+                                        <li> <a href="">Sports shoes</a></li>
+                                        <li> <a href="">Casual shoes</a></li>
+                                        <li> <a href="">Formal shoes</a></li>
+                                        <li> <a href="">Sneakers</a></li>
+                                    </ul>
+                                </div> -->
+
+                            </div>    
+                        </li>';
+
+                    }
+
+                }
+                else
+                {
+                    // If there are no records
+                    echo 'No records found';
+                }
+                ?>
+                
+                    <!-- <li>Womens
+                        <i class="fa fa-sort-down"></i>
+                        <span class="bottom-line"></span>
                         <div class="sub-list">
-                            <div class="clothings">
-                                <h2 class="lead-1 main">Clothings</h2>
-                                <ul>
-                                    <li> <a href="">Saree</a></li>
-                                    <li> <a href="">Jeans</a></li>
-                                    <li> <a href="">T-Shirts</a></li>
-                                    <li> <a href="">Skirts</a></li>
-                                    <li> <a href="">Kurtas</a></li>
-                                    <li> <a href="">Frock</a></li>
-                                </ul>
-                            </div>
+                             
                             <div class="electronics">
                                 <h2 class="lead-1 main">Electronics</h2>
                                 <ul>
@@ -70,7 +174,8 @@
                             </div>
                         </div>
                     </li>
-                    <li>Services 
+
+                    <li>Kids 
                         <i class="fa fa-sort-down"></i>
                         <span class="bottom-line"></span>
                         <div class="sub-list">
@@ -109,22 +214,105 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <a href="#">About</a>
+
+                    <li>Electronics
+                        <i class="fa fa-sort-down"></i>
                         <span class="bottom-line"></span>
+                        <div class="sub-list">
+                            
+                            <div class="electronics">
+                                <h2 class="lead-1 main">Electronics</h2>
+                                <ul>
+                                    <li> <a href="">Smartphones</a></li>
+                                    <li> <a href="">Headphones</a></li>
+                                    <li> <a href="">Television</a></li>
+                                    <li> <a href="">Laptops</a></li>
+                                </ul>
+                            </div>
+                            <div class="stationary">
+                                <h2 class="lead-1 main">Stationary</h2>
+                                <ul>
+                                    <li> <a href="">Books</a></li>
+                                    <li> <a href="">Eng. Materials</a></li>
+                                    <li> <a href="">Pencil</a></li>
+                                    <li> <a href="">Rubber</a></li>
+                                    <li> <a href="">Pen & Marker</a></li>
+                                    <li> <a href="">Draw. Sheets</a></li>
+                                </ul>
+                            </div>
+                            <div class="pharmecy">
+                                <h2 class="lead-1 main">Pharmecy</h2>
+                                <ul>
+                                    <li> <a href="">Ayurvedic</a></li>
+                                    <li> <a href="">Homeopathic</a></li>
+                                    <li> <a href="">Alopathic</a></li>
+                                </ul>
+                            </div>
+                            <div class="furniture">
+                                <h2 class="lead-1 main">Furniture</h2>
+                                <ul>
+                                    <li> <a href="">Dining Tables</a></li>
+                                    <li> <a href="">Beds</a></li>
+                                    <li> <a href="">Sofas</a></li>
+                                    <li> <a href="">Chairs</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
-                    <li>
-                        <a href="#">Contact Us</a>
+
+                    <li>Home & Furniture
+                        <i class="fa fa-sort-down"></i>
                         <span class="bottom-line"></span>
+                        <div class="sub-list">
+                            
+                            <div class="electronics">
+                                <h2 class="lead-1 main">Electronics</h2>
+                                <ul>
+                                    <li> <a href="">Smartphones</a></li>
+                                    <li> <a href="">Headphones</a></li>
+                                    <li> <a href="">Television</a></li>
+                                    <li> <a href="">Laptops</a></li>
+                                </ul>
+                            </div>
+                            <div class="stationary">
+                                <h2 class="lead-1 main">Stationary</h2>
+                                <ul>
+                                    <li> <a href="">Books</a></li>
+                                    <li> <a href="">Eng. Materials</a></li>
+                                    <li> <a href="">Pencil</a></li>
+                                    <li> <a href="">Rubber</a></li>
+                                    <li> <a href="">Pen & Marker</a></li>
+                                    <li> <a href="">Draw. Sheets</a></li>
+                                </ul>
+                            </div>
+                            <div class="pharmecy">
+                                <h2 class="lead-1 main">Pharmecy</h2>
+                                <ul>
+                                    <li> <a href="">Ayurvedic</a></li>
+                                    <li> <a href="">Homeopathic</a></li>
+                                    <li> <a href="">Alopathic</a></li>
+                                </ul>
+                            </div>
+                            <div class="furniture">
+                                <h2 class="lead-1 main">Furniture</h2>
+                                <ul>
+                                    <li> <a href="">Dining Tables</a></li>
+                                    <li> <a href="">Beds</a></li>
+                                    <li> <a href="">Sofas</a></li>
+                                    <li> <a href="">Chairs</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </li>
-                </ul>
+                </ul> -->
                 
-            </div>
+        <?php        
+            echo '</div>
 
             <div class="features">
-                <i class="fa fa-search srch-btn"></i>'; ?>
-                
-            <?php 
+                <i class="fa fa-search srch-btn"></i>'; 
+        ?>
+        <?php 
 
             if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
             {
@@ -191,12 +379,12 @@
                     </div>
                 </div>';
             }
-            ?>
-
-            
+        ?>
 
 
-                <?php 
+
+
+<?php 
                 echo '<a href="#" class="shopping"><i class="fa fa-shopping-cart"></i>
                     <span class="cart-indicate">0</span>
                 </a>
@@ -221,7 +409,7 @@
                                 <span class="user-name">
                                     <i class="fa fa-user-alt"></i>'; ?>
 
-                                    <?php
+<?php
                                     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
                                     {
                                         echo  '<h2 class="lead-2">Hello, Guest</h2>';
@@ -233,7 +421,7 @@
                                     }
                                     ?>
 
-                                <?php    
+<?php    
                                   echo '</span>
                                 <div class="sub-contain">
                                     <li class="item">
@@ -272,7 +460,7 @@
                                     </li>';
                                     ?>
 
-                                    <?php
+<?php
                                         if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
                                         {
                                             echo '<li class="item">
@@ -289,7 +477,7 @@
                                         }
                                     ?>
 
-                                <?php
+<?php
                                 echo '</div>
                                     </div>
                                 </div>
@@ -311,4 +499,19 @@
                         </div>
                     </div>
                 </nav>';
+
+?>
+<?php 
+    echo '<!-- Search Bar -->
+        <div class="search">
+            <div class="container">
+                <form action="">
+                    <div class="srch-field">
+                        <i class="fa fa-search search-btn"></i>
+                        <input type="text" name="srch" id="srch" class="srch" placeholder="Search">
+                    </div>
+                    <i class="fa fa-close cancel-btn"></i>
+                </form>
+            </div>
+        </div>';
 ?>

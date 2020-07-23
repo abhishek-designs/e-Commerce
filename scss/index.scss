@@ -251,21 +251,24 @@ html
         {
             text-align:center;
 
-            .lead-3
-            {
-                padding-bottom:2rem;
-            }
-
             .product
             {
                 margin-top:1.5rem;
                 display:grid;
-                grid-template-columns:repeat(3,1fr);
-                grid-gap:1rem;
+                grid-template-columns:repeat(3,0.3fr);
+                grid-gap:1.3rem;
+                justify-content:center;
                 // height:400px;
                 
             }
         }
+    }
+
+    .electronics
+    {
+        position:relative;
+        overflow:hidden;
+        height:70vh;
     }
 
     // Section D
@@ -317,8 +320,8 @@ html
             }
             .img-contain
             {
-                height:500px;
-                width:500px;
+                height:300px;
+                width:300px;
                 img
                 {
                     height:100%;
@@ -334,23 +337,27 @@ html
         .container
         {
             text-align:center;
-            
-            .lead-3
-            {
-                padding-bottom:2rem;
-            }
     
             .product
             {
                 margin-top:1.5rem;
                 display:grid;
-                grid-template-columns:repeat(3,1fr);
-                grid-gap:1rem;
+                grid-template-columns:repeat(3,0.3fr);
+                grid-gap:1.3rem;
+                justify-content:center;
                 // height:400px;
                 
             }
         }
 
+    }
+
+    // Fashion
+    .fashion
+    {
+        position:relative;
+        overflow:hidden;
+        height:70vh;
     }
 
     // Section G
