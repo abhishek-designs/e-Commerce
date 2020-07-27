@@ -261,6 +261,9 @@ a.btn-unique {
   .box .img-contain {
     background: #f7f7f7;
     border-radius: 15px; }
+    .box .img-contain .product-id {
+      opacity: 0;
+      pointer-events: none; }
     .box .img-contain img {
       height: 100%;
       width: 100%; }

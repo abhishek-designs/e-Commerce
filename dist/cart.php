@@ -57,13 +57,20 @@
                         {
                             while($row = mysqli_fetch_assoc($res))
                             {
+                                $productId = $row['product_id'];
                                 $productName = $row['product_name'];
                                 $productPrice = $row['product_price'];
+
+                                $query2 = 'SELECT sub_sub_cat_id FROM products WHERE product_id='.$productId;
+                                $res4 = mysqli_query($con,$query2);
+                                $row4 = mysqli_fetch_assoc($res4);
+
+                                $subCatIdImg = $row4['sub_sub_cat_id'];
 
                                 echo '<div class="cart-row">
                                     <div class="img-tab">
                                         <div class="img-contain">
-                                            <img src="./img/Products/402301.png" alt="">
+                                            <img src="./img/Products/'.$productId.$subCatIdImg.'.png" alt="">
                                         </div>
                                     </div>
                                     <div class="item-details">

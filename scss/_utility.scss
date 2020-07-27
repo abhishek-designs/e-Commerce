@@ -401,6 +401,13 @@ a.btn
         // width:200px;
         background:$semi-med-color;
         border-radius:15px;
+
+        .product-id
+        {
+            opacity:0;
+            pointer-events:none;
+        }
+
         img
         {
             height:100%;
@@ -1520,6 +1527,7 @@ a.btn
                         {
                             height:5rem;
                             width:5rem;
+
                             img
                             {
                                 height:100%;

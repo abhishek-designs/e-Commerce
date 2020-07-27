@@ -128,6 +128,7 @@
                         echo '<div class="box box-1">
                             <div class="upper-tab">
                                 <div class="img-contain">
+                                    <span class="product-id">'.$productId.'</span>
                                     <a href="product_info.php?product_id='.$productId.'&sub_sub_cat_id='.$subSubCatId.'" class="product-info">
                                         <img src="./img/Products/'.$productId.$subSubCatId.'.png" alt="product'.$productId.'">
                                     </a>
@@ -204,5 +205,62 @@
 
 <!-- Embeded Scripts -->
 <script src="scripts/search.js"></script>
-<script src="scripts/updateCart.js"></script>
+<!-- <script src="scripts/updateCart.js"></script> -->
+<script type='text/javascript'>
 
+    // Fetching the user id through client
+    var userId = <?php echo $_SESSION['userid']; ?>;
+    
+
+    // Accessing the cart quantity showing component
+    const nav = document.querySelector('.navbar');
+    const cartNum = nav.querySelector('.cart-indicate');
+
+    // Accessing the parent element of the btn first
+    const parent = document.querySelector('.products-showcase');
+    const cartBtn = parent.querySelectorAll('.cart-tab');
+
+    // Fetching each cart btn
+    for(let i=0; i<cartBtn.length; i++)
+    {
+        var btn = cartBtn[i];
+        
+        // Making the btn functional
+        btn.addEventListener('click',updateCart);
+    }
+
+    function updateCart(event)
+    {
+        // Fetching product id through client side
+        var productBox = this.parentElement;
+        var productIdContain = productBox.querySelector('.product-id');
+        var productId = productIdContain.innerText;
+        // console.log('user id '+userId+' selected the product '+productId);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","partials/_updateCart.php?product_id="+productId+"&user_id="+userId,true);
+        xhr.send();
+
+        xhr.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                console.log(this.responseText);
+            }
+        }
+
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open("GET","partials/_cartItemNo.php",true);
+        xhr2.send();
+        
+        xhr2.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                cartNum.innerText = this.responseText;
+            }
+        }
+
+    }
+
+</script>
