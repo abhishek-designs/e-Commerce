@@ -385,8 +385,23 @@
 
 
 <?php 
-                echo '<a href="#" class="shopping"><i class="fa fa-shopping-cart"></i>
-                    <span class="cart-indicate">0</span>
+                    if(!isset($_SESSION['userid']))
+                    {
+                        echo '';
+                    }
+                    else
+                    {
+                        $userId = $_SESSION['userid'];
+                        $query = 'SELECT * FROM `cart` WHERE `user_id`='.$userId;
+                        $res = mysqli_query($con,$query);
+                        $num = mysqli_num_rows($res);
+                        
+                    }
+
+
+
+                echo '<a href="cart.php" class="shopping"><i class="fa fa-shopping-cart"></i>
+                    <span class="cart-indicate">'.$num.'</span>
                 </a>
             </div>
         </div>
@@ -409,7 +424,7 @@
                                 <span class="user-name">
                                     <i class="fa fa-user-alt"></i>'; ?>
 
-<?php
+                                <?php
                                     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
                                     {
                                         echo  '<h2 class="lead-2">Hello, Guest</h2>';
@@ -419,9 +434,9 @@
                                     {
                                         echo  '<h2 class="lead-2">Hello, '.$_SESSION['username'].'</h2>';
                                     }
-                                    ?>
+                                ?>
 
-<?php    
+                            <?php    
                                   echo '</span>
                                 <div class="sub-contain">
                                     <li class="item">
@@ -458,7 +473,7 @@
                                     <li class="item" id="item-5">
                                         <a href="#/item-5" class="list list-5">Contact</a>
                                     </li>';
-                                    ?>
+                                ?>
 
 <?php
                                         if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
@@ -515,3 +530,4 @@
             </div>
         </div>';
 ?>
+

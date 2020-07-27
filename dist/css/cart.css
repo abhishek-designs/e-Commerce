@@ -1343,25 +1343,5 @@ a.btn-unique {
   .navbar-m {
     display: none; } }
 
-html body {
+html, body {
   font-family: "Cairo", sans-serif; }
-
-.products {
-  display: grid;
-  grid-template-columns: 0.6fr 2fr;
-  grid-gap: 1rem; }
-  .products-setting {
-    padding: 0 1rem; }
-    .products-setting-box {
-      width: 100%;
-      margin-bottom: 1rem; }
-      .products-setting-box ul {
-        text-align: center; }
-        .products-setting-box ul li {
-          display: block; }
-  .products-showcase {
-    padding: 0 1rem; }
-    .products-showcase-contain {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 0.6rem; }

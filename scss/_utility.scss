@@ -1513,10 +1513,20 @@ a.btn
                     .img-tab
                     {
                         text-align:center;
-                        img
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        .img-contain
                         {
-                            height:50%;
-                            width:50%;
+                            height:5rem;
+                            width:5rem;
+                            img
+                            {
+                                height:100%;
+                                width:100%;
+
+                            }
+
                         }
 
                     }
@@ -1548,24 +1558,26 @@ a.btn
                         text-align:center;
                     }
                 }
-            }
 
-            .no-items
-            {
-                // display:none;
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                align-items:center;
-                height:100%;
-                color:$med-color;
-
-                i
+                .no-items
                 {
-                    font-size:5rem;
-                    margin-bottom:1rem;
+                    // display:none;
+                    display:flex;
+                    flex-direction:column;
+                    justify-content:center;
+                    align-items:center;
+                    height:100%;
+                    color:$med-color;
+    
+                    i
+                    {
+                        font-size:5rem;
+                        margin-bottom:1rem;
+                    }
                 }
             }
+
+
         }
     }
 }

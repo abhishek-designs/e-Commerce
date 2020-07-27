@@ -141,28 +141,28 @@ function updateCart()
     var cartBill = cartItem.nextElementSibling;
     var itemTotal = cartBill.querySelector('.total');
 
-    // Selecting Navbar
-    var nav = document.querySelector('.navbar');
-    var cartIndicate = nav.querySelector('.cart-indicate');
+    // // Selecting Navbar
+    // var nav = document.querySelector('.navbar');
+    // var cartIndicate = nav.querySelector('.cart-indicate');
     
-    var total = 0;
-    var itemNum = cartRow.length;
+    // var total = 0;
+    // var itemNum = cartRow.length;
 
-    // updating the item number on heading according to the item added
-    cartHead.innerText = 'MY CART('+itemNum+')';
-    cartIndicate.innerText = itemNum;
+    // // updating the item number on heading according to the item added
+    // cartHead.innerText = 'MY CART('+itemNum+')';
+    // cartIndicate.innerText = itemNum;
 
-    // When there is no items in the cart this UI will be enabled;
-    if(cartRow.length == 0)
-    {
-        noItem.style.display = 'flex';
-        cartItem.style.display = 'none';
-    }
-    else
-    {
-        noItem.style.display = 'none';
-        cartItem.style.display = 'block';
-    }
+    // // When there is no items in the cart this UI will be enabled;
+    // if(cartRow.length == 0)
+    // {
+    //     noItem.style.display = 'flex';
+    //     cartItem.style.display = 'none';
+    // }
+    // else
+    // {
+    //     noItem.style.display = 'none';
+    //     cartItem.style.display = 'block';
+    // }
 
 
     for(let i=0; i<cartRow.length; i++)

@@ -1,3 +1,15 @@
+<?php
+    if(!isset($_SESSION))
+    {
+        echo '';
+    }
+    else
+    {
+        session_start();
+        // echo $_SESSION['username'];
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,7 +128,7 @@
                         echo '<div class="box box-1">
                             <div class="upper-tab">
                                 <div class="img-contain">
-                                    <a href="product_info.php?product_id='.$productId.'" class="product-info">
+                                    <a href="product_info.php?product_id='.$productId.'&sub_sub_cat_id='.$subSubCatId.'" class="product-info">
                                         <img src="./img/Products/'.$productId.$subSubCatId.'.png" alt="product'.$productId.'">
                                     </a>
                                 </div>
@@ -192,3 +204,5 @@
 
 <!-- Embeded Scripts -->
 <script src="scripts/search.js"></script>
+<script src="scripts/updateCart.js"></script>
+

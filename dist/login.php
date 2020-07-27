@@ -21,9 +21,12 @@
                 $verify = password_verify($userpwd,$row['Cust_Pwd']);
                 if($verify)
                 {
+
                     session_start();
                     $_SESSION['loggedin'] = true;
+                    $_SESSION['userid'] = $row['Cust_Id'];
                     $_SESSION['username'] = $row['Cust_Name'];
+
                     
                     // Redirect to welcome page
                     header('location: /Ecommerce/dist/index.php');
