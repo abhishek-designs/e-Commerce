@@ -60,6 +60,7 @@
                                 $productId = $row['product_id'];
                                 $productName = $row['product_name'];
                                 $productPrice = $row['product_price'];
+                                $cartId = $row['cart_id'];
 
                                 $query2 = 'SELECT sub_sub_cat_id FROM products WHERE product_id='.$productId;
                                 $res4 = mysqli_query($con,$query2);
@@ -75,7 +76,7 @@
                                     </div>
                                     <div class="item-details">
                                         <h3 class="head-3">'.$productName.'</h3>
-                                        <a class="remove-btn red lead-4">Remove</a>
+                                        <a href="partials/_removeCart.php?user_id='.$userId.'&cart_id='.$cartId.'" class="remove-btn red lead-4">Remove</a>
                                         <div class="quantity-field">
                                             <label for="quantity" class="lead-4">Quantity</label>
                                             <input type="number" name="quantity" id="quantity" class="quantity" value="1">

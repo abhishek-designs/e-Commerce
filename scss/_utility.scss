@@ -1447,149 +1447,57 @@ a.btn
     }
 }
 
-// Cart Styling
-#cart-section
+// Notifications
+.cart-update-msg
 {
-    .container
+    position:fixed;
+    background:$main-color;
+    color:$light-color;
+    padding:0.4rem 2.5rem;
+    width:500px;
+    right:-550px;
+    // right:-50px;
+    overflow:hidden;
+    box-shadow:0 5px 15px darken($main-color,20%);
+    transform:skew(-20deg);
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    // animation-name:pop-up;
+    animation-duration:0.3s;
+    animation-fill-mode:forwards;
+    animation-timing-function: ease;
+
+    .msg-content
     {
-        .carts
-        {
-            display:grid;
-            grid-template-columns:2fr 0.8fr;
-
-            &-billing
-            {
-                padding:0 1rem;
-                .pricing
-                {
-                    .tab
-                    {
-                        display:flex;
-                        justify-content:space-between;
-                        align-items:center;
-                    }
-
-                    .grand-total
-                    {
-                        border-top:1px solid $med-color;
-                    }
-                }
-
-                .btn-unique
-                {
-                    width:100%;
-                    text-align:center;
-                }
-
-                .coupon
-                {
-                    margin-top:1.5rem;
-                    &-tab
-                    {
-                        display:flex;
-                        justify-content:space-between;
-                        align-items:center;
-
-                        .btn
-                        {
-                            margin-top:0;
-                            font-size:0.9rem;
-                        }
-                    }
-                }
-            }
-
-            &-items
-            {
-                padding:0 1.5rem;
-                height:100%;
-                overflow: hidden;
-                .head-1
-                {
-                    margin-bottom:1.5rem;
-                }
-                .cart-row
-                {
-                    display:grid;
-                    grid-template-columns:repeat(3,1fr);
-                    align-items:center;
-                    margin-bottom:1rem;
-                    padding:1rem 0;
-                    box-shadow:0 0 9px darken($light-color,10%);
-
-                    .img-tab
-                    {
-                        text-align:center;
-                        display:flex;
-                        justify-content:center;
-                        align-items:center;
-                        .img-contain
-                        {
-                            height:5rem;
-                            width:5rem;
-
-                            img
-                            {
-                                height:100%;
-                                width:100%;
-
-                            }
-
-                        }
-
-                    }
-
-                    .item-details
-                    {
-                        .remove-btn
-                        {
-                            cursor:pointer;
-                        }
-                        .quantity-field
-                        {
-                            display:inline;
-                            margin-left:1.5rem;
-                            .quantity
-                            {
-                                width:20%;
-                                height:2rem;
-                                border:1px solid $semi-med-color;
-                                padding:0 0.2rem;
-                                text-align:center;
-                            }
-                            
-                        }
-                    }
-
-                    .item-price
-                    {
-                        text-align:center;
-                    }
-                }
-
-                .no-items
-                {
-                    // display:none;
-                    display:flex;
-                    flex-direction:column;
-                    justify-content:center;
-                    align-items:center;
-                    height:100%;
-                    color:$med-color;
-    
-                    i
-                    {
-                        font-size:5rem;
-                        margin-bottom:1rem;
-                    }
-                }
-            }
-
-
-        }
+        transform:skew(20deg);
     }
 }
-    
+
+@keyframes pop-in
+{
+    from
+    {
+        right:-550px;
+    }
+    to
+    {
+        right:-50px;
+    }
+}
+
+@keyframes pop-out
+{
+    from
+    {
+        right:-50px;
+    }
+    to
+    {
+        right:-550px;
+    }
+}
+
 .error
 {
     border-width:1.3px !important;

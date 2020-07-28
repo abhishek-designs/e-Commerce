@@ -58,6 +58,11 @@
 
         </div>
         <div class="products-showcase">
+            <div class="cart-update-msg">
+                <div class="msg-content">
+                    <p class="head-3">Your cart updated</p>
+                </div>
+            </div>
             <?php 
 
                 $query = 'SELECT sub_sub_cat_name FROM sub_sub_categories WHERE sub_sub_cat_id='.$subSubCatId;
@@ -220,6 +225,9 @@
     const parent = document.querySelector('.products-showcase');
     const cartBtn = parent.querySelectorAll('.cart-tab');
 
+    // Accessing the cart notification tab
+    const cartMsg = document.querySelector('.cart-update-msg');
+
     // Fetching each cart btn
     for(let i=0; i<cartBtn.length; i++)
     {
@@ -237,6 +245,7 @@
         var productId = productIdContain.innerText;
         // console.log('user id '+userId+' selected the product '+productId);
 
+
         var xhr = new XMLHttpRequest();
         xhr.open("GET","partials/_updateCart.php?product_id="+productId+"&user_id="+userId,true);
         xhr.send();
@@ -245,7 +254,11 @@
         {
             if(this.readyState == 4 && this.status == 200)
             {
-                console.log(this.responseText);
+                cartMsg.style.animationName = 'pop-in';
+        
+                setTimeout(function(){
+                    cartMsg.style.animationName = 'pop-out';
+                },3000)
             }
         }
 
