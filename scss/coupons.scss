@@ -1,0 +1,135 @@
+@import 'variables';
+@import 'utility';
+@import 'media';
+
+html,body
+{
+    font-family:$main-font;
+}
+
+// Coupons section
+#coupons-section
+{
+    height:100vh;
+    .container
+    {
+        position:relative;
+        .head-1
+        {
+            margin-top:1rem;
+            // color:$main-color;
+        }
+
+        .img-contain
+        {
+            position:absolute;
+            // margin-left:5rem;
+            height:500px;
+            width:500px;
+            opacity:0.2;
+            top:100px;
+            left:-250px;
+
+            img
+            {
+                width:100%;
+                height:100%;
+            }
+        }
+
+        .coupons
+        {
+            position:relative;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            margin-top:2rem;
+
+            &-pane
+            {
+                position:relative;
+                background:linear-gradient(45deg,$semi-med-color 80%,$light-color 20%);
+                display:flex;
+                align-items:center;
+                margin-top:1.5rem;
+                padding:1.5rem 5rem;
+                width:876px;
+                height:200px;
+                overflow:hidden;
+                z-index:1;
+                
+                
+                &-discount
+                {
+                    position:absolute;
+                    right:100px;
+                    z-index:1;
+                    color:$light-color;
+                    
+                    .head-1
+                    {
+                        font-weight:bold;
+                        font-size:80px;
+                    }
+
+                    .lead-3
+                    {
+                        font-size:1.8rem;
+                    }
+
+                }
+
+                &-desc
+                {
+                    position:absolute;
+                    left:100px;
+                    
+                    .btn
+                    {
+                        padding:0.4rem 1.5rem;
+                        font-size:0.8rem;
+                    }
+                    
+                    .head-2
+                    {
+                        color:lighten($main-color,10%);
+                        padding:0;
+                    }
+
+                }
+
+                &-mesh
+                {
+                    position:absolute;
+                    background:linear-gradient(45deg,$main-color 30%,lighten($main-color,20%) 70%);
+                    height:350%;
+                    width:40%;
+                    right:-80px;
+                    transform:rotate(45deg) translateY(-30px);
+                }
+
+                &:before,&:after
+                {
+                    content:'';
+                    position:absolute;
+                    height:114px;
+                    width:114px;
+                    background:$light-color;
+                    border-radius:50%;
+                    // left:-50px;
+                }
+
+                &:before
+                {
+                    left:-50px;
+                }
+
+                &:after
+                {
+                    right:-50px;
+                }
+            }
+        }
+    }
+}

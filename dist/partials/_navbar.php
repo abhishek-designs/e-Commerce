@@ -385,24 +385,32 @@
 
 
 <?php 
+                if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+                {
+                    
+                    echo '<a href="cart.php" class="shopping"><i class="fa fa-shopping-cart"></i></a>';
+                }
+                else
+                {
                     if(!isset($_SESSION['userid']))
                     {
                         echo '';
                     }
                     else
                     {
-                        $userId = $_SESSION['userid'];
-                        $query = 'SELECT * FROM `cart` WHERE `user_id`='.$userId;
+                        $query = 'SELECT * FROM `cart` WHERE `user_id`='.$_SESSION['userid'];
                         $res = mysqli_query($con,$query);
                         $num = mysqli_num_rows($res);
                         
                     }
+                    echo    '<a href="cart.php" class="shopping"><i class="fa fa-shopping-cart"></i>
+                                <span class="cart-indicate">'.$num.'</span> 
+                            </a>';
 
+                }
+?>
+    
 
-
-                echo '<a href="cart.php" class="shopping"><i class="fa fa-shopping-cart"></i>
-                    <span class="cart-indicate">'.$num.'</span>
-                </a>
             </div>
         </div>
     </nav>
@@ -422,7 +430,7 @@
                         <div>
                             <div class="menu-box bg-light">
                                 <span class="user-name">
-                                    <i class="fa fa-user-alt"></i>'; ?>
+                                    <i class="fa fa-user-alt"></i>
 
                                 <?php
                                     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)

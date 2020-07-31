@@ -1,3 +1,13 @@
+<?php
+    if(!isset($_SESSION))
+    {
+        echo '';
+    }
+    else
+    {
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +25,7 @@
     <?php 
         $productId = $_GET['product_id'];
         $subSubCatId = $_GET['sub_sub_cat_id'];
+
     ?>
 
     <!-- Connecting to Database -->
@@ -82,6 +93,11 @@
 
         <!-- Product Description -->
         <div class="product-info-content">
+            <div class="cart-update-msg">
+                <div class="msg-content">
+                    <p class="head-3">Your cart updated</p>
+                </div>
+            </div>
             <div class="product-content">
                 <div class="product-title">
                     <h2 class="head-3 main"><?php echo $productBrand; ?></h2>
@@ -106,7 +122,129 @@
         </div>
     </section>
 
+    <!-- Question Section facitlity for the user to ask a question about a product -->
+    <section id="ques-pane" class="py-1">
+        <div class="container">
+            <?php
+                if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+                {
+                    echo '<h2 class="head-2">You are not logged in</h2>';
+                }
+                else
+                {
+                    if(!isset($_SESSION['userid']))
+                    {
+                        echo 'no user found';
+                    }
+                    else
+                    {
+                        echo '<h2 class="head-2">Have a question?</h2>
+                            <p class="lead-3">Clear your query regarding this product</p>
+                            <div class="ques-form">
+                                <form action="partials/_askQuestion.php" method="POST">
+                                    <input type="text" name="user_id" class="userId" value="'.$_SESSION['userid'].'" hidden>
+                                    <input type="text" name="product_id" class="productId" value="'.$productId.'" hidden>
+                                    <input type="text" name="ques" id="ques" placeholder="Ask your question :)">
+                                    <button class="btn btn-unique" type="submit">post</button>
+                                </form>
+                            </div>';
+
+                    }
+
+                    
+                }
+                
+            ?>
+        </div>
+    </section>
+
+    <!-- Users ques and ans section -->
+    <section id="qna-pane" class="py-1">
+        <div class="container">
+            <h2 class="head-2">Question & answers</h2>
+            <p class="lead-3">Get all your doubt cleared about this product in this section</p>
+
+            <div class="qna-tab">
+                <div class="qna-stack">
+                    <div class="ques-tab">
+                        <h3 class="head-3">Question:</h3>
+                        <a href="#" class="ques-link head-3">How many sizes are available for this product?</a>
+                    </div>
+                    <div class="ans-tab">
+                        <h3 class="head-3">Answer:</h3>
+                        <a href="#" class="ans-link main head-3">S, M and L are available bro.</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Footer -->
     <?php require 'partials/_footer.php'; ?>
 </body>
 </html>
+
+<!-- Embeded Scripts -->
+<script type='text/javascript'>
+
+    // Fetching the user id through client
+    var userId = <?php echo $_SESSION['userid']; ?>;
+    
+
+    // Accessing the cart quantity showing component
+    const nav = document.querySelector('.navbar');
+    const cartNum = nav.querySelector('.cart-indicate');
+
+    // Accessing the parent element of the btn first
+    const parent = document.querySelector('.product-img');
+    const cartBtn = parent.querySelector('.cart-btn');
+
+    // Accessing the cart notification tab
+    const cartMsg = document.querySelector('.cart-update-msg');
+
+        
+    // Making the btn functional
+    cartBtn.addEventListener('click',updateCart);
+
+
+    function updateCart(event)
+    {
+        // Fetching product id through client side
+        // var productBox = this.parentElement;
+        // var productIdContain = productBox.querySelector('.product-id');
+        var productId = <?php echo $productId; ?>;
+        // console.log('user id '+userId+' selected the product '+productId);
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","partials/_updateCart.php?product_id="+productId+"&user_id="+userId,true);
+        xhr.send();
+
+        xhr.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                cartMsg.style.animationName = 'pop-in';
+        
+                setTimeout(function(){
+                    cartMsg.style.animationName = 'pop-out';
+                },3000)
+            }
+        }
+
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open("GET","partials/_cartItemNo.php",true);
+        xhr2.send();
+        
+        xhr2.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                cartNum.innerText = this.responseText;
+            }
+        }
+
+    }
+
+</script>

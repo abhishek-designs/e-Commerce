@@ -639,12 +639,12 @@
     </div>
 
     <!-- Cart -->
-    <section id="cart-section" class="bg-light py-3">
+    <!-- <section id="cart-section" class="bg-light py-3">
         <div class="container">
-            <div class="carts">
+            <div class="carts"> -->
 
                 <!-- This UI will be shown when there is no item in the cart -->
-                <div class="no-items bg-semi-med">
+                <!-- <div class="no-items bg-semi-med">
                     <i class="fa fa-frown"></i>
                     <h2 class="head-2">No Item Added</h2>
                 </div>
@@ -689,7 +689,7 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <?php require 'partials/_footer.php'; ?>

@@ -206,6 +206,13 @@ a.btn-unique {
   a.btn-unique:hover:before {
     transform: scaleX(1); }
 
+button.btn-disabled,
+a.btn-disabled {
+  padding: 0.6rem 1rem;
+  background: #aeaeae;
+  color: #6f6f6f;
+  cursor: default; }
+
 .bg-main {
   background: #006eff; }
 
@@ -383,7 +390,7 @@ a.btn-unique {
           grid-template-columns: repeat(4, 1fr);
           grid-gap: 1rem;
           position: absolute;
-          box-shadow: 0 0 9px #aeaeae;
+          box-shadow: 0 0 9px #e6e6e6;
           padding: 1rem 1.5rem;
           width: 900px;
           z-index: 2;

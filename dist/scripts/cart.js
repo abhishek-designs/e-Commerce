@@ -145,7 +145,7 @@ function updateCart()
     // var nav = document.querySelector('.navbar');
     // var cartIndicate = nav.querySelector('.cart-indicate');
     
-    // var total = 0;
+    var total = 0;
     // var itemNum = cartRow.length;
 
     // // updating the item number on heading according to the item added

@@ -305,6 +305,14 @@ a.btn
             transform:scaleX(1);
         }
     }
+
+    &-disabled
+    {
+        padding:0.6rem 1rem;
+        background:$med-color;
+        color:darken($med-color,25%);
+        cursor: default;
+    }
 }
 
 // Background Colors
@@ -653,7 +661,7 @@ a.btn
                         grid-template-columns:repeat(4,1fr);
                         grid-gap:1rem;
                         position:absolute;
-                        box-shadow:0 0 9px $med-color;
+                        box-shadow:0 0 9px darken($light-color,10%);
                         padding:1rem 1.5rem;
                         width:900px;
                         // height:700px;

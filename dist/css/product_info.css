@@ -206,6 +206,13 @@ a.btn-unique {
   a.btn-unique:hover:before {
     transform: scaleX(1); }
 
+button.btn-disabled,
+a.btn-disabled {
+  padding: 0.6rem 1rem;
+  background: #aeaeae;
+  color: #6f6f6f;
+  cursor: default; }
+
 .bg-main {
   background: #006eff; }
 
@@ -383,7 +390,7 @@ a.btn-unique {
           grid-template-columns: repeat(4, 1fr);
           grid-gap: 1rem;
           position: absolute;
-          box-shadow: 0 0 9px #aeaeae;
+          box-shadow: 0 0 9px #e6e6e6;
           padding: 1rem 1.5rem;
           width: 900px;
           z-index: 2;
@@ -1313,7 +1320,8 @@ html body {
   display: grid;
   grid-template-columns: 1fr 1.5fr 3fr;
   grid-gap: 1rem;
-  position: relative; }
+  position: relative;
+  border-bottom: 1px solid #dedede; }
   .product-info-showcase {
     position: relative; }
     .product-info-showcase .showcase-contain {
@@ -1379,3 +1387,31 @@ html body {
           margin-left: -22px; }
     .product-info-content .product-content .product-desc {
       margin-top: 1rem; }
+
+#ques-pane {
+  border-bottom: 1px solid #dedede; }
+  #ques-pane .container .ques-form {
+    margin-top: 0.6rem; }
+    #ques-pane .container .ques-form form {
+      display: flex;
+      align-items: center; }
+      #ques-pane .container .ques-form form input {
+        padding: 0.6rem 2rem;
+        width: 40%;
+        font-family: "Cairo", sans-serif; }
+        #ques-pane .container .ques-form form input:focus {
+          outline-color: #006eff; }
+      #ques-pane .container .ques-form form .btn {
+        margin: 0 0.6rem; }
+
+#qna-pane .container .qna-tab .qna-stack {
+  margin-top: 1rem;
+  border-left: 1.5px solid #006eff; }
+  #qna-pane .container .qna-tab .qna-stack .ques-tab, #qna-pane .container .qna-tab .qna-stack .ans-tab {
+    margin-left: 0.6rem;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    align-items: center; }
+    #qna-pane .container .qna-tab .qna-stack .ques-tab .head-3, #qna-pane .container .qna-tab .qna-stack .ques-tab .lead-2, #qna-pane .container .qna-tab .qna-stack .ans-tab .head-3, #qna-pane .container .qna-tab .qna-stack .ans-tab .lead-2 {
+      padding: 0;
+      margin: 0; }

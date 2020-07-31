@@ -12,6 +12,32 @@ html,body
 {
     .container
     {
+        .cart-restrict
+        {
+            height:50vh;
+            width:100%;
+            background:$semi-med-color;
+
+            &-content
+            {
+                height:100%;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                padding:0 1rem;
+
+                .btn
+                {
+                    margin-top:2.5rem;
+                    width:30%;
+                    // padding:1rem 1rem;
+                    text-align:center;
+                }
+
+            }
+        }
+
         .carts
         {
             display:grid;
@@ -19,7 +45,8 @@ html,body
 
             &-billing
             {
-                padding:0 1rem;
+                padding:1rem 1.5rem;
+                box-shadow:0 0 9px darken($light-color,10%);
                 .pricing
                 {
                     .tab

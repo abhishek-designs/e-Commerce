@@ -19,6 +19,7 @@ html
     position:relative;
     // height:100vh;
     // Product Different Showcase
+    border-bottom:1px solid darken($semi-med-color,10%);
     &-showcase
     {
         position:relative;
@@ -152,6 +153,72 @@ html
             .product-desc
             {
                 margin-top:1rem;
+            }
+        }
+    }
+}
+
+// Question pane styling
+#ques-pane
+{
+    border-bottom:1px solid darken($semi-med-color,10%);
+    .container
+    {
+        .ques-form
+        {
+            margin-top:0.6rem;
+            
+            form
+            {
+                display:flex;
+                align-items:center;
+                input
+                {
+                    padding:0.6rem 2rem;
+                    width:40%;
+                    font-family:$main-font;
+    
+                    &:focus
+                    {
+                        outline-color:$main-color;
+                    }
+                }
+                
+                .btn
+                {
+                    margin:0 0.6rem;
+                }
+
+            }
+        }
+    }
+}
+
+// All ques and ans by the users are available here
+#qna-pane
+{
+    .container
+    {
+        .qna-tab
+        {
+            .qna-stack
+            {
+                margin-top:1rem;
+                border-left:1.5px solid $main-color;
+                .ques-tab,.ans-tab
+                {
+                    margin-left:0.6rem;
+                    display:grid;
+                    grid-template-columns:0.1fr 1fr;
+                    // grid-gap:0.4rem;
+                    align-items:center;
+
+                    .head-3,.lead-2
+                    {
+                        padding:0;
+                        margin:0;
+                    }
+                }
             }
         }
     }
