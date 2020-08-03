@@ -114,16 +114,24 @@
                     <h2 class="head-2"><?php echo '₹'.$productPrice; ?></h2>
                     <h2 class="head-3 lead-cutoff med"><?php echo '₹'.$productMrpPrice; ?></h2>
                 </div>
-                <div class="product-desc">
+                <!-- <div class="product-desc">
                     <p class="lead-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore velit, odit aperiam repellendus voluptatibus enim necessitatibus? Ea quo labore numquam ipsa soluta unde, ratione voluptatum reprehenderit veniam saepe recusandae, sint corrupti quaerat quod culpa. Autem, sapiente eum. Iure tempora consequuntur excepturi eum facilis labore error porro ullam sit impedit mollitia, minus repellat beatae sunt amet dicta veritatis laudantium suscipit pariatur modi nihil ab quas exercitationem ea? Porro, perspiciatis deleniti. Labore omnis deserunt maiores. Vitae animi officia facilis unde, dolorum iusto ducimus accusamus, omnis officiis nulla illo hic voluptates doloremque quo sapiente. Quam molestias impedit consectetur quisquam? Quam quidem a voluptatibus molestiae illum consectetur culpa tempora, ea necessitatibus expedita reiciendis quae, quaerat quasi ipsam architecto nobis dicta nihil! Dolores quia architecto numquam debitis ipsam nulla, reiciendis eum sequi ducimus esse ad iusto expedita provident quas voluptas sit consectetur earum illo tempore quo unde vero asperiores a rem! Non a repellendus similique nesciunt laborum neque dicta laudantium! Illum quisquam quibusdam quo distinctio voluptatibus, officiis cum quos consequuntur debitis hic a? Necessitatibus possimus officiis eveniet et quo. Culpa sunt magni est magnam explicabo maxime rem reiciendis voluptatibus libero facilis dicta nihil dolores placeat consectetur beatae odit sit quas vel enim, accusamus et praesentium. Alias aperiam necessitatibus, repellat, adipisci ipsa error quas ab possimus debitis sed ea quisquam doloribus. Error, eaque. Dolorem ipsa assumenda rerum iure libero qui dolor est veritatis eveniet nobis aut, minima facere amet a autem fugit facilis quam reprehenderit nulla non suscipit veniam, corrupti sit alias! Obcaecati accusantium perspiciatis, commodi libero fugiat explicabo suscipit modi, repudiandae corporis iure repellat vitae? Assumenda quasi voluptates distinctio! Facere aspernatur repellat ea atque aliquid velit corporis at explicabo, placeat vel iste dolorum quos veniam voluptatum adipisci deleniti doloremque? Molestias, architecto? Eius, explicabo. Maxime molestiae incidunt, illum eveniet odio quae suscipit labore pariatur iure architecto porro minus quis repudiandae velit veritatis nemo laboriosam deserunt in consectetur quo. Voluptates numquam debitis aut ipsa, accusantium accusamus quos a sapiente, quo quaerat amet consectetur, dolores impedit. Explicabo consectetur a fugit excepturi, fuga quibusdam suscipit nulla! Tenetur, ullam alias? Obcaecati iste ipsum amet cum asperiores, tempora molestiae blanditiis dolores sunt expedita doloribus inventore ad aut consequatur eveniet debitis impedit beatae minima illum soluta. Asperiores nisi architecto quae quasi numquam odio eos sed, rem voluptates minus nam deserunt in provident facere id! Neque eos, eveniet minima deleniti quidem officia consequatur laudantium. Accusamus corporis delectus quae amet fuga, perferendis rerum voluptatibus iure odit, dolor id molestiae ipsum dolore vel. Laudantium sapiente maiores fugiat odit iure omnis, harum expedita ad quo ipsa exercitationem adipisci, aspernatur iste, non rerum ea nam optio! Officiis culpa aliquam velit quasi perferendis voluptatum saepe nostrum? Provident enim nostrum doloremque voluptas quod quis similique doloribus possimus. Consectetur porro praesentium natus sequi quam suscipit dolorem ipsam quaerat minus dignissimos saepe, qui modi ducimus maiores aperiam exercitationem neque ipsum numquam temporibus quo dolores corporis? Dolore accusantium praesentium ea similique perferendis ex beatae deleniti dolor quibusdam odit eius nulla repellendus nobis quos earum rerum eveniet excepturi, sint nihil quo. Corrupti, delectus.</p>
-                </div>
+                </div> -->
                 
             </div>
         </div>
     </section>
 
+    <!-- Product description section -->
+    <section id="product-desc" class="py-2">
+        <div class="container">
+            <h2 class="head-2">Product Description</h2>
+            <p class="lead-3"><?php echo $productDesc; ?></p>
+        </div>
+    </section>
+
     <!-- Question Section facitlity for the user to ask a question about a product -->
-    <section id="ques-pane" class="py-1">
+    <section id="ques-pane" class="py-2">
         <div class="container">
             <?php
                 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
@@ -144,8 +152,8 @@
                                 <form action="partials/_askQuestion.php" method="POST">
                                     <input type="text" name="user_id" class="userId" value="'.$_SESSION['userid'].'" hidden>
                                     <input type="text" name="product_id" class="productId" value="'.$productId.'" hidden>
-                                    <input type="text" name="ques" id="ques" placeholder="Ask your question :)">
-                                    <button class="btn btn-unique" type="submit">post</button>
+                                    <input type="text" name="ques" id="ques" class="ques-field" placeholder="Ask your question :)" autocomplete="off">
+                                    <button class="btn btn-unique post-btn" type="submit">post</button>
                                 </form>
                             </div>';
 
@@ -156,25 +164,77 @@
                 
             ?>
         </div>
+        <?php 
+
+            $ques_recieved = false;
+            if(!isset($_GET['ques_registered']) || $_GET['ques_registered']!=true)
+            {
+                echo '';
+            }
+            else
+            {
+               $ques_recieved = true; 
+            }
+
+            if($ques_recieved == true)
+            {
+                echo '<div class="cart-update-msg">
+                        <div class="msg-content">
+                            <p class="head-3">Your question registered</p>
+                        </div>
+                    </div>';
+            }
+            else
+            {
+                echo '<div class="cart-update-msg">
+                        <div class="msg-content">
+                            <p class="head-3">Question registration failed</p>
+                        </div>
+                    </div>';
+            }
+        ?>
     </section>
 
     <!-- Users ques and ans section -->
-    <section id="qna-pane" class="py-1">
+    <section id="qna-pane" class="py-2">
         <div class="container">
             <h2 class="head-2">Question & answers</h2>
             <p class="lead-3">Get all your doubt cleared about this product in this section</p>
 
             <div class="qna-tab">
-                <div class="qna-stack">
-                    <div class="ques-tab">
-                        <h3 class="head-3">Question:</h3>
-                        <a href="#" class="ques-link head-3">How many sizes are available for this product?</a>
-                    </div>
-                    <div class="ans-tab">
-                        <h3 class="head-3">Answer:</h3>
-                        <a href="#" class="ans-link main head-3">S, M and L are available bro.</a>
-                    </div>
-                </div>
+                <?php
+                    // Query to fetch all the question and answers
+                    $qnaQuery = 'SELECT * FROM `users_ques` WHERE `product_id`='.$productId;
+                    $quesRes = mysqli_query($con,$qnaQuery);
+                    $num = mysqli_num_rows($quesRes);
+                    // echo $num;
+                    if($num > 0)
+                    {
+                        while($row = mysqli_fetch_assoc($quesRes))
+                        {
+                            $quesId = $row['ques_id'];
+                            $questions = $row['ques_desc'];
+    
+                            echo '<div class="qna-stack">
+                                    <div class="ques-tab">
+                                        <h3 class="head-3">Question:</h3>
+                                        <a href="productQna.php?product_id='.$productId.'&question_id='.$quesId.'" class="ques-link head-3 main">'.$questions.'</a>
+                                    </div>
+                                    <div class="ans-tab">
+                                        <h3 class="head-3">Answer:</h3>
+                                        <a href="#" class="ans-link head-3">S, M and L are available bro.</a>
+                                    </div>
+                                </div>';
+    
+                        }
+
+                    }
+                    else
+                    {
+                        echo 'no question and answers found';
+                    }
+                ?>
+
             </div>
 
         </div>
@@ -246,5 +306,48 @@
         }
 
     }
+
+    // Post button will be enabled/disabled according to the question field
+    const quesField = document.querySelector('.ques-field');
+    const postBtn = document.querySelector('.post-btn');
+
+    quesField.addEventListener('keyup',onEmpty);
+
+    // // button is disabled
+    postBtn.disabled = true;
+    postBtn.classList.remove('btn-unique');
+    postBtn.classList.add('btn-disabled');
+
+    function onEmpty(event)
+    {
+        
+        checkField();
+        
+    }
+
+    function checkField()
+    {
+        var ques = quesField.value;
+
+        // If the there is no value in the field
+        if(ques== '' || ques== null)
+        {
+            // button is enabled
+            postBtn.disabled = true;
+            postBtn.classList.remove('btn-unique');
+            postBtn.classList.add('btn-disabled');
+
+        }
+        else
+        {
+            postBtn.disabled = false;
+            postBtn.classList.remove('btn-disabled');
+            postBtn.classList.add('btn-unique');
+        }
+    }
+
+    // postBtn.classList.remove('btn-unique');
+    // postBtn.classList.add('btn-disabled');
+
 
 </script>

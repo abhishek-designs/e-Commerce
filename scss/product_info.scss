@@ -158,12 +158,29 @@ html
     }
 }
 
+// Production description styling
+#product-desc
+{
+    border-bottom:1px solid darken($semi-med-color,10%);
+    .container
+    {
+        .head-2
+        {
+            padding-bottom:1rem;
+        }
+    }
+}
+
 // Question pane styling
 #ques-pane
 {
     border-bottom:1px solid darken($semi-med-color,10%);
     .container
     {
+        .head-2
+        {
+            padding-bottom:1rem;
+        }
         .ques-form
         {
             margin-top:0.6rem;
@@ -199,15 +216,25 @@ html
 {
     .container
     {
+        .head-2
+        {
+            padding-bottom:1rem;
+        }
         .qna-tab
         {
             .qna-stack
             {
-                margin-top:1rem;
-                border-left:1.5px solid $main-color;
+                margin-top:1.5rem;
+                border-left:2px solid $main-color;
+
+                .ques-tab
+                {
+                    margin-bottom:0.6rem;
+                }
+
                 .ques-tab,.ans-tab
                 {
-                    margin-left:0.6rem;
+                    margin-left:0.8rem;
                     display:grid;
                     grid-template-columns:0.1fr 1fr;
                     // grid-gap:0.4rem;
@@ -218,6 +245,11 @@ html
                         padding:0;
                         margin:0;
                     }
+                }
+
+                .ques-link
+                {
+                    text-decoration:underline;
                 }
             }
         }

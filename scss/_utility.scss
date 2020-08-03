@@ -312,6 +312,8 @@ a.btn
         background:$med-color;
         color:darken($med-color,25%);
         cursor: default;
+        text-transform:uppercase;
+        font-weight:bold;
     }
 }
 
@@ -875,6 +877,7 @@ a.btn
                     width:300px;
                     pointer-events:none;
                     transition:opacity $anim-speed ease;
+                    box-shadow:0 0 5px lighten($med-color,10%);
 
                     &:before
                     {

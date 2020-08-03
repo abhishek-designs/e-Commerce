@@ -1,0 +1,241 @@
+@import 'variables';
+@import 'utility';
+@import 'media';
+
+// sub-utilty
+.ico-tab
+{
+    height:30px;
+    width:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-width:1px;
+    border-style:solid;
+    // padding:0.5rem;
+    border-radius:50%;
+    margin-right:0.6rem;
+}
+
+html,body
+{
+    font-family:$main-font;
+}
+
+// Product showcase styling
+#product-showcase
+{
+    border-bottom:1px solid darken($semi-med-color,10%);
+    .container
+    {  
+        display:flex;
+        align-items:center;
+        .product-pane
+        {
+            display:grid;
+            grid-template-columns:1fr 5fr;
+            width:50%;
+            // grid-gap:0.6rem;
+
+            .img-tab
+            {
+                // padding:1.5rem;
+                height:110px;
+                width:110px;
+
+                img
+                {
+                    height:100%;
+                    width:100%;
+                }
+            }
+
+            .content-tab
+            {
+                margin-left:1.5rem;
+                .head-3
+                {
+                    font-size:1.2rem;
+                    margin:0;
+                    padding:0;
+                }
+
+                .lead-3
+                {
+                    font-size:1rem;
+                }
+            }
+        }
+
+        .comment-pane
+        {
+            margin-left:1rem;
+            width:50%;
+            .form-grp
+            {
+                form
+                {
+                    display:flex;
+                    align-items:center;
+                    input
+                    {
+                        padding:0.4rem 1rem;
+                        width:50%;
+                        font-family:$main-font;
+                        transition:all 0.2s ease;
+    
+                        &:focus
+                        {
+                            outline-color:$main-color;
+                        }
+                    }
+    
+                    .btn
+                    {
+                        padding:0.4rem 1rem;
+                        margin:0 0.6rem;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// Question section styling
+#question-pane
+{
+    // padding-bottom:2rem;
+    .container
+    {
+        // text-align:center;
+
+        .ques-contain
+        {
+            // max-width:80%;
+            // margin:0 auto;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            .ques-tab
+            {
+                text-align:center;
+                margin-bottom:0.6rem;
+            }
+    
+            .ques-info-tab
+            {
+                display:grid;
+                grid-template-columns:repeat(2,1fr);
+                align-items:center;
+                opacity:0.7;
+                grid-gap:18rem;
+
+                .ico-tab
+                {
+                    border-color:$main-color;
+                    color:$main-color;
+                    
+                }
+
+                .asked-by
+                {
+                    display:flex;
+                    align-items:center;
+
+                    
+
+                    .lead-3
+                    {
+                        padding:0;
+                        font-weight:bold;
+                    }
+                    
+                }
+
+                .asked-on
+                {
+                    display:flex;
+                    align-items:center;
+
+                    .asked
+                    {
+                        font-weight:bold;
+                        margin-right:0.6rem;
+                    }
+
+                    .lead-3
+                    {
+                        padding:0;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+// Answers section styling
+#answers-pane
+{
+    border-top:1px solid darken($semi-med-color,10%);
+    .container
+    {
+        .ans-stack
+        {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            // .user
+            // {
+                // margin-right:1rem;
+                // display:flex;
+                // flex-direction:column;
+                // justify-content:center;
+                // align-items:center;
+
+
+                
+                // }
+                
+            .content-tab
+            {
+                font-weight:bold;
+                display:flex;
+                align-items:center;
+
+                .ico-tab
+                {
+                    height:45px;
+                    width:45px;
+                    border-color:$main-color;
+                    color:$main-color;
+                    margin-right:1rem;
+                }
+                    
+                .username
+                {
+                    font-weight:bold;
+                    padding:0;
+                }
+                .lead-2
+                {
+                    font-size:1.4rem;
+                }
+
+            }
+
+            .timeline-tab
+            {
+                text-align:right;
+
+                .posted
+                {
+                    font-weight:bold;
+                }
+            }
+        }
+    }
+}

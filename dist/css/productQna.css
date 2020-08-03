@@ -1316,25 +1316,114 @@ a.btn-disabled {
   .navbar-m {
     display: none; } }
 
-html body {
+.ico-tab {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  margin-right: 0.6rem; }
+
+html, body {
   font-family: "Cairo", sans-serif; }
 
-.products {
-  display: grid;
-  grid-template-columns: 0.6fr 2fr;
-  grid-gap: 1rem; }
-  .products-setting {
-    padding: 0 1rem; }
-    .products-setting-box {
-      width: 100%;
-      margin-bottom: 1rem; }
-      .products-setting-box ul {
-        text-align: center; }
-        .products-setting-box ul li {
-          display: block; }
-  .products-showcase {
-    padding: 0 1rem; }
-    .products-showcase-contain {
+#product-showcase {
+  border-bottom: 1px solid #dedede; }
+  #product-showcase .container {
+    display: flex;
+    align-items: center; }
+    #product-showcase .container .product-pane {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 0.6rem; }
+      grid-template-columns: 1fr 5fr;
+      width: 50%; }
+      #product-showcase .container .product-pane .img-tab {
+        height: 110px;
+        width: 110px; }
+        #product-showcase .container .product-pane .img-tab img {
+          height: 100%;
+          width: 100%; }
+      #product-showcase .container .product-pane .content-tab {
+        margin-left: 1.5rem; }
+        #product-showcase .container .product-pane .content-tab .head-3 {
+          font-size: 1.2rem;
+          margin: 0;
+          padding: 0; }
+        #product-showcase .container .product-pane .content-tab .lead-3 {
+          font-size: 1rem; }
+    #product-showcase .container .comment-pane {
+      margin-left: 1rem;
+      width: 50%; }
+      #product-showcase .container .comment-pane .form-grp form {
+        display: flex;
+        align-items: center; }
+        #product-showcase .container .comment-pane .form-grp form input {
+          padding: 0.4rem 1rem;
+          width: 50%;
+          font-family: "Cairo", sans-serif;
+          transition: all 0.2s ease; }
+          #product-showcase .container .comment-pane .form-grp form input:focus {
+            outline-color: #006eff; }
+        #product-showcase .container .comment-pane .form-grp form .btn {
+          padding: 0.4rem 1rem;
+          margin: 0 0.6rem; }
+
+#question-pane .container .ques-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #question-pane .container .ques-contain .ques-tab {
+    text-align: center;
+    margin-bottom: 0.6rem; }
+  #question-pane .container .ques-contain .ques-info-tab {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    opacity: 0.7;
+    grid-gap: 18rem; }
+    #question-pane .container .ques-contain .ques-info-tab .ico-tab {
+      border-color: #006eff;
+      color: #006eff; }
+    #question-pane .container .ques-contain .ques-info-tab .asked-by {
+      display: flex;
+      align-items: center; }
+      #question-pane .container .ques-contain .ques-info-tab .asked-by .lead-3 {
+        padding: 0;
+        font-weight: bold; }
+    #question-pane .container .ques-contain .ques-info-tab .asked-on {
+      display: flex;
+      align-items: center; }
+      #question-pane .container .ques-contain .ques-info-tab .asked-on .asked {
+        font-weight: bold;
+        margin-right: 0.6rem; }
+      #question-pane .container .ques-contain .ques-info-tab .asked-on .lead-3 {
+        padding: 0; }
+
+#answers-pane {
+  border-top: 1px solid #dedede; }
+  #answers-pane .container .ans-stack {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    #answers-pane .container .ans-stack .content-tab {
+      font-weight: bold;
+      display: flex;
+      align-items: center; }
+      #answers-pane .container .ans-stack .content-tab .ico-tab {
+        height: 45px;
+        width: 45px;
+        border-color: #006eff;
+        color: #006eff;
+        margin-right: 1rem; }
+      #answers-pane .container .ans-stack .content-tab .username {
+        font-weight: bold;
+        padding: 0; }
+      #answers-pane .container .ans-stack .content-tab .lead-2 {
+        font-size: 1.4rem; }
+    #answers-pane .container .ans-stack .timeline-tab {
+      text-align: right; }
+      #answers-pane .container .ans-stack .timeline-tab .posted {
+        font-weight: bold; }

@@ -120,7 +120,7 @@
                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                     <div class="form-grp">
                         <label for="mail">Email <span class="red">*</span></label>
-                        <input type="text" name="mail" id="mail" class="mail">
+                        <input type="text" name="mail" id="mail" class="mail" autocomplete="off">
                     </div>
                     <div class="form-grp">
                         <label for="pwd">Password <span class="red">*</span></label>

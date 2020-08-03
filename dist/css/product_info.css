@@ -211,7 +211,9 @@ a.btn-disabled {
   padding: 0.6rem 1rem;
   background: #aeaeae;
   color: #6f6f6f;
-  cursor: default; }
+  cursor: default;
+  text-transform: uppercase;
+  font-weight: bold; }
 
 .bg-main {
   background: #006eff; }
@@ -463,7 +465,8 @@ a.btn-disabled {
           opacity: 0;
           width: 300px;
           pointer-events: none;
-          transition: opacity 0.3s ease; }
+          transition: opacity 0.3s ease;
+          box-shadow: 0 0 5px #c8c8c8; }
           .navbar .container .features .user-card:before {
             content: '';
             position: absolute;
@@ -1388,8 +1391,15 @@ html body {
     .product-info-content .product-content .product-desc {
       margin-top: 1rem; }
 
+#product-desc {
+  border-bottom: 1px solid #dedede; }
+  #product-desc .container .head-2 {
+    padding-bottom: 1rem; }
+
 #ques-pane {
   border-bottom: 1px solid #dedede; }
+  #ques-pane .container .head-2 {
+    padding-bottom: 1rem; }
   #ques-pane .container .ques-form {
     margin-top: 0.6rem; }
     #ques-pane .container .ques-form form {
@@ -1404,14 +1414,21 @@ html body {
       #ques-pane .container .ques-form form .btn {
         margin: 0 0.6rem; }
 
+#qna-pane .container .head-2 {
+  padding-bottom: 1rem; }
+
 #qna-pane .container .qna-tab .qna-stack {
-  margin-top: 1rem;
-  border-left: 1.5px solid #006eff; }
+  margin-top: 1.5rem;
+  border-left: 2px solid #006eff; }
+  #qna-pane .container .qna-tab .qna-stack .ques-tab {
+    margin-bottom: 0.6rem; }
   #qna-pane .container .qna-tab .qna-stack .ques-tab, #qna-pane .container .qna-tab .qna-stack .ans-tab {
-    margin-left: 0.6rem;
+    margin-left: 0.8rem;
     display: grid;
     grid-template-columns: 0.1fr 1fr;
     align-items: center; }
     #qna-pane .container .qna-tab .qna-stack .ques-tab .head-3, #qna-pane .container .qna-tab .qna-stack .ques-tab .lead-2, #qna-pane .container .qna-tab .qna-stack .ans-tab .head-3, #qna-pane .container .qna-tab .qna-stack .ans-tab .lead-2 {
       padding: 0;
       margin: 0; }
+  #qna-pane .container .qna-tab .qna-stack .ques-link {
+    text-decoration: underline; }
