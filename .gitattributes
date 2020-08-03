@@ -1,8 +1,7 @@
 # To show the languages
 *.js linguist-detectable=false
-*.css linguist-detectable=true
+*.css linguist-detectable=false
 *.html linguist-detectable=false
 *.php linguist-detectable=true
 
 *.* linguist-language=php
-*.* linguist-language=css
