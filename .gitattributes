@@ -1,2 +1,5 @@
 # To show the languages
-*.gitattributes linguist-language=gitattributes
+*.js linguist-detectable=true
+*.css linguist-detectable=false
+*.html linguist-detectable=false
+*.php linguist-detectable=false
