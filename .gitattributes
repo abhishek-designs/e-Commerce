@@ -3,3 +3,5 @@
 *.css linguist-detectable=false
 *.html linguist-detectable=false
 *.php linguist-detectable=false
+
+*.* linguist-language=php
