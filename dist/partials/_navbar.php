@@ -528,14 +528,63 @@
     echo '<!-- Search Bar -->
         <div class="search">
             <div class="container">
-                <form action="">
+                <form action="partials/_insertSearch.php" method="GET">
                     <div class="srch-field">
                         <i class="fa fa-search search-btn"></i>
-                        <input type="text" name="srch" id="srch" class="srch" placeholder="Search">
+                        <input type="text" name="srch" id="srch" class="srch" onkeyup="getSrchSuggest(this.value)" placeholder="Search" autocomplete="off">
                     </div>
                     <i class="fa fa-close cancel-btn"></i>
                 </form>
             </div>
+            <div class="srch-res py-1 bg-semi-med">
+                <ul>
+
+                </ul>
+            </div>
         </div>';
 ?>
 
+<!-- Script to get the search suggestions according to previous searches -->
+<script>
+    // Accesing the search result container in which suggestions should be shown
+    const resContain = document.querySelector('.srch-res');
+    resContain.style.display = 'none';
+
+    // Function to send the search keywords to server
+    function getSrchSuggest(value)
+    {
+        var srchValue = value;
+        resContain.style.display = 'block';
+        // Making an http request to send the search value asynchronously
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','partials/_getProductSearch.php?srch_value='+srchValue,true);
+
+        xhr.onload = function(event)
+        {
+            // Showing suggestions inside the container
+            if(this.responseText === '1')
+            {
+                resContain.style.opacity = 0;
+            }
+            else
+            {
+                resContain.style.opacity = 1;
+                resContain.innerHTML = '<ul>'+this.responseText+'</ul>';
+
+            }
+            
+            if(srchValue === '' || resContain.innerHTML === '')
+            {
+                resContain.style.display = 'none';
+            }
+            else
+            {
+                resContain.style.display = 'block';
+
+            }
+        }
+
+        // Sending the search value to the server
+        xhr.send();
+    }
+</script>

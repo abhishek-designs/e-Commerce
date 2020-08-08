@@ -10,7 +10,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    border-width:1px;
+    border-width:1.5px;
     border-style:solid;
     // padding:0.5rem;
     border-radius:50%;
@@ -98,6 +98,23 @@ html,body
 
                 }
             }
+
+            .restrict-comment
+            {
+                .container
+                {
+                    display:block;
+                    padding:0 2rem;
+                    
+                    .btn
+                    {
+                        padding:0.3rem 1rem;
+                        font-size:0.9rem;
+                        width:100%;
+                        text-align:center;
+                    }
+                }
+            }
         }
     }
 }
@@ -134,7 +151,7 @@ html,body
 
                 .ico-tab
                 {
-                    border-color:$main-color;
+                    border-color:$light-color;
                     color:$main-color;
                     
                 }
@@ -182,8 +199,15 @@ html,body
     border-top:1px solid darken($semi-med-color,10%);
     .container
     {
+        .head-2
+        {
+            margin-top:2rem;
+            padding-bottom:0.6rem;
+        }
         .ans-stack
         {
+            // border-top:1px solid darken($semi-med-color,10%);
+            position:relative;
             display:flex;
             justify-content:space-between;
             align-items:center;
@@ -202,7 +226,7 @@ html,body
                 
             .content-tab
             {
-                font-weight:bold;
+                
                 display:flex;
                 align-items:center;
 
@@ -219,9 +243,11 @@ html,body
                 {
                     font-weight:bold;
                     padding:0;
+                    font-size:0.8rem;
                 }
                 .lead-2
                 {
+                    font-weight: normal;
                     font-size:1.4rem;
                 }
 
@@ -234,8 +260,34 @@ html,body
                 .posted
                 {
                     font-weight:bold;
+                    margin-right:0.6rem;
+                }
+            }
+
+            .bottom-line
+            {
+                position:absolute;
+                height:1px;
+                width:115%;
+                left:-100px;
+                right:-100px;
+                bottom:0;
+                background:darken($semi-med-color,10%);
+            }
+        }
+
+        .no-comments-tab
+        {
+            .container
+            {
+                padding:0 4rem;
+
+                .lead-2
+                {
+                    padding:0;
                 }
             }
         }
     }
+
 }

@@ -7,6 +7,9 @@ for(let i=0; i<2; i++)
     
     // grabbing the search box
     const searchBox = document.querySelector('.search');
+
+    // grabbing the suggestion container
+    const resContain = document.querySelector('.srch-res');
     
     // adding functionality to the controls
     srchBtn.addEventListener('click',function(){
@@ -22,6 +25,7 @@ for(let i=0; i<2; i++)
         {
             searchBox.style.transform = 'translateY(-300px)';
             this.classList.remove('selected');
+            resContain.style.display = 'none';
         }
         // console.log('hello');
     });
@@ -32,5 +36,6 @@ for(let i=0; i<2; i++)
             srchBtn.classList.remove('selected');
         }
         searchBox.style.transform = 'translateY(-300px)';
+        resContain.style.display = 'none';
     });
 }

@@ -152,9 +152,12 @@
                                 <form action="partials/_askQuestion.php" method="POST">
                                     <input type="text" name="user_id" class="userId" value="'.$_SESSION['userid'].'" hidden>
                                     <input type="text" name="product_id" class="productId" value="'.$productId.'" hidden>
-                                    <input type="text" name="ques" id="ques" class="ques-field" placeholder="Ask your question :)" autocomplete="off">
+                                    <input type="text" name="ques" id="ques" class="ques-field" placeholder="Ask your question :)" onkeyup="getRes(this.value)" autocomplete="off">
                                     <button class="btn btn-unique post-btn" type="submit">post</button>
                                 </form>
+                                <div class="ques-res">
+
+                                </div>
                             </div>';
 
                     }
@@ -214,6 +217,12 @@
                         {
                             $quesId = $row['ques_id'];
                             $questions = $row['ques_desc'];
+
+                            // Query to fetch one answer according to the question asked
+                            $ansQuery = 'SELECT * FROM `users_ans` WHERE `ques_id`='.$quesId.' LIMIT 1';
+                            $ansRes = mysqli_query($con,$ansQuery);
+                            $num = mysqli_num_rows($ansRes);
+
     
                             echo '<div class="qna-stack">
                                     <div class="ques-tab">
@@ -221,9 +230,25 @@
                                         <a href="productQna.php?product_id='.$productId.'&question_id='.$quesId.'" class="ques-link head-3 main">'.$questions.'</a>
                                     </div>
                                     <div class="ans-tab">
-                                        <h3 class="head-3">Answer:</h3>
-                                        <a href="#" class="ans-link head-3">S, M and L are available bro.</a>
-                                    </div>
+                                        <h3 class="head-3">Answer:</h3>';
+                                        if($num == 1)
+                                        {
+                                            // Comment found
+                                            while($row = mysqli_fetch_assoc($ansRes))
+                                            {
+                                                $answer = $row['ans_desc'];
+                                                echo '<p class="ans-link head-3">'.$answer.'</p>';
+                                            }
+                                        }
+                                        else
+                                        {
+                                            // No comment found
+                                            $answer = 'No answer given';
+                                            echo '<p class="ans-link med head-3">'.$answer.'</p>';
+                                        }
+                                        
+                                        
+                                    echo '</div>
                                 </div>';
     
                         }
@@ -305,6 +330,53 @@
             }
         }
 
+    }
+
+    // Get search results 
+    function getRes(value)
+    {
+        // Accessing the container in which we can show the search results
+        var resContain = document.querySelector('.ques-res');
+
+        // Pulling the question to be searched for
+        var ques = value;
+
+        emptyField(value);
+
+        // Now requesting to the server to get the search result
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','partials/_getQuesSearch.php?ques='+ques,'true');
+        xhr.send();
+
+        xhr.onload = function(event)
+        {
+            if(this.status === 200)
+            {
+                // Connection established
+                resContain.innerHTML = '<ul>'+this.responseText+'</ul>';
+
+            }
+            else
+            {
+                // Connection failed
+            }
+        }
+
+    }
+
+    function emptyField(value)
+    {
+        var resContain = document.querySelector('.ques-res');
+        resContain.style.display = 'none';
+        
+        if(value === '' || value === 'No question found')
+        {
+            resContain.style.display = 'none';
+        }
+        else
+        {
+            resContain.style.display = 'block';
+        }
     }
 
     // Post button will be enabled/disabled according to the question field

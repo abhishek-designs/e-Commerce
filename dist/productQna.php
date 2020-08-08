@@ -6,7 +6,33 @@
     else
     {
         session_start();
+
     }
+    // if(!isset($_SESSION))
+    // {
+    //     echo '';
+    // }
+    // else
+    // {
+    //     session_start();
+    //     if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+    //     {
+    //         echo '';
+    //     }
+    //     else
+    //     {
+    //         if(!isset($_SESSION['userid']) || !isset($_SESSION['username']))
+    //         {
+    //             echo '';
+    //         }
+    //         else
+    //         {
+    //             $userID = $_SESSION['userid'];
+    //             $userName = $_SESSION['username'];
+    //         }
+
+    //     }
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -27,22 +53,23 @@
 
     <!-- Fetching user id by session tracking -->
     <?php
-        if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
-        {
-            echo '';
-        }
-        else
-        {
-            if(!isset($_SESSION['userid']))
+            if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
             {
                 echo '';
             }
             else
             {
-                $userID = $_SESSION['userid'];
-            }
+                if(!isset($_SESSION['userid']) || !isset($_SESSION['username']))
+                {
+                    echo '';
+                }
+                else
+                {
+                    $userID = $_SESSION['userid'];
+                    $user = $_SESSION['username'];
+                }
 
-        }
+            }
     ?>
 
     <!-- Fetching all the required data from the URL -->
@@ -81,17 +108,35 @@
 
             <!-- Comment tab to allow users to give answers to someone's question -->
             <div class="comment-pane">
-                <h2 class="head-4">Leave a comment on this question.</h2>
-                <div class="form-grp">
-                    <form action="partials/_giveAnswers.php" method="post">
-                        <input type="text" name="product_id" id="product-id" class="product-id" value=<?php echo $productId; ?> hidden>
-                        <input type="text" name="ques_id" id="ques-id" class="ques-id" value=<?php echo $quesId; ?> hidden>
-                        <input type="text" name="user_id" id="user-id" class="user-id" value=<?php echo $userID; ?> hidden>
-                        <input type="text" name="ans" id="ans" class="ans">
-                        <button type="submit" class="btn btn-unique ans-btn">Post</button>
-
-                    </form>
-                </div>
+                
+                    <?php
+                        if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+                        {
+                            echo '<div class="restrict-comment py-1 bg-semi-med">
+                                    <div class="container">
+                                        <p class="lead-3 med">Seems like you are not logged in that\'s why you are not eligible to comment.</p>
+                                        <p class="lead-3 med">Login to fully explore our store.</p>
+                                        <a href="login.php" class="btn btn-unique">Login</a>
+                                    </div>
+                                </div>';
+                            
+                        }
+                        else
+                        {
+                            
+                            echo '<div class="form-grp">
+                                    <h2 class="head-4">Leave a comment on this question.</h2>
+                                    <form action="partials/_giveAnswers.php" method="post">
+                                        <input type="text" name="product_id" id="product-id" class="product-id" value='.$productId.' hidden>
+                                        <input type="text" name="ques_id" id="ques-id" class="ques-id" value='.$quesId.' hidden>
+                                        <input type="text" name="user_id" id="user-id" class="user-id" value='.$userID.' hidden>
+                                        <input type="text" name="ans" id="ans" class="ans" autocomplete="off">
+                                        <button type="submit" class="btn btn-unique ans-btn">Post</button>
+        
+                                    </form>
+                                </div>';
+                        }
+                    ?>
             </div>
         </div>
     </section>
@@ -108,7 +153,8 @@
             $userId = $row['user_id'];
         }
 
-        $quesAskedOn = date('jS F Y',strtotime($quesTime));
+        $quesAskedDate = date('jS F Y',strtotime($quesTime));
+        $questionAskedTime = date('h:i a',strtotime($quesTime));
     ?>
 
     <!-- Fetching user name -->
@@ -123,25 +169,25 @@
     ?>
 
     <!-- Question tab to show the question -->
-    <section id="question-pane" class="py-2">
+    <section id="question-pane" class="py-2 bg-main">
         <div class="container">
             <div class="ques-contain">
                 <!-- This tab shows the question -->
                 <div class="ques-tab">
-                    <h3 class="head-1"><?php echo 'Q. '.$question; ?></h3>
+                    <h3 class="head-1 light"><?php echo 'Q. '.$question; ?></h3>
                 </div>
     
                 <!-- this tab shows the information of the question -->
                 <div class="ques-info-tab">
                     <div class="asked-by">
                         <div class="ico-tab">
-                            <i class="fa fa-user"></i>
+                            <i class="fa fa-user light"></i>
                         </div>
-                        <p class="lead-3 main"><?php echo $userName; ?></p>
+                        <p class="lead-3 light"><?php echo $userName; ?></p>
                     </div>
                      <div class="asked-on">
-                         <p class="lead-3 main asked">Asked on:</p>
-                        <p class="lead-3 main"><?php echo $quesAskedOn; ?></p>
+                         <p class="lead-3 light asked">Asked on:</p>
+                        <p class="lead-3 light"><?php echo $quesAskedDate.', '.$questionAskedTime; ?></p>
                      </div>
                 </div>
 
@@ -151,8 +197,9 @@
     </section>
 
     <!-- Answers tab to show all the answers -->
-    <section id="answers-pane" class="py-1">
+    <section id="answers-pane">
         <div class="container">
+            <h2 class="head-2">Recent Comments <i class="fa fa-sort-down"></i></h2>
             <!-- Query to print all the answers given by the users -->
             <?php
                 $ansQuery = 'SELECT * FROM `users_ans` WHERE `ques_id`='.$quesId;
@@ -164,26 +211,39 @@
                     // Answers are there
                     while($row = mysqli_fetch_assoc($ansRes))
                     {
+                        $userAnsId = $row['user_id'];
                         $answer = $row['ans_desc'];
                         $ansTime = $row['ans_posted_on'];
 
-                        $ansPostedOn = date('jS F Y',strtotime($ansTime));
+                        $ansPostedDate = date('jS F Y',strtotime($ansTime));
+                        $ansPostedTime = date('h:i a',strtotime($ansTime));
 
-                        echo '<div class="ans-stack">
-                            <div class="content-tab">
-                                <div class="ico-tab">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <div class="content">
-                                    <p class="lead-4 username">Ramesh</p>
-                                    <p class="lead-2 main">'.$answer.'</p>
-            
-                                </div>
-                            </div>
-                            <div class="timeline-tab">
-                                <p class="lead-3"><span class="posted">Posted on:</span> '.$ansPostedOn.'</p>
-                            </div>
-                        </div>';
+                        // Query to know the name of user who's commenting
+                        $fetchUserQuery = 'SELECT `Cust_Name` FROM `t2` WHERE `Cust_Id`='.$userAnsId;
+                        $userRes = mysqli_query($con,$fetchUserQuery);
+
+                        while($fetchName = mysqli_fetch_assoc($userRes))
+                        {
+                            $name = $fetchName['Cust_Name'];
+                        }
+
+                        echo    '
+                                <div class="ans-stack py-2">
+                                    <div class="content-tab">
+                                        <div class="ico-tab">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="content">
+                                            <p class="lead-4 username">'.$name.'</p>
+                                            <p class="lead-2 med">'.$answer.'</p>
+                    
+                                        </div>
+                                    </div>
+                                    <div class="timeline-tab">
+                                        <p class="lead-3"><span class="posted">Posted on:</span> '.$ansPostedDate.', '.$ansPostedTime.'</p>
+                                    </div>
+                                    <div class="bottom-line"></div>
+                                </div>';
 
                     }
                     
@@ -191,9 +251,16 @@
                 else
                 {
                     // No answers are there
+                    echo '<div class="no-comments-tab py-1 my-1 bg-semi-med">
+                        <div class="container">
+                            <h2 class="head-2 med">No comments found</h2>
+                            <p class="lead-2 med">There are no answers found on this question.</p>
+                            <p class="lead-2 med">Be the first one to post on this question.</p>
+                        </div>
+                    </div>';
+                
                 }
             ?>
-
         </div>
     </section>
 

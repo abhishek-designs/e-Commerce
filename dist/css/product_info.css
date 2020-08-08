@@ -65,7 +65,8 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0.5rem; }
 
 .head {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #333; }
   .head-1 {
     font-size: 3rem; }
   .head-2 {
@@ -782,6 +783,25 @@ a.btn-disabled {
         color: #fff; }
       .search .container form .cancel-btn {
         cursor: pointer; }
+  .search .srch-res {
+    position: absolute;
+    width: 30%;
+    margin: 0 1rem;
+    box-shadow: 0 0 9px #cccccc; }
+    .search .srch-res ul .suggestion {
+      transition: all 0.3s ease; }
+      .search .srch-res ul .suggestion:hover {
+        background: #e1e1e1; }
+      .search .srch-res ul .suggestion a {
+        padding: 0.5rem 7rem;
+        display: inline-block;
+        width: 100%;
+        font-weight: bold;
+        color: #006eff;
+        transition: color 0.3s ease; }
+    .search .srch-res ul .no-suggest {
+      padding: 0.5rem 7rem;
+      font-weight: bold; }
 
 .cart-update-msg {
   position: fixed;
@@ -796,7 +816,7 @@ a.btn-disabled {
   z-index: 2;
   display: flex;
   justify-content: center;
-  animation-duration: 0.3s;
+  animation-duration: 0.1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease; }
   .cart-update-msg .msg-content {
@@ -1401,7 +1421,8 @@ html body {
   #ques-pane .container .head-2 {
     padding-bottom: 1rem; }
   #ques-pane .container .ques-form {
-    margin-top: 0.6rem; }
+    margin-top: 0.6rem;
+    position: relative; }
     #ques-pane .container .ques-form form {
       display: flex;
       align-items: center; }
@@ -1413,6 +1434,24 @@ html body {
           outline-color: #006eff; }
       #ques-pane .container .ques-form form .btn {
         margin: 0 0.6rem; }
+    #ques-pane .container .ques-form .ques-res {
+      display: none;
+      position: absolute;
+      padding: 1rem 0;
+      width: 50%;
+      background: #fff;
+      box-shadow: 0 0 9px #aeaeae; }
+      #ques-pane .container .ques-form .ques-res ul li {
+        margin-top: 0.6rem;
+        padding: 0.6rem 0;
+        transition: all 0.3s ease; }
+        #ques-pane .container .ques-form .ques-res ul li .lead-3 {
+          margin-left: 1rem;
+          padding: 0; }
+      #ques-pane .container .ques-form .ques-res ul .srch-res:hover {
+        background: #1a7dff; }
+        #ques-pane .container .ques-form .ques-res ul .srch-res:hover a {
+          color: #fff; }
 
 #qna-pane .container .head-2 {
   padding-bottom: 1rem; }

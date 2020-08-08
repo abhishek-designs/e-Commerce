@@ -106,6 +106,7 @@ h1,h2,h3,h4,h5,h6
 .head
 {
     text-transform: uppercase;
+    color:$dark-color;
     &-1
     {
         font-size:3rem;
@@ -1405,6 +1406,7 @@ a.btn
     background:$main-color;
     height:4rem;
     transform:translateY(-300px);
+    // transform:translateY(100px);
     // margin-top:-150px;
     z-index:2;
     // display:none;
@@ -1456,6 +1458,46 @@ a.btn
             }
         }
     }
+
+    .srch-res
+    {
+        position:absolute;
+        width:30%;
+        margin:0 1rem;
+        box-shadow:0 0 9px darken($light-color,20%);
+
+        ul
+        {
+            // margin:0 7rem;
+            .suggestion
+            {
+                // padding:0 7rem;
+                // margin-bottom:0.5rem;
+                // background:$med-color;
+                transition:all $anim-speed ease;
+
+                &:hover
+                {
+                    background:lighten($med-color,20%);
+                }
+                a
+                { 
+                    padding:0.5rem 7rem;
+                    display:inline-block;
+                    width:100%;
+                    font-weight:bold;
+                    color:$main-color;
+                    transition:color $anim-speed ease;
+                }
+            }
+
+            .no-suggest
+            {
+                padding:0.5rem 7rem;
+                font-weight:bold;
+            }
+        }
+    }
 }
 
 // Notifications
@@ -1475,7 +1517,7 @@ a.btn
     display:flex;
     justify-content:center;
     // animation-name:pop-up;
-    animation-duration:0.3s;
+    animation-duration:0.1s;
     animation-fill-mode:forwards;
     animation-timing-function: ease;
 

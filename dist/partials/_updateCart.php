@@ -2,6 +2,11 @@
     $productId = $_GET['product_id'];
     $userId = $_GET['user_id'];
 
+    if(!isset($userId))
+    {
+        header('location: /Ecommerce/dist/login.php');
+    }
+
     // Database Connection
     require '_mySQLConnect.php';
 

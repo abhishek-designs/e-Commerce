@@ -10,7 +10,7 @@
                     <div class="logo">
                         <a href="index.php">
                             <img src="./img/shopping-cart.png" alt="logo">
-                            <h2 class="head-1">Mauj</h2>
+                            <h2 class="head-1">MAUJ</h2>
                         </a>
                     </div>
                     <div class="address">
@@ -69,14 +69,24 @@
 
                 <div class="footer-4">
                     <h2 class="head-2">MY ACCOUNT</h2>
-                    <ul>
-                        <li>
-                            <a href="login.php">Login</a>
-                        </li>
-                        <li>
-                            <a href="sign_up.php">Register</a>
-                        </li>
-                        <li>
+                    <ul>';
+                    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+                    {
+                        echo '<li>
+                                <a href="login.php">Login</a>
+                            </li>
+                            <li>
+                                <a href="sign_up.php">Register</a>
+                            </li>';
+                    }
+                    else
+                    {
+                        echo '<li>
+                                <a href="#">Your Profile</a>
+                            </li>';
+                    }
+
+                        echo '<li>
                             <a href="">Recommended</a>
                         </li>
                         <li>

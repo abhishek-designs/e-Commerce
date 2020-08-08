@@ -184,6 +184,7 @@ html
         .ques-form
         {
             margin-top:0.6rem;
+            position:relative;
             
             form
             {
@@ -206,6 +207,47 @@ html
                     margin:0 0.6rem;
                 }
 
+            }
+
+            .ques-res
+            {
+                display:none;
+                position:absolute;
+                padding:1rem 0;
+                width:50%;
+                background:$light-color;
+                box-shadow:0 0 9px $med-color;
+
+                ul
+                {
+                    li
+                    {
+                        margin-top:0.6rem;
+                        padding:0.6rem 0;
+                        transition:all $anim-speed ease;
+
+                        
+
+                        .lead-3
+                        {
+                            margin-left:1rem;
+                            padding:0;
+                        }
+                    }
+
+                    .srch-res
+                    {
+                        &:hover
+                        {
+                            background:lighten($main-color,5%);
+                            
+                            a
+                            {
+                                color:$light-color;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
