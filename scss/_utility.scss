@@ -478,16 +478,21 @@ a.btn
 
         .price-tab
         {
+            display:flex;
+            justify-content:flex-end;
+            align-items:center;
             // text-align:left;
             p
             {
                 display:inline-block;
                 padding-left:1rem;
+                font-weight:bold;
             }
 
             .lead-3
             {
                 position:relative;
+                font-weight:bold;
 
                 &:after
                 {

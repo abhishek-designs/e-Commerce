@@ -58,11 +58,13 @@
 
         </div>
         <div class="products-showcase">
+            <!-- This message should when cart is updated -->
             <div class="cart-update-msg">
                 <div class="msg-content">
                     <p class="head-3">Your cart updated</p>
                 </div>
             </div>
+            
             <?php 
 
                 $query = 'SELECT sub_sub_cat_name FROM sub_sub_categories WHERE sub_sub_cat_id='.$subSubCatId;

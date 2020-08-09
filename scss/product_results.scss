@@ -9,3 +9,23 @@ html
         font-family:$main-font;
     }
 }
+
+// Products section styling
+#search-results
+{
+    .container
+    {
+        .head-2,.lead-2
+        {
+            text-align:center;
+        }
+        .result-products
+        {
+            margin-top:1rem;
+            padding:0 6rem;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            grid-gap:1rem;
+        }
+    }
+}
