@@ -157,7 +157,7 @@
                                 <a class="btn btn-light fav"><i class="far fa-heart main fav-1"></i></a>
                             </div>
                             <a class="cart-tab">
-                                <p class="lead-3">ADD TO CART</p>
+                                <p class="lead-3 light">ADD TO CART</p>
                             </a>
                         </div>';
 

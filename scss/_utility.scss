@@ -4,6 +4,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    color:$dark-color;
 }
 
 a
@@ -431,6 +432,7 @@ a.btn
     {
         transform:translateY(0);
         opacity:1;
+        pointer-events:all;
     }
 
     
@@ -549,7 +551,7 @@ a.btn
     {
         position:absolute;
         background:rgba($main-color,0.7);
-        color:$light-color;
+        color:$light-color !important;
         width:100%;
         left:0;
         right:0;
@@ -564,6 +566,7 @@ a.btn
         transform:translateY(5rem);
         opacity:0;
         z-index:1;
+        pointer-events:none;
         transition:all $anim-speed ease;
 
         &:hover
@@ -1363,11 +1366,16 @@ a.btn
                 .logos
                 {
                     margin-top:1.5rem;
+                    display:flex;
                     
-                    i
+
+                    a
                     {
-                        display:inline-block;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
                         padding:0.9rem;
+                        margin-right:0.5rem;
                         width:46px;
                         height:46px;
                         background:$main-color;
@@ -1382,7 +1390,12 @@ a.btn
                             color:$main-color;
                             border-color:$main-color;
                         }
-    
+
+                        i
+                        {
+                            color:$light-color;
+                        }
+
                     }
                 }
             }

@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'utility';
+@import 'media';
+
+html,body
+{
+    font-family:$main-font;
+}
+
+// Styling the thanking section
+#thanks-section
+{
+    height:80vh;
+    .container
+    {
+        position:relative;
+        .section-content
+        {
+            .head-2
+            {
+                padding-bottom:2rem;
+            }
+
+            .btn
+            {
+                margin-top:3.5rem;
+            }
+        }
+
+        .joy-svg
+        {
+            position:absolute;
+            right:-100px;
+            top:-10px;
+        }
+    }
+}

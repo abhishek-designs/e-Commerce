@@ -12,6 +12,11 @@ else
 // This function runs after the page gets loaded
 function ready()
 {
+    // Accessing the checkout button
+    var checkoutBtn = document.querySelector('.checkout-btn');
+
+    
+
     // Accessing the remove btns
     var removeBtn = document.querySelectorAll('.remove-btn');
     for(let i=0; i<removeBtn.length; i++)
@@ -140,6 +145,18 @@ function updateCart()
     var cartRow = cartItem.querySelectorAll('.cart-row');
     var cartBill = cartItem.nextElementSibling;
     var itemTotal = cartBill.querySelector('.total');
+
+
+
+    // Accessing the number of cart items
+    var itemNo = cartRow.length;
+
+
+
+    if(itemNo == 0 || itemNo == null)
+    {
+
+    }
 
     // // Selecting Navbar
     // var nav = document.querySelector('.navbar');

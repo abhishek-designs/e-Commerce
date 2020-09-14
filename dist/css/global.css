@@ -1,0 +1,26 @@
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+ .StripeElement {
+    box-sizing: border-box;
+  
+    padding: 1.2rem 0.8rem;
+    border:1.3px solid #e6e6e6;
+    background-color: white;
+    font-family:'Cairo',sans-serif;
+    -webkit-transition: border-color 150ms ease;
+    transition: border-color 150ms ease;
+  }
+  
+  .StripeElement--focus {
+    border-color:#006effec;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }

@@ -149,11 +149,36 @@ html
                     }
                 }
             }
-
-            .product-desc
+            
+            .wishlist
             {
-                margin-top:1rem;
+                display:flex;
+                
+                .wish-btn
+                {
+   
+                    display:flex;
+                    flex-direction:row;
+                    justify-content:center;
+                    align-items:center;
+
+                    i
+                    {
+                        margin-right:1rem;
+                    }
+
+                    .lead-3
+                    {
+                        padding:0;
+                    }
+
+                }
             }
+
+            // .product-desc
+            // {
+            //     margin-top:1rem;
+            // }
         }
     }
 }

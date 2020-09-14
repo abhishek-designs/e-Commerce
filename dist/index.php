@@ -110,7 +110,7 @@
 
                     <div class="overlay-content">
 
-                        <p class="head-2 light">upto <span class="head-1">20% off*</span></p>
+                        <p class="head-2 light">upto <span class="head-1 light">20% off*</span></p>
                     </div>
                 </div>
 
@@ -122,7 +122,7 @@
 
                     <div class="overlay-content">
 
-                        <p class="head-2 light">upto <span class="head-1">20% off*</span></p>
+                        <p class="head-2 light">upto <span class="head-1 light">20% off*</span></p>
                     </div>
                 </div>
 
@@ -134,7 +134,7 @@
 
                     <div class="overlay-content">
 
-                        <p class="head-2 light">upto <span class="head-1">20% off*</span></p>
+                        <p class="head-2 light">upto <span class="head-1 light">20% off*</span></p>
                     </div>
                 </div>
 
@@ -146,7 +146,7 @@
 
                     <div class="overlay-content">
 
-                        <p class="head-2 light">upto <span class="head-1">20% off*</span></p>
+                        <p class="head-2 light">upto <span class="head-1 light">20% off*</span></p>
                     </div>
                 </div>
 
@@ -158,7 +158,7 @@
 
                     <div class="overlay-content">
 
-                        <p class="head-2 light">upto <span class="head-1">20% off*</span></p>
+                        <p class="head-2 light">upto <span class="head-1 light">20% off*</span></p>
                     </div>
                 </div>
 
@@ -181,6 +181,13 @@
 
         <!-- Section C  -->
         <section id="home-c" class="py-3 bg-semi-med">
+            <!-- This message should be shown when cart is updated -->
+            <div class="cart-update-msg">
+                <div class="msg-content">
+                    <p class="head-3">Your cart updated</p>
+                </div>
+            </div>
+
             <div class="container">
                 <h2 class="head-line-1">NEW COLLECTIONS</h2>
                 <p class="lead-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore error cum ratione
@@ -191,7 +198,7 @@
 
                     <?php 
                         // Executing fetching query
-                        $query = 'select *from products';
+                        $query = 'SELECT * FROM `products` limit 3';
                         $res = mysqli_query($con,$query);
 
                         // Analysing the number of records
@@ -202,22 +209,34 @@
                         {
                             while($row = mysqli_fetch_assoc($res))
                             {
+                                $productId = $row['product_id'];
                                 $productName = $row['product_name'];
-                                $productDesc = $row['product_desc'];
+                                $productBrand = $row['product_brand'];
                                 $productPrice = $row['product_price'];
                                 $productPriceMrp = $row['product_price_mrp'];
-                                $productImg = $row['product_img'];
+
+                                // Fetching the product sub category id
+                                $catQuery = 'SELECT `sub_sub_cat_id` FROM `products` WHERE `product_id`='.$productId;
+                                $catRes = mysqli_query($con,$catQuery);
+
+                                while($catRow = mysqli_fetch_assoc($catRes))
+                                {
+                                    $subSubCatId = $catRow['sub_sub_cat_id'];
+                                }
 
                                 echo '<div class="box product-1">
                                         <div class="upper-tab">
                                             <div class="img-contain">
-                                                <img src="./img/'.$productImg.'" alt="">
+                                                <span class="product-id">'.$productId.'</span>
+                                                <a href="product_info.php?product_id='.$productId.'&sub_sub_cat_id='.$subSubCatId.'" class="product-info">
+                                                    <img src="./img/Products/'.$productId.$subSubCatId.'.png" alt="product'.$productId.'">
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="bottom-tab">
                                             <div class="content-pc">
-                                                <h3 class="head-4">'.$productName.'</h3>
-                                                <p class="lead-4 med">'.substr($productDesc,0,50).'...</p>
+                                                <h3 class="head-4">'.$productBrand.'</h3>
+                                                <p class="lead-4 med">'.$productName.'</p>
                                             </div>
                                             <div class="content-m">
                                                 <h3 class="head-3">'.$productName.'</h3>
@@ -228,10 +247,10 @@
                                                 
                                             </div>
                                             <a  class="btn btn-light fav"><i class="far fa-heart main fav-1"></i></a>
+                                            </div>
                                             <a class="cart-tab">
-                                                <p class="lead-3">ADD TO CART</p>
+                                                <p class="lead-3 light">ADD TO CART</p>
                                             </a>
-                                        </div>
                                    
                                     </div>';
                             }
@@ -704,3 +723,71 @@
 <script src="scripts/search.js"></script>
 <script src="scripts/fav_btn.js"></script>
 <script src="scripts/scroll.js"></script>
+
+<!-- To store the products to the cart and show the message -->
+<script type='text/javascript'>
+
+    // Fetching the user id through client
+    var userId = <?php echo $_SESSION['userid']; ?>;
+    
+
+    // Accessing the cart quantity showing component
+    const nav = document.querySelector('.navbar');
+    const cartNum = nav.querySelector('.cart-indicate');
+
+    // Accessing the parent element of the btn first
+    const cartBtn = document.querySelectorAll('.cart-tab');
+
+    // Accessing the cart notification tab
+    const parent = document.querySelector('#home-c');
+    const cartMsg = parent.querySelector('.cart-update-msg');
+
+    // Fetching each cart btn
+    for(let i=0; i<cartBtn.length; i++)
+    {
+        var btn = cartBtn[i];
+        
+        // Making the btn functional
+        btn.addEventListener('click',updateCart);
+    }
+
+    function updateCart(event)
+    {
+        // Fetching product id through client side
+        var productBox = this.parentElement;
+        var productIdContain = productBox.querySelector('.product-id');
+        var productId = productIdContain.innerText;
+        // console.log('user id '+userId+' selected the product '+productId);
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","partials/_updateCart.php?product_id="+productId+"&user_id="+userId,true);
+        xhr.send();
+
+        xhr.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                cartMsg.style.animationName = 'pop-in';
+        
+                setTimeout(function(){
+                    cartMsg.style.animationName = 'pop-out';
+                },3000)
+            }
+        }
+
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open("GET","partials/_cartItemNo.php",true);
+        xhr2.send();
+        
+        xhr2.onreadystatechange = function()
+        {
+            if(this.readyState == 4 && this.status == 200)
+            {
+                cartNum.innerText = this.responseText;
+            }
+        }
+
+    }
+
+</script>

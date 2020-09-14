@@ -152,6 +152,7 @@
                             echo '</div>
             
                             <div class="carts-billing">
+                                <form action="checkout.php" method="GET">
                                 <div class="pricing">
                                     <h3 class="head-3">Price Details</h3>
                                     <div class="tab total-tab">
@@ -184,8 +185,8 @@
                                     </div>
                                 </div>
             
-                                <a href="#" class="btn btn-unique">Place Order</a>
-            
+                                <a href="checkout.php?sub_total='.$totalPrice.'&shipping='.$deliveryCharge.'&total='.$grandTotal.'" class="btn btn-unique checkout-btn">Place Order</a>
+                                </form>
                                 <div class="coupon">
                                     <h3 class="head-3">Options</h3>
                                     <div class="coupon-tab">

@@ -1,0 +1,147 @@
+@import 'variables';
+@import 'utility';
+@import 'media';
+
+html,body
+{
+    font-family:$main-font;
+    overflow-x:hidden;
+}
+
+// Checkout page Styling
+#checkout
+{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    align-items:center;
+    grid-gap:10rem;
+    height:80vh;
+    
+
+    // Checkout form Styling
+    &-form
+    {
+        .head-2
+        {
+            position:relative;
+            margin-top:-5rem;
+            padding-bottom:2.4rem;
+
+            &:after
+            {
+                content:'';
+                position:absolute;
+                height:1.5px;
+                width:30%;
+                background:$main-color;
+                bottom:30px;
+                left:0;
+                right:0;
+            }
+        }
+        form
+        {
+            .form-grp
+            {
+                margin-top:1.5rem;
+                label
+                {
+                    display:block;
+                    padding-bottom:0.5rem;
+                }
+
+                input
+                {
+                    padding:0.8rem 0.2rem;
+                    width:100%;
+                    border:1.3px solid lighten($dark-color,70%);
+                    font-family:$main-font;
+                    font-size:15px;
+                    transition:all $anim-speed ease;
+
+                    &:focus
+                    {
+                        outline-color:$main-color;
+                    }
+                }
+            }
+
+            .btn-unique
+            {
+                width:100%;
+                text-align:center;
+                margin-top:2.5rem;
+                font-weight: normal;
+                font-size:20px;
+            }
+        }
+    }
+
+    // Checkout Summary Styling
+    &-summary
+    {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        .summary-contain
+        {
+            flex:1;
+            max-width:50%;
+            padding:0 1.5rem;
+            border-radius:28px;
+            box-shadow:0 12px 37px rgba(0,0,0,0.16);
+            background:$light-color;
+
+            .content
+            {
+                margin-bottom:5rem;
+                .head-3
+                {
+                    margin-top:0.6rem;
+                    padding-bottom:2rem;
+                    color:lighten($dark-color,20%);
+                }
+                .price-list
+                {
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+
+                    &-2
+                    {
+                        border-bottom:1px solid $semi-med-color;
+                    }
+
+                    &-3
+                    {
+                        margin-top:0.8rem;
+                    }
+
+                    .head-4
+                    {
+                        color:lighten($dark-color,25%);
+                    }
+                }
+            }
+        }
+
+        // Circular Layout Styling
+        .layout
+        {
+            position:absolute;
+            border-radius:50%;
+            background:lighten($main-color,20%);
+            top:0;
+            bottom:0;
+            left:50%;
+            right:0;
+            height:80vh;
+            width:80vh;
+            transform:scale(2) translateX(150px);
+            // height:100%;
+            // width:100%;
+            z-index:-1;
+        }
+    }
+}
